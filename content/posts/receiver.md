@@ -41,7 +41,9 @@ Adalah sebuah function yang mengembalikan penjumlahan 2 integer.
 
 ## Method
 
-Method sebenarnya adalah sebuah fungsi juga. Hanya saja ia melekat pada sebuah struct. 
+Method sebenarnya adalah sebuah fungsi juga. 
+
+Hanya saja ia melekat pada sebuah struct. 
 
 ```go
 package main
@@ -63,7 +65,7 @@ func main() {
 	fmt.Println(v.add())
 }
 ```
-[Coba di sini](https://go.dev/play/p/Wqr97GS6yw6).
+[Coba jalankan di sini](https://go.dev/play/p/Wqr97GS6yw6).
 
 Pada kode di atas:
 ```go
@@ -76,7 +78,9 @@ Adalah sebuah method.
 
 ## Receiver
 
-Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi yang melekat padanya. Tanpa ada receiver, tak ada method.
+Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi agar melekat padanya. 
+
+Tanpa ada receiver, tak ada method.
 
 Lihat kode method di atas, perhatikan bagian ini:
 ```go
@@ -93,7 +97,7 @@ Dalam hal ini,
 
 adalah receiver. 
 
-Dan dengan adanya receiver, sebuah fungsi yang melekat pada sebuah struct dapat diakses dengan cara seperti ini:
+Dan dengan adanya receiver, method-method dapat diakses dengan cara seperti ini:
 ```go
 func main() {
 	v := box{3, 4}
@@ -103,7 +107,7 @@ func main() {
 }
 ```
 
-[Coba di sini](https://go.dev/play/p/hiRzW4gE3E7) untuk menjalankannya.
+[Coba jalankan di sini](https://go.dev/play/p/hiRzW4gE3E7) untuk menjalankannya.
 
 ## Pointer receivers
 
@@ -132,13 +136,13 @@ func main() {
 	fmt.Println(result)
 }
 ```
-[Coba di sini](https://go.dev/play/p/38KXB4st4QI). 
+[Coba jalankan sini](https://go.dev/play/p/38KXB4st4QI). 
 
 Ternyata tidak ada yang terjadi.
 
 Mari tambahkan satu fungsi yang bertujuan untuk mengubah variabel di dalam struct. 
 
-Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.
+*Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.*
 ```go
 package main
 
@@ -167,7 +171,7 @@ func main() {
 }
 ```
 
-[Coba di sini](https://go.dev/play/p/2LgXSApzdeA). 
+[Coba jalankan di sini](https://go.dev/play/p/2LgXSApzdeA). 
 
 Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.
 
@@ -200,7 +204,7 @@ func main() {
 	fmt.Println(result)
 }
 ```
-[Coba di sini](https://go.dev/play/p/7JAl5MVaAh2). 
+[Coba jalankan di sini](https://go.dev/play/p/7JAl5MVaAh2). 
 
 Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method `scale`. Yang diakses olehnya bukan copi nilai, tapi address-nya.
 
