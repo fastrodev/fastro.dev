@@ -6,6 +6,8 @@
 		</a>
 		<nav class="nav social">
 			<ul class="flat">
+				<li><a href='https://github.com/fastrodev/fastrodev.github.io/tree/main/content/{{ .File.Path }}'><i
+							data-feather="github"></i></a></li>
 				{{- range $index, $key := .Site.Params.Social -}}
 				<li><a href="{{ $key.url }}" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a></li>
 				{{- end -}}
