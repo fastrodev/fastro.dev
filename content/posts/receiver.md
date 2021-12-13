@@ -107,7 +107,7 @@ func main() {
 }
 ```
 
-[Coba jalankan di sini](https://go.dev/play/p/hiRzW4gE3E7) untuk menjalankannya.
+[Coba jalankan di sini](https://go.dev/play/p/hiRzW4gE3E7).
 
 ## Pointer receivers
 
