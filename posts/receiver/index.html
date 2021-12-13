@@ -5,7 +5,7 @@
 <meta itemprop=name content="Receiver">
 <meta itemprop=description content="Memahami receiver di golang dan bagaimana cara menggunakannya"><meta itemprop=datePublished content="2021-12-11T21:46:58+07:00">
 <meta itemprop=dateModified content="2021-12-11T21:46:58+07:00">
-<meta itemprop=wordCount content="508"><meta itemprop=image content="https://blog.fastro.dev/seo.png">
+<meta itemprop=wordCount content="506"><meta itemprop=image content="https://blog.fastro.dev/seo.png">
 <meta itemprop=keywords content="go,"><meta property="og:title" content="Receiver">
 <meta property="og:description" content="Memahami receiver di golang dan bagaimana cara menggunakannya">
 <meta property="og:type" content="article">
@@ -69,7 +69,8 @@ Dec 11 2021
 }
 </code></pre></div><p>Adalah sebuah function yang mengembalikan penjumlahan 2 integer.</p>
 <h2 id=method>Method</h2>
-<p>Method sebenarnya adalah sebuah fungsi juga. Hanya saja ia melekat pada sebuah struct.</p>
+<p>Method sebenarnya adalah sebuah fungsi juga.</p>
+<p>Hanya saja ia melekat pada sebuah struct.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
 
 <span style=color:#00f>import</span> (
@@ -88,7 +89,7 @@ Dec 11 2021
 	v := box{3, 4}
 	fmt.Println(v.add())
 }
-</code></pre></div><p><a href=https://go.dev/play/p/Wqr97GS6yw6>Coba di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/Wqr97GS6yw6>Coba jalankan di sini</a>.</p>
 <p>Pada kode di atas:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>add() <span style=color:#2b91af>int</span> {
 	<span style=color:#00f>return</span> v.x + v.y
@@ -96,7 +97,8 @@ Dec 11 2021
 
 </code></pre></div><p>Adalah sebuah method.</p>
 <h2 id=receiver>Receiver</h2>
-<p>Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi yang melekat padanya. Tanpa ada receiver, tak ada method.</p>
+<p>Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi agar melekat padanya.</p>
+<p>Tanpa ada receiver, tak ada method.</p>
 <p>Lihat kode method di atas, perhatikan bagian ini:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> (v box) add() <span style=color:#2b91af>int</span> {
 	<span style=color:#00f>return</span> v.x + v.y
@@ -104,14 +106,14 @@ Dec 11 2021
 </code></pre></div><p>Dalam hal ini,</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>(v box)
 </code></pre></div><p>adalah receiver.</p>
-<p>Dan dengan adanya receiver, sebuah fungsi yang melekat pada sebuah struct dapat diakses dengan cara seperti ini:</p>
+<p>Dan dengan adanya receiver, method-method dapat diakses dengan cara seperti ini:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> main() {
 	v := box{3, 4}
 	result := v.add()
     fmt.Println(result)
 
 }
-</code></pre></div><p><a href=https://go.dev/play/p/hiRzW4gE3E7>Coba di sini</a> untuk menjalankannya.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/hiRzW4gE3E7>Coba jalankan di sini</a> untuk menjalankannya.</p>
 <h2 id=pointer-receivers>Pointer receivers</h2>
 <p>Seperti telah kita ketahui, pointer dapat kita gunakan untuk mengakses alamat suatu variabel.</p>
 <p>Apa yang terjadi jika pointer kita gunakan untuk receiver?</p>
@@ -134,10 +136,10 @@ Dec 11 2021
 	result := v.add()
 	fmt.Println(result)
 }
-</code></pre></div><p><a href=https://go.dev/play/p/38KXB4st4QI>Coba di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/38KXB4st4QI>Coba jalankan sini</a>.</p>
 <p>Ternyata tidak ada yang terjadi.</p>
 <p>Mari tambahkan satu fungsi yang bertujuan untuk mengubah variabel di dalam struct.</p>
-<p>Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.</p>
+<p><em>Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.</em></p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
 
 <span style=color:#00f>import</span> (
@@ -163,7 +165,7 @@ Dec 11 2021
 	result := v.add()
 	fmt.Println(result)
 }
-</code></pre></div><p><a href=https://go.dev/play/p/2LgXSApzdeA>Coba di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/2LgXSApzdeA>Coba jalankan di sini</a>.</p>
 <p>Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.</p>
 <p>Mari kita ganti spesial argumen di atas menggunakan pointer.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
@@ -191,7 +193,7 @@ Dec 11 2021
 	result := v.add()
 	fmt.Println(result)
 }
-</code></pre></div><p><a href=https://go.dev/play/p/7JAl5MVaAh2>Coba di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/7JAl5MVaAh2>Coba jalankan di sini</a>.</p>
 <p>Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method <code>scale</code>. Yang diakses olehnya bukan copi nilai, tapi address-nya.</p>
 <h2 id=kesimpulan>Kesimpulan</h2>
 <p>Gunakan pointer receiver apabila kita ingin mengubah properti dari sebuah struct.</p>
