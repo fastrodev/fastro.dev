@@ -1,0 +1,218 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge"><title>Receiver - Fastro</title><meta name=viewport content="width=device-width,initial-scale=1">
+<meta itemprop=name content="Receiver">
+<meta itemprop=description content="Memahami receiver di golang dan bagaimana cara menggunakannya"><meta itemprop=datePublished content="2021-12-11T21:46:58+07:00">
+<meta itemprop=dateModified content="2021-12-11T21:46:58+07:00">
+<meta itemprop=wordCount content="508"><meta itemprop=image content="https://blog.fastro.dev/seo.png">
+<meta itemprop=keywords content="go,"><meta property="og:title" content="Receiver">
+<meta property="og:description" content="Memahami receiver di golang dan bagaimana cara menggunakannya">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.fastro.dev/posts/receiver/"><meta property="og:image" content="https://blog.fastro.dev/seo.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-11T21:46:58+07:00">
+<meta property="article:modified_time" content="2021-12-11T21:46:58+07:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.fastro.dev/seo.png">
+<meta name=twitter:title content="Receiver">
+<meta name=twitter:description content="Memahami receiver di golang dan bagaimana cara menggunakannya">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel=stylesheet type=text/css>
+<link rel=stylesheet type=text/css media=screen href=https://blog.fastro.dev/css/normalize.css>
+<link rel=stylesheet type=text/css media=screen href=https://blog.fastro.dev/css/main.css>
+<link id=dark-scheme rel=stylesheet type=text/css href=https://blog.fastro.dev/css/dark.css>
+<script src=https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js></script>
+<script src=https://blog.fastro.dev/js/main.js></script>
+</head>
+<body>
+<div class="container wrapper">
+<div class="header header-single">
+<div class=site-description>
+<a class=single-post-container href=https://blog.fastro.dev/>
+<img class=img-single src=https://gist.githubusercontent.com/ynwd/cbbb39732a409bb4c742c229a887a9ac/raw/d78388ae7a5fbb29ad56998d0f444919d2f0b44f/logo.svg alt=Fastro>
+<div class=title-single>Fastro</div>
+</a>
+<nav class="nav social">
+<ul class=flat><li><a href=/index.xml title=RSS><i data-feather=rss></i></a></li><li><a href=# class=scheme-toggle id=scheme-toggle></a></li></ul>
+</nav>
+</div>
+</div>
+<div class=post>
+<div class=post-header>
+<div class=matter>
+<h1 class=title>Receiver</h1>
+<span class=author>
+Admin
+·
+Dec 11 2021
+</span>
+</div>
+</div>
+<div class=markdown>
+<p>Receiver sering sekali dipakai di golang. Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang <code>receiver</code> dan cara menggunakannya.</p>
+<p>Tapi sebelum membahas <code>receiver</code>, kita akan singgung dulu hal yang sangat berkaitan: <code>function</code> dan <code>method</code>.</p>
+<h2 id=function>Function</h2>
+<p>Ini adalah contoh sebuah fungsi di golang:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
+
+<span style=color:#00f>import</span> <span style=color:#a31515>&#34;fmt&#34;</span>
+
+<span style=color:#00f>func</span> add(x <span style=color:#2b91af>int</span>, y <span style=color:#2b91af>int</span>) <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> x + y
+}
+
+<span style=color:#00f>func</span> main() {
+	fmt.Println(add(42, 13))
+}
+</code></pre></div><p>Pada kode di atas,</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> add(x <span style=color:#2b91af>int</span>, y <span style=color:#2b91af>int</span>) <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> x + y
+}
+</code></pre></div><p>Adalah sebuah function yang mengembalikan penjumlahan 2 integer.</p>
+<h2 id=method>Method</h2>
+<p>Method sebenarnya adalah sebuah fungsi juga. Hanya saja ia melekat pada sebuah struct.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
+
+<span style=color:#00f>import</span> (
+	<span style=color:#a31515>&#34;fmt&#34;</span>
+)
+
+<span style=color:#00f>type</span> box <span style=color:#00f>struct</span> {
+	x, y <span style=color:#2b91af>int</span>
+}
+
+<span style=color:#00f>func</span> (v box) add() <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> v.x + v.y
+}
+
+<span style=color:#00f>func</span> main() {
+	v := box{3, 4}
+	fmt.Println(v.add())
+}
+</code></pre></div><p><a href=https://go.dev/play/p/Wqr97GS6yw6>Coba di sini</a>.</p>
+<p>Pada kode di atas:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>add() <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> v.x + v.y
+}
+
+</code></pre></div><p>Adalah sebuah method.</p>
+<h2 id=receiver>Receiver</h2>
+<p>Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi yang melekat padanya. Tanpa ada receiver, tak ada method.</p>
+<p>Lihat kode method di atas, perhatikan bagian ini:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> (v box) add() <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> v.x + v.y
+}
+</code></pre></div><p>Dalam hal ini,</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>(v box)
+</code></pre></div><p>adalah receiver.</p>
+<p>Dan dengan adanya receiver, sebuah fungsi yang melekat pada sebuah struct dapat diakses dengan cara seperti ini:</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> main() {
+	v := box{3, 4}
+	result := v.add()
+    fmt.Println(result)
+
+}
+</code></pre></div><p><a href=https://go.dev/play/p/hiRzW4gE3E7>Coba di sini</a> untuk menjalankannya.</p>
+<h2 id=pointer-receivers>Pointer receivers</h2>
+<p>Seperti telah kita ketahui, pointer dapat kita gunakan untuk mengakses alamat suatu variabel.</p>
+<p>Apa yang terjadi jika pointer kita gunakan untuk receiver?</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
+
+<span style=color:#00f>import</span> (
+	<span style=color:#a31515>&#34;fmt&#34;</span>
+)
+
+<span style=color:#00f>type</span> box <span style=color:#00f>struct</span> {
+	x, y <span style=color:#2b91af>int</span>
+}
+
+<span style=color:#00f>func</span> (v *box) add() <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> v.x + v.y
+}
+
+<span style=color:#00f>func</span> main() {
+	v := box{3, 4}
+	result := v.add()
+	fmt.Println(result)
+}
+</code></pre></div><p><a href=https://go.dev/play/p/38KXB4st4QI>Coba di sini</a>.</p>
+<p>Ternyata tidak ada yang terjadi.</p>
+<p>Mari tambahkan satu fungsi yang bertujuan untuk mengubah variabel di dalam struct.</p>
+<p>Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
+
+<span style=color:#00f>import</span> (
+	<span style=color:#a31515>&#34;fmt&#34;</span>
+)
+
+<span style=color:#00f>type</span> box <span style=color:#00f>struct</span> {
+	x, y <span style=color:#2b91af>int</span>
+}
+
+<span style=color:#00f>func</span> (v box) add() <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> v.x + v.y
+}
+
+<span style=color:#00f>func</span> (v box) scale(s <span style=color:#2b91af>int</span>) {
+	v.x = v.x * s
+	v.y = v.y * s
+}
+
+<span style=color:#00f>func</span> main() {
+	v := box{3, 4}
+	v.scale(2)
+	result := v.add()
+	fmt.Println(result)
+}
+</code></pre></div><p><a href=https://go.dev/play/p/2LgXSApzdeA>Coba di sini</a>.</p>
+<p>Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.</p>
+<p>Mari kita ganti spesial argumen di atas menggunakan pointer.</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>package</span> main
+
+<span style=color:#00f>import</span> (
+	<span style=color:#a31515>&#34;fmt&#34;</span>
+)
+
+<span style=color:#00f>type</span> box <span style=color:#00f>struct</span> {
+	x, y <span style=color:#2b91af>int</span>
+}
+
+<span style=color:#00f>func</span> (v *box) add() <span style=color:#2b91af>int</span> {
+	<span style=color:#00f>return</span> v.x + v.y
+}
+
+<span style=color:#00f>func</span> (v *box) scale(s <span style=color:#2b91af>int</span>) {
+	v.x = v.x * s
+	v.y = v.y * s
+}
+
+<span style=color:#00f>func</span> main() {
+	v := box{3, 4}
+	v.scale(2)
+	result := v.add()
+	fmt.Println(result)
+}
+</code></pre></div><p><a href=https://go.dev/play/p/7JAl5MVaAh2>Coba di sini</a>.</p>
+<p>Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method <code>scale</code>. Yang diakses olehnya bukan copi nilai, tapi address-nya.</p>
+<h2 id=kesimpulan>Kesimpulan</h2>
+<p>Gunakan pointer receiver apabila kita ingin mengubah properti dari sebuah struct.</p>
+</div>
+<div class=tags>
+<ul class=flat>
+<li><a href=/tags/go>go</a></li>
+</ul>
+</div><div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='ynwd-github-io',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the </a></noscript>
+<a href=http://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+</div>
+<div class="footer wrapper">
+<nav class=nav>
+<div>2021 © fastro.dev </div>
+</nav>
+</div>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','UA-123-45','auto'),ga('send','pageview'))</script>
+<script async src=https://www.google-analytics.com/analytics.js></script>
+<script>feather.replace()</script>
+</body>
+</html>

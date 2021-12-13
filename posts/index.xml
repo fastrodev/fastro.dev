@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Fastro</title><link>https://blog.fastro.dev/posts/</link><description>Recent content in Posts on Fastro</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© fastro.dev</copyright><lastBuildDate>Sun, 12 Dec 2021 09:39:38 +0700</lastBuildDate><atom:link href="https://blog.fastro.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Interface</title><link>https://blog.fastro.dev/posts/interface/</link><pubDate>Sun, 12 Dec 2021 09:39:38 +0700</pubDate><guid>https://blog.fastro.dev/posts/interface/</guid><description>Interface sering dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang interface dan cara menggunakannya.
+Signature Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah method.
+Mencakup:
+semua parameter dan tipe datanya return value dan tipe datanya Nah, interface adalah tipe data yang berisi satu atau beberapa method signature.
+Contoh:
+package main type Box interface { Add() int Scale(s int) } Lihat di sini.</description></item><item><title>Receiver</title><link>https://blog.fastro.dev/posts/receiver/</link><pubDate>Sat, 11 Dec 2021 21:46:58 +0700</pubDate><guid>https://blog.fastro.dev/posts/receiver/</guid><description>Receiver sering sekali dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang receiver dan cara menggunakannya.
+Tapi sebelum membahas receiver, kita akan singgung dulu hal yang sangat berkaitan: function dan method.
+Function Ini adalah contoh sebuah fungsi di golang:
+package main import &amp;#34;fmt&amp;#34; func add(x int, y int) int { return x + y } func main() { fmt.Println(add(42, 13)) } Pada kode di atas,
+func add(x int, y int) int { return x + y } Adalah sebuah function yang mengembalikan penjumlahan 2 integer.</description></item><item><title>Pointer</title><link>https://blog.fastro.dev/posts/pointer/</link><pubDate>Wed, 08 Dec 2021 04:56:27 +0700</pubDate><guid>https://blog.fastro.dev/posts/pointer/</guid><description>Catatan ini berisi penjelasan se-simple mungkin tentang pointer, cara penggunaan, dan tampilan visual untuk memudahkan penggambaran di otak.
+Lihat variabel-variable di kode berikut:
+package main import &amp;#34;fmt&amp;#34; type People struct { Name string Age int } func main() { var age int = 4 var name string = &amp;#34;pram&amp;#34; var people = People{&amp;#34;Pram&amp;#34;, 4} } Untuk menggunakan variabel, kita tinggal memanggil saja namanya.
+Contoh:
+fmt.Println(age) fmt.Println(name) fmt.Println(people.Age) fmt.Println(people.Name) Sebenarnya, setiap variable yang ditulis diatas, oleh komputer disimpan di memori dengan memory address tertentu.</description></item></channel></rss>
