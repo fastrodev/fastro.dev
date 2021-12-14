@@ -23,9 +23,7 @@ func add(x int, y int) int {
 
 Fungsinya sangat sederhana: **hanya mengembalikan penjumlahan 2 integer.**
 
-
-Cara menggunakannya [seperti ini](https://go.dev/play/p/dIAgSYqy5vV).
-
+[Jalankan kode selengkapnya di sini](https://go.dev/play/p/dIAgSYqy5vV).
 
 ## Method
 
@@ -56,13 +54,7 @@ func (v box) add() int {
 }
 ```
 
-Dalam hal ini, 
-
-```go
-(v box)
-``` 
-
-adalah receiver. 
+Dalam hal ini, `(v box)`, adalah receiver. 
 
 Dan dengan adanya receiver, method-method dapat diakses dengan cara seperti ini:
 ```go
@@ -73,7 +65,7 @@ func main() {
 }
 ```
 
-[Kode langkap bisa dijalankan di sini](https://go.dev/play/p/hiRzW4gE3E7).
+[Jalankan kode selengkapnya di sini](https://go.dev/play/p/hiRzW4gE3E7).
 
 ## Pointer receivers
 
@@ -90,7 +82,7 @@ func (v *box) add() int {
 	return v.x + v.y
 }
 ```
-[Kode lengkap bisa dijalankan sini](https://go.dev/play/p/38KXB4st4QI). 
+[Jalankan kode selengkapnya di sini](https://go.dev/play/p/38KXB4st4QI). 
 
 Ternyata tidak ada yang terjadi.
 
@@ -112,7 +104,7 @@ func (v box) scale(s int) {
 }
 ```
 
-[Coba jalankan di sini](https://go.dev/play/p/2LgXSApzdeA). 
+[Jalankan kode selengkapnya di sini](https://go.dev/play/p/2LgXSApzdeA). 
 
 Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.
 
@@ -132,7 +124,7 @@ func (v *box) scale(s int) {
 	v.y = v.y * s
 }
 ```
-[Coba jalankan di sini](https://go.dev/play/p/7JAl5MVaAh2). 
+[Jalankan kode selengkapnya di sini](https://go.dev/play/p/7JAl5MVaAh2). 
 
 Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method `scale`. 
 
