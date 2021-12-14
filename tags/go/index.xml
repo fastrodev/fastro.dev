@@ -7,7 +7,7 @@ package main type Box interface { Add() int Scale(s int) } Lihat di sini.</descr
 Tapi sebelum membahas receiver, kita akan singgung dulu hal yang sangat berkaitan: function dan method.
 Function Ini adalah contoh sebuah fungsi di golang:
 func add(x int, y int) int { return x + y } Fungsinya sangat sederhana: hanya mengembalikan penjumlahan 2 integer.
-Cara menggunakannya seperti ini.
+Jalankan kode selengkapnya di sini.
 Method Method sebenarnya adalah sebuah function juga.</description></item><item><title>Pointer</title><link>https://blog.fastro.dev/posts/pointer/</link><pubDate>Wed, 08 Dec 2021 04:56:27 +0700</pubDate><guid>https://blog.fastro.dev/posts/pointer/</guid><description>Catatan ini berisi penjelasan se-simple mungkin tentang pointer, cara penggunaan, dan tampilan visual untuk memudahkan penggambaran di otak.
 Lihat variabel-variable di kode berikut:
 package main import &amp;#34;fmt&amp;#34; type People struct { Name string Age int } func main() { var age int = 4 var name string = &amp;#34;pram&amp;#34; var people = People{&amp;#34;Pram&amp;#34;, 4} } Untuk menggunakan variabel, kita tinggal memanggil saja namanya.

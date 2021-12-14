@@ -5,7 +5,7 @@
 <meta itemprop=name content="Receiver">
 <meta itemprop=description content="Memahami receiver di golang dan bagaimana cara menggunakannya"><meta itemprop=datePublished content="2021-12-11T21:46:58+07:00">
 <meta itemprop=dateModified content="2021-12-11T21:46:58+07:00">
-<meta itemprop=wordCount content="404"><meta itemprop=image content="https://blog.fastro.dev/seo.png">
+<meta itemprop=wordCount content="406"><meta itemprop=image content="https://blog.fastro.dev/seo.png">
 <meta itemprop=keywords content="go,"><meta property="og:title" content="Receiver">
 <meta property="og:description" content="Memahami receiver di golang dan bagaimana cara menggunakannya">
 <meta property="og:type" content="article">
@@ -57,7 +57,7 @@ Dec 11 2021
 	<span style=color:#00f>return</span> x + y
 }
 </code></pre></div><p>Fungsinya sangat sederhana: <strong>hanya mengembalikan penjumlahan 2 integer.</strong></p>
-<p>Cara menggunakannya <a href=https://go.dev/play/p/dIAgSYqy5vV>seperti ini</a>.</p>
+<p><a href=https://go.dev/play/p/dIAgSYqy5vV>Jalankan kode selengkapnya di sini</a>.</p>
 <h2 id=method>Method</h2>
 <p>Method sebenarnya adalah sebuah <a href=#function>function</a> juga.</p>
 <p>Hanya saja ia melekat pada sebuah struct.</p>
@@ -75,16 +75,14 @@ Dec 11 2021
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> (v box) add() <span style=color:#2b91af>int</span> {
 	<span style=color:#00f>return</span> v.x + v.y
 }
-</code></pre></div><p>Dalam hal ini,</p>
-<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>(v box)
-</code></pre></div><p>adalah receiver.</p>
+</code></pre></div><p>Dalam hal ini, <code>(v box)</code>, adalah receiver.</p>
 <p>Dan dengan adanya receiver, method-method dapat diakses dengan cara seperti ini:</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>func</span> main() {
 	v := box{3, 4}
 	result := v.add()
 	fmt.Println(result)
 }
-</code></pre></div><p><a href=https://go.dev/play/p/hiRzW4gE3E7>Kode langkap bisa dijalankan di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/hiRzW4gE3E7>Jalankan kode selengkapnya di sini</a>.</p>
 <h2 id=pointer-receivers>Pointer receivers</h2>
 <p>Seperti telah kita ketahui, pointer dapat kita gunakan untuk mengakses alamat suatu variabel.</p>
 <p>Apa yang terjadi jika pointer kita gunakan untuk receiver?</p>
@@ -95,7 +93,7 @@ Dec 11 2021
 <span style=color:#00f>func</span> (v *box) add() <span style=color:#2b91af>int</span> {
 	<span style=color:#00f>return</span> v.x + v.y
 }
-</code></pre></div><p><a href=https://go.dev/play/p/38KXB4st4QI>Kode lengkap bisa dijalankan sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/38KXB4st4QI>Jalankan kode selengkapnya di sini</a>.</p>
 <p>Ternyata tidak ada yang terjadi.</p>
 <p>Mari tambahkan satu fungsi yang bertujuan untuk mengubah variabel di dalam struct.</p>
 <p><em>Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.</em></p>
@@ -111,7 +109,7 @@ Dec 11 2021
 	v.x = v.x * s
 	v.y = v.y * s
 }
-</code></pre></div><p><a href=https://go.dev/play/p/2LgXSApzdeA>Coba jalankan di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/2LgXSApzdeA>Jalankan kode selengkapnya di sini</a>.</p>
 <p>Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.</p>
 <p>Mari kita ganti spesial argumen di atas menggunakan pointer.</p>
 <div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#00f>type</span> box <span style=color:#00f>struct</span> {
@@ -126,7 +124,7 @@ Dec 11 2021
 	v.x = v.x * s
 	v.y = v.y * s
 }
-</code></pre></div><p><a href=https://go.dev/play/p/7JAl5MVaAh2>Coba jalankan di sini</a>.</p>
+</code></pre></div><p><a href=https://go.dev/play/p/7JAl5MVaAh2>Jalankan kode selengkapnya di sini</a>.</p>
 <p>Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method <code>scale</code>.</p>
 <p>Hal itu bisa terjadi karena yang diakses method tersebut adalah alamat variabel-variabel x dan y.</p>
 <p>Sehingga saat alamat-alamat tersebut dikalikan 2, data-data di alamat tersebut akan ikut berubah.</p>
