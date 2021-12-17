@@ -1,23 +1,62 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fastro</title><link>https://blog.fastro.dev/</link><description>Recent content on Fastro</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>© fastro.dev</copyright><lastBuildDate>Thu, 16 Dec 2021 05:00:47 +0700</lastBuildDate><atom:link href="https://blog.fastro.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Module</title><link>https://blog.fastro.dev/posts/module/</link><pubDate>Thu, 16 Dec 2021 05:00:47 +0700</pubDate><guid>https://blog.fastro.dev/posts/module/</guid><description>Catatan ini berisi penjelasan se-simple mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.
-Dan sebagai persiapan:
-install go. siapkan terminal favoritmu. Buat folder Buka terminal dan masuk ke sembarang direktori.
-mkdir app app bisa kita ganti dengan apapun.
-Masuk ke folder cd app Buat inisialisasi modul go mod init app Di sini, go mod init adalalah perintah untuk membuat module dari golang. Sedangkan app adalah nama modul.</description></item><item><title>Interface</title><link>https://blog.fastro.dev/posts/interface/</link><pubDate>Sun, 12 Dec 2021 09:39:38 +0700</pubDate><guid>https://blog.fastro.dev/posts/interface/</guid><description>Interface sering dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang interface dan cara menggunakannya.
-Signature Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah method.
-Mencakup:
-semua parameter dan tipe datanya return value dan tipe datanya Nah, interface adalah tipe data yang berisi satu atau beberapa method signature.
-Contoh:
-package main type Box interface { Add() int Scale(s int) } Lihat di sini.</description></item><item><title>Receiver</title><link>https://blog.fastro.dev/posts/receiver/</link><pubDate>Sat, 11 Dec 2021 21:46:58 +0700</pubDate><guid>https://blog.fastro.dev/posts/receiver/</guid><description>Receiver sering sekali dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang receiver dan cara menggunakannya.
-Tapi sebelum membahas receiver, kita akan singgung dulu hal yang sangat berkaitan: function dan method.
-Function Ini adalah contoh sebuah fungsi di golang:
-func add(x int, y int) int { return x + y } Fungsinya sangat sederhana: hanya mengembalikan penjumlahan 2 integer.
-Jalankan kode selengkapnya di sini.
-Method Method sebenarnya adalah sebuah function juga.</description></item><item><title>About</title><link>https://blog.fastro.dev/about/</link><pubDate>Wed, 08 Dec 2021 04:56:27 +0700</pubDate><guid>https://blog.fastro.dev/about/</guid><description>Kalau bisa belajar gratis, ngapain harus bayar?
-Blog ini berisi semua catatan-catatan terkait namun tidak terbatas pada:
-cloud, docker, forex, golang, javascript, kubernetes, react, serverless
-Punya ide atau nemu salah ketik?
-Kirim pull request berbasis markdown ke repository.</description></item><item><title>Pointer</title><link>https://blog.fastro.dev/posts/pointer/</link><pubDate>Wed, 08 Dec 2021 04:56:27 +0700</pubDate><guid>https://blog.fastro.dev/posts/pointer/</guid><description>Catatan ini berisi penjelasan se-simple mungkin tentang pointer, cara penggunaan, dan tampilan visual untuk memudahkan penggambaran di otak.
-Lihat variabel-variable di kode berikut:
-package main import &amp;#34;fmt&amp;#34; type People struct { Name string Age int } func main() { var age int = 4 var name string = &amp;#34;pram&amp;#34; var people = People{&amp;#34;Pram&amp;#34;, 4} } Untuk menggunakan variabel, kita tinggal memanggil saja namanya.
-Contoh:
-fmt.Println(age) fmt.Println(name) fmt.Println(people.Age) fmt.Println(people.Name) Sebenarnya, setiap variable yang ditulis diatas, oleh komputer disimpan di memori dengan memory address tertentu.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fastro.dev</title>
+    <link>https://blog.fastro.dev/</link>
+    <description>Recent content on Fastro.dev</description>
+    <image>
+      <url>https://blog.fastro.dev/seo.png</url>
+      <link>https://blog.fastro.dev/seo.png</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Dec 2021 05:00:47 +0700</lastBuildDate><atom:link href="https://blog.fastro.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Module</title>
+      <link>https://blog.fastro.dev/posts/module/</link>
+      <pubDate>Thu, 16 Dec 2021 05:00:47 +0700</pubDate>
+      
+      <guid>https://blog.fastro.dev/posts/module/</guid>
+      <description>Cara bikin aplikasi hello world di golang dari awal banget</description>
+    </item>
+    
+    <item>
+      <title>Interface</title>
+      <link>https://blog.fastro.dev/posts/interface/</link>
+      <pubDate>Sun, 12 Dec 2021 09:39:38 +0700</pubDate>
+      
+      <guid>https://blog.fastro.dev/posts/interface/</guid>
+      <description>Memahami interface di golang dan bagaimana cara menggunakannya</description>
+    </item>
+    
+    <item>
+      <title>Receiver</title>
+      <link>https://blog.fastro.dev/posts/receiver/</link>
+      <pubDate>Sat, 11 Dec 2021 21:46:58 +0700</pubDate>
+      
+      <guid>https://blog.fastro.dev/posts/receiver/</guid>
+      <description>Memahami receiver di golang dan bagaimana cara menggunakannya</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://blog.fastro.dev/about/</link>
+      <pubDate>Wed, 08 Dec 2021 04:56:27 +0700</pubDate>
+      
+      <guid>https://blog.fastro.dev/about/</guid>
+      <description>Kalau belajar bisa gratis, ngapain harus bayar?</description>
+    </item>
+    
+    <item>
+      <title>Pointer</title>
+      <link>https://blog.fastro.dev/posts/pointer/</link>
+      <pubDate>Wed, 08 Dec 2021 04:56:27 +0700</pubDate>
+      
+      <guid>https://blog.fastro.dev/posts/pointer/</guid>
+      <description>Memahami pointer di golang dan bagaimana cara menggunakannya</description>
+    </item>
+    
+    
+    
+  </channel>
+</rss>
