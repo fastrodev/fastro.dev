@@ -2,7 +2,7 @@
 title: "MongoDB"
 date: 2021-12-14T05:00:47+07:00
 authors: ["Admin"]
-description: "Setup koneksi ke mongodb dan membuat CRUD di golang"
+summary: "Setup koneksi ke mongodb dan membuat CRUD di golang"
 draft: true
 tags: [go,mongo]
 categories: [golang-dasar]

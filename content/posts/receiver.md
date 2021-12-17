@@ -1,7 +1,7 @@
 ---
 title: "Receiver"
 date: 2021-12-11T21:46:58+07:00
-description: "Memahami receiver di golang dan bagaimana cara menggunakannya"
+summary: "Memahami receiver di golang dan bagaimana cara menggunakannya"
 authors: ["Admin"]
 tags: [go]
 categories: [golang-dasar]
