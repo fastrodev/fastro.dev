@@ -38,7 +38,7 @@ fmt.Println(people.Age)
 fmt.Println(people.Name)
 ```
 
-Sebenarnya, setiap variable yang  ditulis diatas, oleh komputer disimpan di memori dengan **memory address** tertentu. 
+Sebenarnya, setiap variable yang  ditulis diatas, oleh komputer disimpan di memori dengan alamat tertentu. 
 
 Lihat gambar berikut:
 
