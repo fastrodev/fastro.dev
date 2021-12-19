@@ -20,16 +20,15 @@ func add(x int, y int) int {
 	return x + y
 }
 ```
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/dIAgSYqy5vV).*
 
 Fungsinya sangat sederhana: **hanya mengembalikan penjumlahan 2 integer.**
 
-[Jalankan kode selengkapnya di sini](https://go.dev/play/p/dIAgSYqy5vV).
-
 ## Method
 
-Method sebenarnya adalah sebuah [function](#function) juga. 
+Method sebenarnya adalah sebuah [function](#function) juga. Hanya saja ia melekat pada sebuah struct. 
 
-Hanya saja ia melekat pada sebuah struct. 
+Berikut ini adalah contoh sebuah struct yang *ditempelin* oleh sebuah method `add()`.
 
 ```go
 type box struct {
@@ -65,7 +64,7 @@ func main() {
 }
 ```
 
-[Jalankan kode selengkapnya di sini](https://go.dev/play/p/hiRzW4gE3E7).
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/hiRzW4gE3E7).*
 
 ## Pointer receivers
 
@@ -82,7 +81,7 @@ func (v *box) add() int {
 	return v.x + v.y
 }
 ```
-[Jalankan kode selengkapnya di sini](https://go.dev/play/p/38KXB4st4QI). 
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/38KXB4st4QI).*
 
 Ternyata tidak ada yang terjadi.
 
@@ -104,7 +103,7 @@ func (v box) scale(s int) {
 }
 ```
 
-[Jalankan kode selengkapnya di sini](https://go.dev/play/p/2LgXSApzdeA). 
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/2LgXSApzdeA).*
 
 Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.
 
@@ -124,7 +123,7 @@ func (v *box) scale(s int) {
 	v.y = v.y * s
 }
 ```
-[Jalankan kode selengkapnya di sini](https://go.dev/play/p/7JAl5MVaAh2). 
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/7JAl5MVaAh2).*
 
 Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method `scale`. 
 

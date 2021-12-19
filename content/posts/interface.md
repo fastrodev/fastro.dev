@@ -28,7 +28,7 @@ type Box interface {
 	Scale(s int)
 }
 ```
-[Lihat di sini.](https://go.dev/play/p/hlZOyBr9rMm)
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/hlZOyBr9rMm)*
 
 Pada kode diatas, kita buat sebuah interface bernama Box. 
 
@@ -61,30 +61,7 @@ func (b *box) Scale(s int) {
 }
 ```
 
-Kode lengkapnya:
-
-```go
-package main
-
-type Box interface {
-	Add() int
-	Scale(s int)
-}
-
-type box struct {
-	x, y int
-}
-
-func (b *box) Add() int {
-	return b.x + b.y
-}
-
-func (b *box) Scale(s int) {
-	b.x = b.x * s
-	b.y = b.y * s
-}
-```
-[Lihat di sini](https://go.dev/play/p/-eeEFIzk4Xq)
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/-eeEFIzk4Xq)*
 
 ## Instance
 
@@ -115,41 +92,5 @@ func main() {
 }
 ```
 
-Kode lengkapnya akhirnya seperti ini:
-```go
-package main
-
-import "fmt"
-
-type Box interface {
-	Add() int
-	Scale(s int)
-}
-
-type box struct {
-	x, y int
-}
-
-func (b *box) Add() int {
-	return b.x + b.y
-}
-
-func (b *box) Scale(s int) {
-	b.x = b.x * s
-	b.y = b.y * s
-}
-
-func NewBox(x int, y int) Box {
-	return &box{x, y}
-}
-
-func main() {
-	box := NewBox(1, 2)
-	box.Scale(2)
-	result := box.Add()
-	fmt.Println(result)
-}
-```
-
-[Coba di sini](https://go.dev/play/p/LV9g64joB7X)
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/LV9g64joB7X)*
 

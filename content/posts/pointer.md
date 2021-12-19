@@ -106,8 +106,6 @@ Hasilnya kurang lebih seperti ini:
 0xc00000c030
 ```
 
-[Coba di sini](https://go.dev/play/p/I8jd-gxbiw1)
-
 Lihat gambar berikut untuk mengetahui secara visual apa yang terjadi di memori:
 
 ![](https://gist.githubusercontent.com/ynwd/fd867c9b4b92f557440d25b795e71f8c/raw/2ba5ac238a7ab59b72602c835fe669eec053e15b/pointer-Page-3.svg)
@@ -133,6 +131,8 @@ pram
 Lihat gambar berikut:
 
 ![](https://gist.githubusercontent.com/ynwd/fd867c9b4b92f557440d25b795e71f8c/raw/fe3fc26144da6c34a9ca1623ae9eeb5046c427cb/pointer-Page-2.svg)
+
+*Kode lengkapnya: [lihat di sini](https://go.dev/play/p/I8jd-gxbiw1)*
 
 ## Kegunaan pointer
 
