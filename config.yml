@@ -1,6 +1,6 @@
 baseURL: "https://blog.fastro.dev/"
 languageCode: "en-us"
-title: Fastro.dev
+title: Fastro
 paginate: 5
 theme: PaperMod
 enableInlineShortcodes: true

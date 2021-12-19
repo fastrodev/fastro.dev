@@ -5,6 +5,8 @@ authors: ["Admin"]
 summary: "Cara bikin aplikasi hello world di golang dari awal banget"
 tags: [go]
 categories: [golang-dasar]
+cover:
+    image: "" # image path/url
 ---
 
 Catatan ini berisi penjelasan se-*simple* mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.
@@ -75,7 +77,7 @@ Clone source code berikut [https://github.com/fastrodev/praktikum-module](https:
 git clone https://github.com/fastrodev/praktikum-module.git .
 ```
 
-Jalankan aplikasi seperti di atas.
+Jalankan aplikasi [seperti di atas](#jalankan-aplikasi).
 
 
 
