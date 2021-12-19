@@ -1,0 +1,248 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>MongoDB: Quickstart | Fastro</title>
+<meta name=keywords content="go,mongo">
+<meta name=description content="Cara setup koneksi ke mongodb dan membuat query sederhana">
+<meta name=author content="Admin">
+<link rel=canonical href=https://blog.fastro.dev/posts/mongodb/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a9991dc7f7e14530159c0ede98036553bc4e36aca4dbc5b7c2a1d2ee4bdac7ba.css integrity="sha256-qZkdx/fhRTAVnA7emANlU7xONqyk28W3wqHS7kvax7o=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://blog.fastro.dev/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://blog.fastro.dev/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://blog.fastro.dev/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://blog.fastro.dev/apple-touch-icon.png>
+<link rel=mask-icon href=https://blog.fastro.dev/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.91.0">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-165990288-1','auto'),ga('send','pageview'))</script><meta property="og:title" content="MongoDB: Quickstart">
+<meta property="og:description" content="Cara setup koneksi ke mongodb dan membuat query sederhana">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://blog.fastro.dev/posts/mongodb/"><meta property="og:image" content="https://blog.fastro.dev/seo.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-12-19T05:00:47+07:00">
+<meta property="article:modified_time" content="2021-12-19T05:00:47+07:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.fastro.dev/seo.png">
+<meta name=twitter:title content="MongoDB: Quickstart">
+<meta name=twitter:description content="Cara setup koneksi ke mongodb dan membuat query sederhana">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.fastro.dev/posts/"},{"@type":"ListItem","position":2,"name":"MongoDB: Quickstart","item":"https://blog.fastro.dev/posts/mongodb/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"MongoDB: Quickstart","name":"MongoDB: Quickstart","description":"Cara setup koneksi ke mongodb dan membuat query sederhana","keywords":["go","mongo"],"articleBody":"MongoDB sering dipakai untuk membuat dan menyimpan data di golang. Catatan ini berisi penjelasan se-simple mungkin tentang cara setup koneksi ke mongoDB dan membuat query sederhana.\nPersiapan Untuk bisa menyimpan data, harus kita siapkan dulu server mongodb-nya. Daftar aja secara gratis di mongodb atlas.\n  Ikuti saja panduan resmi dari mongodb untuk membuat cluster, hingga mendapatkan uri ke database semacam ini:\nmongodb+srv://admin:@cluster0.xtwwu.mongodb.net   Jangan lupa untuk load sample dataset.\n  Awali app dengan go mod Bikin folder dan inisialisasi proyek dengan go mod.\nmkdir praktikum-mongodb cd praktikum-mongodb go mod init praktikum-mongodb Tambahkan mongodb driver Gunakan go get untuk menambahkan driver mongodb di golang.\ngo get go.mongodb.org/mongo-driver/mongo Query ke database Buat file main.go. Copy dan paste kode berikut:\npackage main import ( \"context\" \"encoding/json\" \"fmt\" \"go.mongodb.org/mongo-driver/bson\" \"go.mongodb.org/mongo-driver/mongo\" \"go.mongodb.org/mongo-driver/mongo/options\" ) func main() { uri := \"mongodb+srv://admin:admin@cluster0.u16np.mongodb.net\" client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri)) if err != nil { panic(err) } defer func() { if err := client.Disconnect(context.TODO()); err != nil { panic(err) } }() coll := client.Database(\"sample_mflix\").Collection(\"movies\") title := \"Back to the Future\" var result bson.M err = coll.FindOne(context.TODO(), bson.D{{\"title\", title}}).Decode(\u0026result) if err == mongo.ErrNoDocuments { fmt.Printf(\"No document was found with the title %s\\n\", title) return } if err != nil { panic(err) } jsonData, err := json.MarshalIndent(result, \"\", \" \") if err != nil { panic(err) } fmt.Printf(\"%s\\n\", jsonData) } Jalankan aplikasi Pergi ke terminal dan jalankan aplikasi\ngo run main.go Hasilnya seperti ini:\n{ \"_id\": \"573a1398f29313caabce9682\", \"awards\": { \"nominations\": 24, \"text\": \"Won 1 Oscar. Another 18 wins \\u0026 24 nominations.\", \"wins\": 19 }, \"cast\": [ \"Michael J. Fox\", \"Christopher Lloyd\", \"Lea Thompson\", \"Crispin Glover\" ], \"countries\": [ \"USA\" ], \"directors\": [ \"Robert Zemeckis\" ], \"fullplot\": \"Marty McFly, a typical American teenager of the Eighties, is accidentally sent back to 1955 in a plutonium-powered DeLorean \\\"time machine\\\" invented by slightly mad scientist. During his often hysterical, always amazing trip back in time, Marty must make certain his teenage parents-to-be meet and fall in love - so he can get back to the future.\", \"genres\": [ \"Adventure\", \"Comedy\", \"Sci-Fi\" ], \"imdb\": { \"id\": 88763, \"rating\": 8.5, \"votes\": 636511 }, \"languages\": [ \"English\" ], \"lastupdated\": \"2015-09-12 00:29:36.890000000\", \"metacritic\": 86, \"num_mflix_comments\": 0, \"plot\": \"A young man is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his friend, Dr. Emmett Brown, and must make sure his high-school-age parents unite in order to save his own existence.\", \"poster\": \"https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_SX677_AL_.jpg\", \"rated\": \"PG\", \"released\": \"1985-07-03T07:00:00+07:00\", \"runtime\": 116, \"title\": \"Back to the Future\", \"type\": \"movie\", \"writers\": [ \"Robert Zemeckis\", \"Bob Gale\" ], \"year\": 1985 } Praktikum Clone source code berikut https://github.com/fastrodev/praktikum-mongodb:\ngit clone https://github.com/fastrodev/praktikum-mongodb.git . Jalankan aplikasi seperti di atas.\n","wordCount":"431","inLanguage":"en","datePublished":"2021-12-19T05:00:47+07:00","dateModified":"2021-12-19T05:00:47+07:00","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.fastro.dev/posts/mongodb/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://blog.fastro.dev/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class="main-header header">
+<nav class=nav>
+<div class=logo>
+<a href=https://blog.fastro.dev/ accesskey=h title="Fastro (Alt + H)">Fastro</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+<li>
+<a href=https://blog.fastro.dev/archives title=Archive>
+<span>Archive</span>
+</a>
+</li>
+<li>
+<a href=https://blog.fastro.dev/categories/ title=Categories>
+<span>Categories</span>
+</a>
+</li>
+<li>
+<a href=https://blog.fastro.dev/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+<li>
+<a href=https://blog.fastro.dev/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+</ul>
+</nav>
+</header><main class=main>
+<article class=post-single>
+<header class=post-header>
+<div class=breadcrumbs><a href=https://blog.fastro.dev/>Home</a>&nbsp;»&nbsp;<a href=https://blog.fastro.dev/posts/>Posts</a></div>
+<h1 class=post-title>
+MongoDB: Quickstart
+</h1>
+<div class=post-meta><span title="2021-12-19 05:00:47 +0700 +0700">December 19, 2021</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Admin&nbsp;|&nbsp;<a href=https://github.com/fastrodev/fastrodev.github.io/blob/main/content/posts/mongodb.md rel="noopener noreferrer" target=_blank>Update</a>
+</div>
+</header> <div class=toc>
+<details>
+<summary accesskey=c title="(Alt + C)">
+<span class=details>Table of Contents</span>
+</summary>
+<div class=inner><ul>
+<li>
+<a href=#persiapan aria-label=Persiapan>Persiapan</a></li>
+<li>
+<a href=#awali-app-dengan-go-mod aria-label="Awali app dengan go mod">Awali app dengan go mod</a></li>
+<li>
+<a href=#tambahkan-mongodb-driver aria-label="Tambahkan mongodb driver">Tambahkan mongodb driver</a></li>
+<li>
+<a href=#query-ke-database aria-label="Query ke database">Query ke database</a></li>
+<li>
+<a href=#jalankan-aplikasi aria-label="Jalankan aplikasi">Jalankan aplikasi</a></li>
+<li>
+<a href=#praktikum aria-label=Praktikum>Praktikum</a>
+</li>
+</ul>
+</div>
+</details>
+</div>
+<div class=post-content><p>MongoDB sering dipakai untuk membuat dan menyimpan data di golang. Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang cara setup koneksi ke mongoDB dan membuat query sederhana.</p>
+<h2 id=persiapan>Persiapan<a hidden class=anchor aria-hidden=true href=#persiapan>#</a></h2>
+<p>Untuk bisa menyimpan data, harus kita siapkan dulu server mongodb-nya. Daftar <em>aja</em> secara gratis di <a href=https://www.mongodb.com/cloud/atlas/register>mongodb atlas</a>.</p>
+<ul>
+<li>
+<p>Ikuti saja <a href=https://docs.mongodb.com/drivers/go/current/quick-start/#create-a-mongodb-cluster>panduan resmi dari mongodb</a> untuk membuat cluster, hingga mendapatkan uri ke database semacam ini:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mongodb+srv://admin:&lt;password&gt;@cluster0.xtwwu.mongodb.net
+</code></pre></div></li>
+<li>
+<p>Jangan lupa untuk <a href=https://docs.atlas.mongodb.com/sample-data/available-sample-datasets/>load sample dataset</a>.</p>
+</li>
+</ul>
+<h2 id=awali-app-dengan-go-mod>Awali app dengan go mod<a hidden class=anchor aria-hidden=true href=#awali-app-dengan-go-mod>#</a></h2>
+<p>Bikin folder dan inisialisasi proyek dengan <code>go mod</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir praktikum-mongodb
+cd praktikum-mongodb
+go mod init praktikum-mongodb
+</code></pre></div><h2 id=tambahkan-mongodb-driver>Tambahkan mongodb driver<a hidden class=anchor aria-hidden=true href=#tambahkan-mongodb-driver>#</a></h2>
+<p>Gunakan <code>go get</code> untuk menambahkan driver mongodb di golang.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go get go.mongodb.org/mongo-driver/mongo
+</code></pre></div><h2 id=query-ke-database>Query ke database<a hidden class=anchor aria-hidden=true href=#query-ke-database>#</a></h2>
+<p>Buat file <code>main.go</code>. Copy dan paste kode berikut:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+
+<span style=color:#f92672>import</span> (
+	<span style=color:#e6db74>&#34;context&#34;</span>
+	<span style=color:#e6db74>&#34;encoding/json&#34;</span>
+	<span style=color:#e6db74>&#34;fmt&#34;</span>
+
+	<span style=color:#e6db74>&#34;go.mongodb.org/mongo-driver/bson&#34;</span>
+	<span style=color:#e6db74>&#34;go.mongodb.org/mongo-driver/mongo&#34;</span>
+	<span style=color:#e6db74>&#34;go.mongodb.org/mongo-driver/mongo/options&#34;</span>
+)
+
+<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+	<span style=color:#a6e22e>uri</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;mongodb+srv://admin:admin@cluster0.u16np.mongodb.net&#34;</span>
+	<span style=color:#a6e22e>client</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>mongo</span>.<span style=color:#a6e22e>Connect</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>TODO</span>(), <span style=color:#a6e22e>options</span>.<span style=color:#a6e22e>Client</span>().<span style=color:#a6e22e>ApplyURI</span>(<span style=color:#a6e22e>uri</span>))
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		panic(<span style=color:#a6e22e>err</span>)
+	}
+	<span style=color:#66d9ef>defer</span> <span style=color:#66d9ef>func</span>() {
+		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>Disconnect</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>TODO</span>()); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+			panic(<span style=color:#a6e22e>err</span>)
+		}
+	}()
+	<span style=color:#a6e22e>coll</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>client</span>.<span style=color:#a6e22e>Database</span>(<span style=color:#e6db74>&#34;sample_mflix&#34;</span>).<span style=color:#a6e22e>Collection</span>(<span style=color:#e6db74>&#34;movies&#34;</span>)
+	<span style=color:#a6e22e>title</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;Back to the Future&#34;</span>
+	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>result</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>M</span>
+	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>coll</span>.<span style=color:#a6e22e>FindOne</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>TODO</span>(), <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>D</span>{{<span style=color:#e6db74>&#34;title&#34;</span>, <span style=color:#a6e22e>title</span>}}).<span style=color:#a6e22e>Decode</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>result</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>mongo</span>.<span style=color:#a6e22e>ErrNoDocuments</span> {
+		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;No document was found with the title %s\n&#34;</span>, <span style=color:#a6e22e>title</span>)
+		<span style=color:#66d9ef>return</span>
+	}
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		panic(<span style=color:#a6e22e>err</span>)
+	}
+	<span style=color:#a6e22e>jsonData</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>MarshalIndent</span>(<span style=color:#a6e22e>result</span>, <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#e6db74>&#34;    &#34;</span>)
+	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
+		panic(<span style=color:#a6e22e>err</span>)
+	}
+	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%s\n&#34;</span>, <span style=color:#a6e22e>jsonData</span>)
+}
+</code></pre></div><h2 id=jalankan-aplikasi>Jalankan aplikasi<a hidden class=anchor aria-hidden=true href=#jalankan-aplikasi>#</a></h2>
+<p>Pergi ke terminal dan jalankan aplikasi</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go run main.go
+</code></pre></div><p>Hasilnya seperti ini:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:#f92672>&#34;_id&#34;</span>: <span style=color:#e6db74>&#34;573a1398f29313caabce9682&#34;</span>,
+    <span style=color:#f92672>&#34;awards&#34;</span>: {
+        <span style=color:#f92672>&#34;nominations&#34;</span>: <span style=color:#ae81ff>24</span>,
+        <span style=color:#f92672>&#34;text&#34;</span>: <span style=color:#e6db74>&#34;Won 1 Oscar. Another 18 wins \u0026 24 nominations.&#34;</span>,
+        <span style=color:#f92672>&#34;wins&#34;</span>: <span style=color:#ae81ff>19</span>
+    },
+    <span style=color:#f92672>&#34;cast&#34;</span>: [
+        <span style=color:#e6db74>&#34;Michael J. Fox&#34;</span>,
+        <span style=color:#e6db74>&#34;Christopher Lloyd&#34;</span>,
+        <span style=color:#e6db74>&#34;Lea Thompson&#34;</span>,
+        <span style=color:#e6db74>&#34;Crispin Glover&#34;</span>
+    ],
+    <span style=color:#f92672>&#34;countries&#34;</span>: [
+        <span style=color:#e6db74>&#34;USA&#34;</span>
+    ],
+    <span style=color:#f92672>&#34;directors&#34;</span>: [
+        <span style=color:#e6db74>&#34;Robert Zemeckis&#34;</span>
+    ],
+    <span style=color:#f92672>&#34;fullplot&#34;</span>: <span style=color:#e6db74>&#34;Marty McFly, a typical American teenager of the Eighties, is accidentally sent back to 1955 in a plutonium-powered DeLorean \&#34;time machine\&#34; invented by slightly mad scientist. During his often hysterical, always amazing trip back in time, Marty must make certain his teenage parents-to-be meet and fall in love - so he can get back to the future.&#34;</span>,
+    <span style=color:#f92672>&#34;genres&#34;</span>: [
+        <span style=color:#e6db74>&#34;Adventure&#34;</span>,
+        <span style=color:#e6db74>&#34;Comedy&#34;</span>,
+        <span style=color:#e6db74>&#34;Sci-Fi&#34;</span>
+    ],
+    <span style=color:#f92672>&#34;imdb&#34;</span>: {
+        <span style=color:#f92672>&#34;id&#34;</span>: <span style=color:#ae81ff>88763</span>,
+        <span style=color:#f92672>&#34;rating&#34;</span>: <span style=color:#ae81ff>8.5</span>,
+        <span style=color:#f92672>&#34;votes&#34;</span>: <span style=color:#ae81ff>636511</span>
+    },
+    <span style=color:#f92672>&#34;languages&#34;</span>: [
+        <span style=color:#e6db74>&#34;English&#34;</span>
+    ],
+    <span style=color:#f92672>&#34;lastupdated&#34;</span>: <span style=color:#e6db74>&#34;2015-09-12 00:29:36.890000000&#34;</span>,
+    <span style=color:#f92672>&#34;metacritic&#34;</span>: <span style=color:#ae81ff>86</span>,
+    <span style=color:#f92672>&#34;num_mflix_comments&#34;</span>: <span style=color:#ae81ff>0</span>,
+    <span style=color:#f92672>&#34;plot&#34;</span>: <span style=color:#e6db74>&#34;A young man is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his friend, Dr. Emmett Brown, and must make sure his high-school-age parents unite in order to save his own existence.&#34;</span>,
+    <span style=color:#f92672>&#34;poster&#34;</span>: <span style=color:#e6db74>&#34;https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_SX677_AL_.jpg&#34;</span>,
+    <span style=color:#f92672>&#34;rated&#34;</span>: <span style=color:#e6db74>&#34;PG&#34;</span>,
+    <span style=color:#f92672>&#34;released&#34;</span>: <span style=color:#e6db74>&#34;1985-07-03T07:00:00+07:00&#34;</span>,
+    <span style=color:#f92672>&#34;runtime&#34;</span>: <span style=color:#ae81ff>116</span>,
+    <span style=color:#f92672>&#34;title&#34;</span>: <span style=color:#e6db74>&#34;Back to the Future&#34;</span>,
+    <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;movie&#34;</span>,
+    <span style=color:#f92672>&#34;writers&#34;</span>: [
+        <span style=color:#e6db74>&#34;Robert Zemeckis&#34;</span>,
+        <span style=color:#e6db74>&#34;Bob Gale&#34;</span>
+    ],
+    <span style=color:#f92672>&#34;year&#34;</span>: <span style=color:#ae81ff>1985</span>
+}
+</code></pre></div><h2 id=praktikum>Praktikum<a hidden class=anchor aria-hidden=true href=#praktikum>#</a></h2>
+<p>Clone source code berikut <a href=https://github.com/fastrodev/praktikum-mongodb>https://github.com/fastrodev/praktikum-mongodb</a>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone https://github.com/fastrodev/praktikum-mongodb.git .
+</code></pre></div><p>Jalankan aplikasi <a href=#jalankan-aplikasi>seperti di atas</a>.</p>
+</div>
+<footer class=post-footer>
+<ul class=post-tags>
+<li><a href=https://blog.fastro.dev/tags/go/>go</a></li>
+<li><a href=https://blog.fastro.dev/tags/mongo/>mongo</a></li>
+</ul>
+<nav class=paginav>
+<a class=next href=https://blog.fastro.dev/posts/module/>
+<span class=title>Next Page »</span>
+<br>
+<span>Module</span>
+</a>
+</nav>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://blog.fastro.dev/>Fastro</a></span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script></body>
+</html>
