@@ -64,7 +64,7 @@ func main() {
 go run main.go
 ```
 
-## Hasil
+### Hasil
 Jika kode di atas kita jalankan, di terminal akan tercetak text seperti ini:
 ```shell
 Hello, 世界
