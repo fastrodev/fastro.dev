@@ -1,7 +1,7 @@
 ---
 title: "About"
 authors: ["Admin"]
-description: "Kalau belajar bisa gratis, ngapain harus bayar?"
+summary: "Kalau belajar bisa gratis, ngapain harus bayar?"
 date: 2021-12-08T04:56:27+07:00
 type: "page"
 ---
