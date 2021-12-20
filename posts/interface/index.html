@@ -32,7 +32,7 @@
 <meta name=twitter:image content="https://blog.fastro.dev/seo.png">
 <meta name=twitter:title content="Interface">
 <meta name=twitter:description content="Memahami interface di golang dan bagaimana cara menggunakannya">
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://blog.fastro.dev/posts/"},{"@type":"ListItem","position":2,"name":"Interface","item":"https://blog.fastro.dev/posts/interface/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://blog.fastro.dev/posts/"},{"@type":"ListItem","position":3,"name":"Interface","item":"https://blog.fastro.dev/posts/interface/"}]}</script>
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Interface","name":"Interface","description":"Memahami interface di golang dan bagaimana cara menggunakannya","keywords":["go"],"articleBody":"Interface sering dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang interface dan cara menggunakannya.\nSignature Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah method.\nMencakup:\n semua parameter dan tipe datanya return value dan tipe datanya  Nah, interface adalah tipe data yang berisi satu atau beberapa method signature.\nContoh:\npackage main type Box interface { Add() int Scale(s int) } Kode lengkapnya: lihat di sini\nPada kode diatas, kita buat sebuah interface bernama Box.\nDi dalamnya ada definisi:\n signature method Add() yang mengembalikan data bertipe int signature method Scale(s int) yang mengembalikan tipe data void.  Implementasi Karena interface hanya mendefinisikan signature saja, kita perlu membuat implementasinya.\nUntuk membuat implementasi Box interface, yang perlu kita lakukan adalah membuat sebuah struct:\ntype box struct { x, y int } Lalu menambahkan method yang signature-nya sama dengan apa yang telah didefinisikan di interface:\nfunc (b *box) Add() int { return b.x + b.y } func (b *box) Scale(s int) { b.x = b.x * s b.y = b.y * s } Kode lengkapnya: lihat di sini\nInstance Agar implementasi signature-signature di atas bisa digunakan, kita harus membuat instance dari struct tersebut.\nCaranya: buat sebuah fungsi yang return value-nya bertipe Box interface.\nfunc NewBox(x int, y int) Box { return \u0026box{x, y} } Kita menyebut fungsi tersebut constructor.\nCara penggunaan Untuk memanggil method-method yang sudah di-implementasi di atas, kita tinggal membuat instance menggunakan constructor.\nSetalah instance-nya telah dibuat, kita bisa langsung memanggil method-method-nya.\nfunc main() { box := NewBox(1, 2) box.Scale(2) result := box.Add() fmt.Println(result) } Kode lengkapnya: lihat di sini\n","wordCount":"263","inLanguage":"en","datePublished":"2021-12-12T09:39:38+07:00","dateModified":"2021-12-12T09:39:38+07:00","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.fastro.dev/posts/interface/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://blog.fastro.dev/favicon.ico"}}}</script>
 </head>
 <body id=top>
@@ -40,7 +40,7 @@
 <header class="main-header header">
 <nav class=nav>
 <div class=logo>
-<a href=https://blog.fastro.dev/ accesskey=h title="Fastro (Alt + H)">Fastro</a>
+<a href=https://blog.fastro.dev accesskey=h title="Fastro (Alt + H)">Fastro</a>
 <span class=logo-switches>
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
@@ -72,7 +72,7 @@
 </header><main class=main>
 <article class=post-single>
 <header class=post-header>
-<div class=breadcrumbs><a href=https://blog.fastro.dev/>Home</a>&nbsp;»&nbsp;<a href=https://blog.fastro.dev/posts/>Posts</a></div>
+<div class=breadcrumbs><a href=https://blog.fastro.dev>Home</a>&nbsp;»&nbsp;<a href=https://blog.fastro.dev/posts/>Posts</a></div>
 <h1 class=post-title>
 Interface
 </h1>
@@ -174,7 +174,7 @@ Interface
 </article>
 </main>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://blog.fastro.dev/>Fastro</a></span>
+<span>&copy; 2021 <a href=https://blog.fastro.dev>Fastro</a></span>
 </footer>
 <a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </a>
