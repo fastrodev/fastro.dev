@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Fastro</title>
-    <link>https://blog.fastro.dev/tags/</link>
+    <link>https://fastro.dev/tags/</link>
     <description>Recent content in Tags on Fastro</description>
     <image>
-      <url>https://blog.fastro.dev/seo.png</url>
-      <link>https://blog.fastro.dev/seo.png</link>
+      <url>https://fastro.dev/seo.png</url>
+      <link>https://fastro.dev/seo.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Dec 2021 05:00:47 +0700</lastBuildDate><atom:link href="https://blog.fastro.dev/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Dec 2021 05:00:47 +0700</lastBuildDate><atom:link href="https://fastro.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go</title>
-      <link>https://blog.fastro.dev/tags/go/</link>
+      <link>https://fastro.dev/tags/go/</link>
       <pubDate>Sun, 19 Dec 2021 05:00:47 +0700</pubDate>
       
-      <guid>https://blog.fastro.dev/tags/go/</guid>
+      <guid>https://fastro.dev/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mongo</title>
-      <link>https://blog.fastro.dev/tags/mongo/</link>
+      <link>https://fastro.dev/tags/mongo/</link>
       <pubDate>Sun, 19 Dec 2021 05:00:47 +0700</pubDate>
       
-      <guid>https://blog.fastro.dev/tags/mongo/</guid>
+      <guid>https://fastro.dev/tags/mongo/</guid>
       <description></description>
     </item>
     
