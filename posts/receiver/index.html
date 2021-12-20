@@ -8,7 +8,7 @@
 <meta name=description content="Memahami receiver di golang dan bagaimana cara menggunakannya">
 <meta name=author content="Admin">
 <link rel=canonical href=https://fastro.dev/posts/receiver/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.a3caa99476507c86f3ce8ce67bab913bc3cbc6cfa2bd1e674990fcc876bb1ebe.css integrity="sha256-o8qplHZQfIbzzozme6uRO8PLxs+ivR5nSZD8yHa7Hr4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ba2c0ea82a637d2a2b6974959dda6c18f96b565aabd392604211d09f2690e79b.css integrity="sha256-uiwOqCpjfSoraXSVndpsGPlrVlqr05JgQhHQnyaQ55s=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://fastro.dev/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://fastro.dev/favicon-16x16.png>
@@ -99,14 +99,14 @@ Receiver
 </div>
 <div class=post-content><p>Receiver sering sekali dipakai di golang. Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang <code>receiver</code> dan cara menggunakannya.</p>
 <p>Tapi sebelum membahas <code>receiver</code>, kita akan singgung dulu hal yang sangat berkaitan: <code>function</code> dan <code>method</code>.</p>
-<h2 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h2>
+<h3 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h3>
 <p>Ini adalah contoh sebuah fungsi di golang:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>x</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>) <span style=color:#66d9ef>int</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>y</span>
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/dIAgSYqy5vV>lihat di sini</a>.</em></p>
 <p>Fungsinya sangat sederhana: <strong>hanya mengembalikan penjumlahan 2 integer.</strong></p>
-<h2 id=method>Method<a hidden class=anchor aria-hidden=true href=#method>#</a></h2>
+<h3 id=method>Method<a hidden class=anchor aria-hidden=true href=#method>#</a></h3>
 <p>Method sebenarnya adalah sebuah <a href=#function>function</a> juga. Hanya saja ia melekat pada sebuah struct.</p>
 <p>Berikut ini adalah contoh sebuah struct yang <em>ditempelin</em> oleh sebuah method <code>add()</code>.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
@@ -116,7 +116,7 @@ Receiver
 <span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>add</span>() <span style=color:#66d9ef>int</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span>
 }
-</code></pre></div><h2 id=receiver>Receiver<a hidden class=anchor aria-hidden=true href=#receiver>#</a></h2>
+</code></pre></div><h3 id=receiver>Receiver<a hidden class=anchor aria-hidden=true href=#receiver>#</a></h3>
 <p>Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi agar melekat padanya.</p>
 <p>Tanpa ada receiver, tak ada method.</p>
 <p>Lihat kode method di atas, perhatikan bagian ini:</p>
@@ -131,7 +131,7 @@ Receiver
 	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>result</span>)
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/hiRzW4gE3E7>lihat di sini</a>.</em></p>
-<h2 id=pointer-receivers>Pointer receivers<a hidden class=anchor aria-hidden=true href=#pointer-receivers>#</a></h2>
+<h3 id=pointer-receivers>Pointer receivers<a hidden class=anchor aria-hidden=true href=#pointer-receivers>#</a></h3>
 <p>Seperti telah kita ketahui, pointer dapat kita gunakan untuk mengakses alamat suatu variabel.</p>
 <p>Apa yang terjadi jika pointer kita gunakan untuk receiver?</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {

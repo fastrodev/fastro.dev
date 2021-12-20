@@ -8,7 +8,7 @@
 <meta name=description content="Memahami pointer di golang dan bagaimana cara menggunakannya">
 <meta name=author content="Admin">
 <link rel=canonical href=https://fastro.dev/posts/pointer/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.a3caa99476507c86f3ce8ce67bab913bc3cbc6cfa2bd1e674990fcc876bb1ebe.css integrity="sha256-o8qplHZQfIbzzozme6uRO8PLxs+ivR5nSZD8yHa7Hr4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ba2c0ea82a637d2a2b6974959dda6c18f96b565aabd392604211d09f2690e79b.css integrity="sha256-uiwOqCpjfSoraXSVndpsGPlrVlqr05JgQhHQnyaQ55s=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://fastro.dev/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://fastro.dev/favicon-16x16.png>
@@ -132,7 +132,7 @@ Variable <code>people</code> di address <code>0xc00000c030</code></p>
 <ul>
 <li>Bagaimana cara kita mendapatkan <code>address</code> variabel-variabel tersebut?</li>
 </ul>
-<h2 id=cara-mendapatkan-address>Cara mendapatkan address<a hidden class=anchor aria-hidden=true href=#cara-mendapatkan-address>#</a></h2>
+<h3 id=cara-mendapatkan-address>Cara mendapatkan address<a hidden class=anchor aria-hidden=true href=#cara-mendapatkan-address>#</a></h3>
 <p>Gampang. Tambahkan saja simbol <code>&</code> (<em>address operator</em>) sebelum nama variabel.</p>
 <p>Lihat kode berikut:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)
@@ -142,7 +142,7 @@ Variable <code>people</code> di address <code>0xc00000c030</code></p>
 <ul>
 <li>Bagaimana cara kita menyimpan address?</li>
 </ul>
-<h2 id=tipe-data-untuk-menyimpan-address>Tipe data untuk menyimpan address<a hidden class=anchor aria-hidden=true href=#tipe-data-untuk-menyimpan-address>#</a></h2>
+<h3 id=tipe-data-untuk-menyimpan-address>Tipe data untuk menyimpan address<a hidden class=anchor aria-hidden=true href=#tipe-data-untuk-menyimpan-address>#</a></h3>
 <p>Nah, inilah kegunaan <code>pointer</code>: tipe data yang digunakan untuk penyimpanan address dalam sebuah variabel.</p>
 <p>Cara deklarasinya cukup menambahkan simbol <code>*</code> sebelum tipe data.</p>
 <p>Lihat kode berikut:</p>
@@ -169,7 +169,7 @@ Variable <code>people</code> di address <code>0xc00000c030</code></p>
 </code></pre></div><p>Lihat gambar berikut untuk mengetahui secara visual apa yang terjadi di memori:</p>
 <p><img loading=lazy src=https://gist.githubusercontent.com/ynwd/fd867c9b4b92f557440d25b795e71f8c/raw/2ba5ac238a7ab59b72602c835fe669eec053e15b/pointer-Page-3.svg alt>
 </p>
-<h2 id=mendapatkan-data-dengan-pointer>Mendapatkan data dengan pointer<a hidden class=anchor aria-hidden=true href=#mendapatkan-data-dengan-pointer>#</a></h2>
+<h3 id=mendapatkan-data-dengan-pointer>Mendapatkan data dengan pointer<a hidden class=anchor aria-hidden=true href=#mendapatkan-data-dengan-pointer>#</a></h3>
 <p>Yang menarik adalah, kita bisa mendapatkan data &ldquo;asal&rdquo; hanya dengan menambahkan symbol <code>*</code> di depan nama variabel tersebut.</p>
 <p>Lihat kode berikut:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>agePointer</span>)
@@ -183,7 +183,7 @@ pram
 <p><img loading=lazy src=https://gist.githubusercontent.com/ynwd/fd867c9b4b92f557440d25b795e71f8c/raw/fe3fc26144da6c34a9ca1623ae9eeb5046c427cb/pointer-Page-2.svg alt>
 </p>
 <p><em>Kode lengkapnya: <a href=https://go.dev/play/p/I8jd-gxbiw1>lihat di sini</a></em></p>
-<h2 id=kegunaan-pointer>Kegunaan pointer<a hidden class=anchor aria-hidden=true href=#kegunaan-pointer>#</a></h2>
+<h3 id=kegunaan-pointer>Kegunaan pointer<a hidden class=anchor aria-hidden=true href=#kegunaan-pointer>#</a></h3>
 <p>Lihat kode berikut:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>people1</span> <span style=color:#a6e22e>People</span>
 <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>people2</span> <span style=color:#a6e22e>People</span>
@@ -197,7 +197,7 @@ pram
 </code></pre></div><p>Di golang, secara default, pengkopian dilakukan secara <em>passed by value</em>. Oleh karena itu, semua variabel diatas akan dibuatkan space dan alamatnya di memori.</p>
 <p>Bayangkan ada ribuan variabel seperti people, akan seperti apa kondisi memorinya? Tentu akan cepat penuh, bukan? Ini akan berakibat lambatnya pemrosesan.</p>
 <p>Nah, karena pointer hanya menyimpan alamat memori, tentu saja ruang yang dipakai untuk menyimpan data tetap minimal.</p>
-<h2 id=kredit-dan-referensi>Kredit dan referensi:<a hidden class=anchor aria-hidden=true href=#kredit-dan-referensi>#</a></h2>
+<h3 id=kredit-dan-referensi>Kredit dan referensi:<a hidden class=anchor aria-hidden=true href=#kredit-dan-referensi>#</a></h3>
 <p><a href=https://codetree.dev/golang-basics/pointers/>Golang Basics - Pointers</a> oleh Soham Kamani</p>
 </div>
 <footer class=post-footer>

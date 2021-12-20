@@ -8,7 +8,7 @@
 <meta name=description content="Memahami interface di golang dan bagaimana cara menggunakannya">
 <meta name=author content="Admin">
 <link rel=canonical href=https://fastro.dev/posts/interface/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.a3caa99476507c86f3ce8ce67bab913bc3cbc6cfa2bd1e674990fcc876bb1ebe.css integrity="sha256-o8qplHZQfIbzzozme6uRO8PLxs+ivR5nSZD8yHa7Hr4=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.ba2c0ea82a637d2a2b6974959dda6c18f96b565aabd392604211d09f2690e79b.css integrity="sha256-uiwOqCpjfSoraXSVndpsGPlrVlqr05JgQhHQnyaQ55s=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://fastro.dev/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://fastro.dev/favicon-16x16.png>
@@ -98,7 +98,7 @@ Interface
 </details>
 </div>
 <div class=post-content><p>Interface sering dipakai di golang. Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang interface dan cara menggunakannya.</p>
-<h2 id=signature>Signature<a hidden class=anchor aria-hidden=true href=#signature>#</a></h2>
+<h3 id=signature>Signature<a hidden class=anchor aria-hidden=true href=#signature>#</a></h3>
 <p>Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah <a href=https://blog.fastro.dev/posts/receiver/index.html#method>method</a>.</p>
 <p>Mencakup:</p>
 <ul>
@@ -120,7 +120,7 @@ Interface
 <li>signature method <code>Add()</code> yang mengembalikan data bertipe <code>int</code></li>
 <li>signature method <code>Scale(s int)</code> yang mengembalikan tipe data void.</li>
 </ul>
-<h2 id=implementasi>Implementasi<a hidden class=anchor aria-hidden=true href=#implementasi>#</a></h2>
+<h3 id=implementasi>Implementasi<a hidden class=anchor aria-hidden=true href=#implementasi>#</a></h3>
 <p>Karena interface hanya mendefinisikan signature saja, kita perlu membuat implementasinya.</p>
 <p>Untuk membuat implementasi Box <code>interface</code>, yang perlu kita lakukan adalah membuat sebuah struct:</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
@@ -136,14 +136,14 @@ Interface
 	<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>y</span> = <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/-eeEFIzk4Xq>lihat di sini</a></em></p>
-<h2 id=instance>Instance<a hidden class=anchor aria-hidden=true href=#instance>#</a></h2>
+<h3 id=instance>Instance<a hidden class=anchor aria-hidden=true href=#instance>#</a></h3>
 <p>Agar implementasi signature-signature di atas bisa digunakan, kita harus membuat <code>instance</code> dari struct tersebut.</p>
 <p>Caranya: buat sebuah fungsi yang return value-nya bertipe <code>Box</code> interface.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewBox</span>(<span style=color:#a6e22e>x</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>) <span style=color:#a6e22e>Box</span> {
 	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>box</span>{<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>}
 }
 </code></pre></div><p>Kita menyebut fungsi tersebut <code>constructor</code>.</p>
-<h2 id=cara-penggunaan>Cara penggunaan<a hidden class=anchor aria-hidden=true href=#cara-penggunaan>#</a></h2>
+<h3 id=cara-penggunaan>Cara penggunaan<a hidden class=anchor aria-hidden=true href=#cara-penggunaan>#</a></h3>
 <p>Untuk memanggil method-method yang sudah di-implementasi di atas, kita tinggal membuat instance menggunakan constructor.</p>
 <p>Setalah instance-nya telah dibuat, kita bisa langsung memanggil method-method-nya.</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
