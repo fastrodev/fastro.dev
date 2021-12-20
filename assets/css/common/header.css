@@ -23,6 +23,7 @@
 
 .logo {
     flex-wrap: inherit;
+    margin-bottom: 5px;
 }
 
 .logo a {
