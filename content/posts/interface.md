@@ -9,7 +9,7 @@ categories: [golang-dasar]
 
 Interface sering dipakai di golang. Catatan ini berisi penjelasan se-*simple* mungkin tentang interface dan cara menggunakannya.
 
-## Signature
+### Signature
 
 Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah [method](https://blog.fastro.dev/posts/receiver/index.html#method).
 
@@ -36,7 +36,7 @@ Di dalamnya ada definisi:
 - signature method `Add()` yang mengembalikan data bertipe `int`
 - signature method `Scale(s int)` yang mengembalikan tipe data void.
 
-## Implementasi
+### Implementasi
 
 Karena interface hanya mendefinisikan signature saja, kita perlu membuat implementasinya.
 
@@ -63,7 +63,7 @@ func (b *box) Scale(s int) {
 
 *Kode lengkapnya: [lihat di sini](https://go.dev/play/p/-eeEFIzk4Xq)*
 
-## Instance
+### Instance
 
 Agar implementasi signature-signature di atas bisa digunakan, kita harus membuat `instance` dari struct tersebut.
 
@@ -77,7 +77,7 @@ func NewBox(x int, y int) Box {
 
 Kita menyebut fungsi tersebut `constructor`.
 
-## Cara penggunaan
+### Cara penggunaan
 
 Untuk memanggil method-method yang sudah di-implementasi di atas, kita tinggal membuat instance menggunakan constructor. 
 

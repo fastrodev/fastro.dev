@@ -11,7 +11,7 @@ Receiver sering sekali dipakai di golang. Catatan ini berisi penjelasan se-*simp
 
 Tapi sebelum membahas `receiver`, kita akan singgung dulu hal yang sangat berkaitan: `function` dan `method`.
 
-## Function
+### Function
 
 Ini adalah contoh sebuah fungsi di golang:
 
@@ -24,7 +24,7 @@ func add(x int, y int) int {
 
 Fungsinya sangat sederhana: **hanya mengembalikan penjumlahan 2 integer.**
 
-## Method
+### Method
 
 Method sebenarnya adalah sebuah [function](#function) juga. Hanya saja ia melekat pada sebuah struct. 
 
@@ -40,7 +40,7 @@ func (v box) add() int {
 }
 ```
 
-## Receiver
+### Receiver
 
 Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi agar melekat padanya. 
 
@@ -66,7 +66,7 @@ func main() {
 
 *Kode lengkapnya: [lihat di sini](https://go.dev/play/p/hiRzW4gE3E7).*
 
-## Pointer receivers
+### Pointer receivers
 
 Seperti telah kita ketahui, pointer dapat kita gunakan untuk mengakses alamat suatu variabel. 
 

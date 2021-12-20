@@ -10,7 +10,7 @@ categories: [golang-dasar]
 
 MongoDB sering dipakai untuk membuat dan menyimpan data di golang. Catatan ini berisi penjelasan se-*simple* mungkin tentang cara setup koneksi ke mongoDB dan membuat query sederhana.
 
-## Persiapan
+### Persiapan
 
 Untuk bisa menyimpan data, harus kita siapkan dulu server mongodb-nya. Daftar *aja* secara gratis di [mongodb atlas](https://www.mongodb.com/cloud/atlas/register). 
 
@@ -21,7 +21,7 @@ Untuk bisa menyimpan data, harus kita siapkan dulu server mongodb-nya. Daftar *a
     ```
 - Jangan lupa untuk [load sample dataset](https://docs.atlas.mongodb.com/sample-data/available-sample-datasets/).
 
-## Awali app dengan go mod
+### Awali app dengan go mod
 
 Bikin folder dan inisialisasi proyek dengan `go mod`.
 
@@ -31,14 +31,14 @@ cd praktikum-mongodb
 go mod init praktikum-mongodb
 ```
 
-## Tambahkan mongodb driver
+### Tambahkan mongodb driver
 
 Gunakan `go get` untuk menambahkan driver mongodb di golang.
 ```shell
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
-## Query ke database
+### Query ke database
 
 Buat file `main.go`. Copy dan paste kode berikut:
 ```go
@@ -83,7 +83,7 @@ func main() {
 	fmt.Printf("%s\n", jsonData)
 }
 ```
-## Jalankan aplikasi
+### Jalankan aplikasi
 Pergi ke terminal dan jalankan aplikasi
 ```shell
 go run main.go
@@ -141,7 +141,7 @@ Hasilnya seperti ini:
 }
 ```
 
-## Praktikum
+### Praktikum
 Clone source code berikut [https://github.com/fastrodev/praktikum-mongodb](https://github.com/fastrodev/praktikum-mongodb):
 ```shell
 git clone https://github.com/fastrodev/praktikum-mongodb.git .

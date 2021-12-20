@@ -52,7 +52,7 @@ Variable `people` di address `0xc00000c030`
 **Yang jadi pertanyaan**:  
 - Bagaimana cara kita mendapatkan `address` variabel-variabel tersebut?
 
-## Cara mendapatkan address
+### Cara mendapatkan address
 Gampang. Tambahkan saja simbol `&` (*address operator*) sebelum nama variabel.
 
 Lihat kode berikut:
@@ -65,7 +65,7 @@ fmt.Printf("%p\n", &people)
 **Yang jadi pertanyaan**:
 - Bagaimana cara kita menyimpan address?
 
-## Tipe data untuk menyimpan address
+### Tipe data untuk menyimpan address
 Nah, inilah kegunaan `pointer`: tipe data yang digunakan untuk penyimpanan address dalam sebuah variabel.  
 
 Cara deklarasinya cukup menambahkan simbol `*` sebelum tipe data.
@@ -111,7 +111,7 @@ Lihat gambar berikut untuk mengetahui secara visual apa yang terjadi di memori:
 ![](https://gist.githubusercontent.com/ynwd/fd867c9b4b92f557440d25b795e71f8c/raw/2ba5ac238a7ab59b72602c835fe669eec053e15b/pointer-Page-3.svg)
 
 
-## Mendapatkan data dengan pointer
+### Mendapatkan data dengan pointer
 Yang menarik adalah, kita bisa mendapatkan data "asal" hanya dengan menambahkan symbol `*` di depan nama variabel tersebut.
 
 Lihat kode berikut:
@@ -134,7 +134,7 @@ Lihat gambar berikut:
 
 *Kode lengkapnya: [lihat di sini](https://go.dev/play/p/I8jd-gxbiw1)*
 
-## Kegunaan pointer
+### Kegunaan pointer
 
 Lihat kode berikut:
 
@@ -156,5 +156,5 @@ Bayangkan ada ribuan variabel seperti people, akan seperti apa kondisi memorinya
 
 Nah, karena pointer hanya menyimpan alamat memori, tentu saja ruang yang dipakai untuk menyimpan data tetap minimal.
 
-## Kredit dan referensi:
+### Kredit dan referensi:
 [Golang Basics - Pointers](https://codetree.dev/golang-basics/pointers/) oleh Soham Kamani

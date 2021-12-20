@@ -15,19 +15,19 @@ Dan sebagai persiapan:
 - [install go](https://go.dev/doc/install).
 - siapkan terminal favoritmu.
 
-## Buat folder
+### Buat folder
 Buka terminal dan masuk ke sembarang direktori.
 ```shell
 mkdir app
 ```
 `app` bisa kita ganti dengan apapun.
 
-## Masuk ke folder
+### Masuk ke folder
 ```shell
 cd app
 ```
 
-## Buat inisialisasi modul
+### Buat inisialisasi modul
 ```shell
 go mod init app
 ```
@@ -37,7 +37,7 @@ Tapi sebenarnya kita bisa ganti dengan apapun.
 
 Misalnya: `github.com/fastrodev/app`
 
-## Buat file entry point
+### Buat file entry point
 ```shell
 touch main.go
 ```
@@ -47,7 +47,7 @@ Tapi kita bisa ganti dengan apapun.
 
 Misalnya: `app.go`
 
-## Copy dan paste
+### Copy dan paste
 Salin dan tempel kode berikut pada `main.go`.
 ```go
 package main
@@ -59,7 +59,7 @@ func main() {
 }
 ```
 
-## Jalankan aplikasi
+### Jalankan aplikasi
 ```shell
 go run main.go
 ```
@@ -70,7 +70,7 @@ Jika kode di atas kita jalankan, di terminal akan tercetak text seperti ini:
 Hello, 世界
 ```
 
-## Praktikum
+### Praktikum
 
 Clone source code berikut [https://github.com/fastrodev/praktikum-module](https://github.com/fastrodev/praktikum-module):
 ```shell
