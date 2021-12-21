@@ -99,10 +99,11 @@ fmt.Printf("%s\n", jsonData)
 
 Pada kode di atas, kita membuat instance koleksi dari database `sample_mflix` dan koleksi `movies`. 
 
-Lalu membuat query untuk mendapatkan data dengan method `FindOne`.
+Kita lalu membuat query untuk mendapatkan data melalui method `FindOne` dengan  `bson.D{{"title", title}}` sebagai filternya.
 
-Hasilnya lalu diolah dengan method `MarshalIndent` agar bisa ditampilkan dalam bentuk json.
+Hasilnya kemudian diolah dengan method `MarshalIndent` agar bisa ditampilkan dalam bentuk json.
 
+*Oya*, kita selalu menangkap dan mengolah err agar setiap terjadi kesalahan, kita bisa tahu detailnya.
 
 ### Jalankan aplikasi
 Pergi ke terminal dan jalankan aplikasi
