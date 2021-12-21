@@ -42,7 +42,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Career development blog"
+    description: "Fastro is a career & self development website. Contains notes about: cloud, docker, forex, golang, javascript, kubernetes, react, serverless"
     author: Admin
     # author: ["Me", "You"] # multiple authors
 
@@ -79,8 +79,8 @@ params:
 
     label:
         text: "Fastro"
-        icon: ""
-        iconHeight: 30
+        icon: "https://gist.githubusercontent.com/ynwd/cbbb39732a409bb4c742c229a887a9ac/raw/d78388ae7a5fbb29ad56998d0f444919d2f0b44f/logo.svg"
+        iconHeight: 28
 
     # analytics:
     #     google:
