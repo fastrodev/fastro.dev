@@ -38,58 +38,79 @@ Gunakan `go get` untuk menambahkan driver mongodb di golang.
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
-### Query ke database
-
-Buat file `main.go`. Copy dan paste kode berikut:
+### Buat fungsi main
+Buat fungsi `main` kosongan. Dan import driver mongodb.
 ```go
 package main
 
 import (
-	"context"
-	"encoding/json"
-	"fmt"
-
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func main() {
-	uri := "mongodb+srv://admin:admin@cluster0.u16np.mongodb.net"
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
-	if err != nil {
-		panic(err)
-	}
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
-	coll := client.Database("sample_mflix").Collection("movies")
-	title := "Back to the Future"
-	var result bson.M
-	err = coll.FindOne(context.TODO(), bson.D{{"title", title}}).Decode(&result)
-	if err == mongo.ErrNoDocuments {
-		fmt.Printf("No document was found with the title %s\n", title)
-		return
-	}
-	if err != nil {
-		panic(err)
-	}
-	jsonData, err := json.MarshalIndent(result, "", "    ")
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("%s\n", jsonData)
-}
+func main() {}
 ```
+
+### Buat dan putus koneksi
+Di dalam fungsi main, tambahkan kode berikut:
+```go
+uri := "mongodb+srv://admin:admin@cluster0.u16np.mongodb.net"
+client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+if err != nil {
+    panic(err)
+}
+defer func() {
+    if err := client.Disconnect(context.TODO()); err != nil {
+        panic(err)
+    }
+}()
+```
+Pada kode di atas, kita membuat koneksi ke mongodb server dengan method `Connect`. 
+
+Lalu kita memanggil `defer` agar ketika fungsi `main` selesai, koneksi ke mongodb diputus dengan method `Disconnect`.
+
+> *Sebagai catatan: fungsi yang dideklarasikan setelah `defer` tidak akan dijalankan hingga fungsi utama selesai. Informasi lanjut bisa diakses di sini: [https://go.dev/tour/flowcontrol/12](https://go.dev/tour/flowcontrol/12)*
+
+### Query ke database
+Tambahkan kode berikut untuk membuat query sederhana.
+```go
+coll := client.Database("sample_mflix").Collection("movies")
+title := "Back to the Future"
+var result bson.M
+
+err = coll.FindOne(context.TODO(), bson.D{{"title", title}}).Decode(&result)
+if err == mongo.ErrNoDocuments {
+    fmt.Printf("No document was found with the title %s\n", title)
+    return
+}
+if err != nil {
+    panic(err)
+}
+
+jsonData, err := json.MarshalIndent(result, "", "    ")
+if err != nil {
+    panic(err)
+}
+
+fmt.Printf("%s\n", jsonData)
+```
+*Kode lengkapnya: [lihat di sini](https://gist.github.com/ynwd/0d1454fd137ef6f8526f32ee84d35166)*
+
+Pada kode di atas, kita membuat instance koleksi dari database `sample_mflix` dan koleksi `movies`. 
+
+Lalu membuat query untuk mendapatkan data dengan method `FindOne`.
+
+Hasilnya lalu diolah dengan method `MarshalIndent` agar bisa ditampilkan dalam bentuk json.
+
+
 ### Jalankan aplikasi
 Pergi ke terminal dan jalankan aplikasi
 ```shell
 go run main.go
 ```
 Hasilnya seperti ini:
-```json
+```shell
 {
     "_id": "573a1398f29313caabce9682",
     "awards": {
