@@ -103,7 +103,7 @@ Kita lalu membuat query untuk mendapatkan data melalui method `FindOne` dengan  
 
 Hasilnya kemudian diolah dengan method `MarshalIndent` agar bisa ditampilkan dalam bentuk json.
 
-*Oya*, kita selalu menangkap dan mengolah err agar setiap terjadi kesalahan, kita bisa tahu detailnya.
+*Oya*, kita selalu menangkap dan mengolah variabel `err` agar setiap terjadi kesalahan, kita bisa tahu detailnya.
 
 ### Jalankan aplikasi
 Pergi ke terminal dan jalankan aplikasi
