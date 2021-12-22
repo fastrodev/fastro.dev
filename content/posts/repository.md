@@ -124,6 +124,15 @@ func main() {
 ```
 *Kode selengkapnya: [lihat di sini](https://github.com/fastrodev/praktikum-repository/blob/main/main.go)*
 
+### Jalankan aplikasi
+```
+go run main.go
+```
+Hasilnya:
+```shell
+Inserted document with _id: ObjectID("61c2a3725e07b8c3ffb1e832")
+```
+
 ### Praktikum
 Clone source code berikut [https://github.com/fastrodev/praktikum-repository](https://github.com/fastrodev/praktikum-repository):
 ```shell
