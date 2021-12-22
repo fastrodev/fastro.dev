@@ -39,23 +39,13 @@ type repository struct {
 ### CRUD method
 Berikut ini adalah detail fungsi-fungsi CRUD yang menempel pada repository
 ```go
-
 func (r *repository) createBook(book Book) (*mongo.InsertOneResult, error) {
 	return r.coll.InsertOne(context.TODO(), book)
 }
 
-func (r *repository) readBook(id interface{}) ([]byte, error) {
-	var result bson.M
+func (r *repository) readBook(id interface{}) *mongo.SingleResult {
 	filter := bson.M{"_id": id}
-	err := r.coll.FindOne(context.TODO(), filter).Decode(&result)
-	if err != nil {
-		return nil, err
-	}
-	jsonData, err := json.MarshalIndent(result, "", "    ")
-	if err != nil {
-		return nil, err
-	}
-	return jsonData, nil
+	return r.coll.FindOne(context.TODO(), filter)
 }
 
 func (r *repository) updateBook(id interface{}, book Book) (*mongo.UpdateResult, error) {
