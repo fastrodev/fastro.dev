@@ -139,4 +139,9 @@ Clone source code berikut [https://github.com/fastrodev/praktikum-repository](ht
 git clone https://github.com/fastrodev/praktikum-repository .
 ```
 
+Download modul-modul
+```
+go mod tidy
+```
+
 Jalankan aplikasi [seperti di atas](#jalankan-aplikasi).
