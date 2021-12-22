@@ -85,6 +85,8 @@ Pada kode di atas, property koleksi `coll` kita inject dengan instance `client` 
 
 Variabel-variabel di atas akan kita isi dari fungsi `main`.
 
+> *Catatan: perhatikan bahwa return dari fungsi `createBookRepository` ini berupa pointer sehingga hanya mengembalikan alamat di memori. Baca lagi catatan tentang [pointer](/posts/pointer).*
+
 ### Penggunaan repository
 Setelah repository kita buat, kita tinggal panggil method-method yang dibutuhkan.
 ```go
