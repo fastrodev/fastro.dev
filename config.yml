@@ -42,7 +42,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Fastro is an open source career development blog. Contains notes about: cloud, docker, forex, golang, javascript, kubernetes, react, serverless"
+    description: "Fastro is an open source blog. Contains notes about: cloud, docker, forex, golang, javascript, kubernetes, react, serverless"
     author: Admin
     # author: ["Me", "You"] # multiple authors
 
@@ -61,7 +61,7 @@ params:
     images: ["seo.png"]
 
     homeInfoParams:
-        Title: "Open source career development blog"
+        Title: "Open source blog"
         Content: >
             Blog ini berisi semua catatan-catatan, namun tidak terbatas, tentang:  cloud, docker, forex, golang, javascript, kubernetes, react, serverless. 
             *Submit* [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) [berbasis markdown](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github) ke [repository](https://github.com/ynwd/ynwd.github.io) jika *nemu* salah ketik atau punya ide-ide baru.
