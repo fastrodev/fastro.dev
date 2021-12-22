@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Dec 2021 05:00:47 +0700</lastBuildDate><atom:link href="https://fastro.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Repository</title>
+      <link>https://fastro.dev/posts/repository/</link>
+      <pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fastro.dev/posts/repository/</guid>
+      <description>Cara membuat mongodb crud (create read update delete) di golang dengan repository</description>
+    </item>
+    
     <item>
       <title>Mongodb quickstart</title>
       <link>https://fastro.dev/posts/mongodb/</link>
