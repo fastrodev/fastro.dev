@@ -83,7 +83,7 @@ func createBookRepository(uri, db, col string) *repository {
 ```
 Pada kode di atas, property koleksi `coll` kita inject dengan instance `client` yang terhubung dengan server `uri`, database `db`, dan koleksi data `col`.
 
-Variabel-variabel diatas akan kita isi dari fungsi `main`.
+Variabel-variabel di atas akan kita isi dari fungsi `main`.
 
 ### Penggunaan repository
 Setelah repository kita buat, kita tinggal panggil method-method yang dibutuhkan.
