@@ -61,9 +61,10 @@ params:
     images: ["seo.png"]
 
     homeInfoParams:
-        Title: "Jika bisa gratis belajar, ngapain bayar?"
+        Title: "Career and self development blog"
         Content: >
-            Blog ini berisi semua catatan-catatan terkait namun tidak terbatas pada:  cloud, docker, forex, golang, javascript, kubernetes, react, serverless. *Submit* [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) [berbasis markdown](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github) ke [repository](https://github.com/ynwd/ynwd.github.io) jika *nemu* salah ketik atau punya ide.
+            Blog ini berisi semua catatan-catatan namun tidak terbatas pada:  cloud, docker, forex, golang, javascript, kubernetes, react, serverless. 
+            *Submit* [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) [berbasis markdown](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github) ke [repository](https://github.com/ynwd/ynwd.github.io) jika *nemu* salah ketik atau punya ide-ide baru.
     socialIcons:
         - name: github
           url: "https://github.com/fastrodev/fastrodev.github.io"
