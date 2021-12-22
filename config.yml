@@ -42,7 +42,7 @@ outputs:
 
 params:
     env: production # to enable google analytics, opengraph, twitter-cards and schema.
-    description: "Fastro is a career & self development website. Contains notes about: cloud, docker, forex, golang, javascript, kubernetes, react, serverless"
+    description: "Fastro is a career & self development blog. Contains notes about: cloud, docker, forex, golang, javascript, kubernetes, react, serverless"
     author: Admin
     # author: ["Me", "You"] # multiple authors
 
