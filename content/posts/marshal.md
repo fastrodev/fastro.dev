@@ -3,7 +3,7 @@ title: "Marshal"
 date: 2021-12-23
 authors: ["Admin"]
 summary: "Memahami marshal dan unmarshal di golang dan cara menggunakannya di mongodb"
-draft: true
+draft: false
 tags: [go,mongo]
 categories: [golang-dasar]
 ---
