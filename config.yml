@@ -63,7 +63,7 @@ params:
     homeInfoParams:
         Title: "Open source notes"
         Content: >
-            *Monggo submit aja [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)* jika *nemu* salah ketik atau punya ide baru.
+            Monggo, bikin *[pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)* aja kalo nemu salah ketik atau punya ide baru.
     socialIcons:
         - name: github
           url: https://github.com/fastrodev
@@ -73,6 +73,8 @@ params:
           url: https://www.youtube.com/channel/UCOx6BLqBZxEO51UuWJEeyhw
         - name: linkedin
           url: https://www.linkedin.com/company/fastro
+        - name: email
+          url: mailto:hello@fastro.dev
         - name: rss
           url: "index.xml"
 
