@@ -45,33 +45,6 @@
             {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
             {{- if .Site.Title }}
             <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                {{- if .Site.Params.label.icon }}
-                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                    height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
-                {{- end -}}
-                {{- $label_text -}}
-            </a>
-            {{- end }}
-        </div>
-        {{- $currentPage := . }}
-        <ul id="menu">
-            {{- range .Site.Menus.main }}
-            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            {{- $page_url:= $currentPage.Permalink | absLangURL }}
-            {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
-            <li>
-                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)"
-                    | safeHTMLAttr) ("" | safeHTMLAttr ) }}" {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" |
-                    safeHTMLAttr ) }}>
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
-                        {{- .Pre }}
-                        {{- .Name -}}
-                        {{ .Post -}}
-                    </span>
-                </a>
-            </li>
-            {{- end }}
-            <li>
                 <span class="logo-switches">
                     {{- if (not .Site.Params.disableThemeToggle) }}
                     <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -119,7 +92,32 @@
                     </ul>
                     {{- end }}
                 </span>
+                <!-- {{- if .Site.Params.label.icon }}
+                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
+                    height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
+                {{- end -}} -->
+                {{- $label_text -}}
+            </a>
+            {{- end }}
+        </div>
+        {{- $currentPage := . }}
+        <ul id="menu">
+            {{- range .Site.Menus.main }}
+            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
+            {{- $page_url:= $currentPage.Permalink | absLangURL }}
+            {{- $is_search := eq ($.Site.GetPage .KeyName).Layout `search` }}
+            <li>
+                <a href="{{ .URL | absLangURL }}" title="{{ .Title | default .Name }} {{- cond $is_search (" (Alt + /)"
+                    | safeHTMLAttr) ("" | safeHTMLAttr ) }}" {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" |
+                    safeHTMLAttr ) }}>
+                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                        {{- .Pre }}
+                        {{- .Name -}}
+                        {{ .Post -}}
+                    </span>
+                </a>
             </li>
+            {{- end }}
         </ul>
     </nav>
 </header>

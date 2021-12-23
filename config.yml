@@ -63,7 +63,7 @@ params:
     homeInfoParams:
         Title: "Open source blog"
         Content: >
-            *Monggo submit aja [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)* jika *nemu* salah ketik atau punya ide-ide baru.
+            *Monggo submit aja [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)* jika *nemu* salah ketik atau punya ide baru.
     socialIcons:
         - name: github
           url: https://github.com/fastrodev
@@ -115,6 +115,7 @@ taxonomies:
     category: categories
     tag: tags
     series: series
+    author: authors
 
 markup:
     goldmark:
