@@ -80,7 +80,7 @@ Jika kita jalankan, `docByte` akan tampil seperti ini:
 [100 0 0 0 7 95 105 100 0 97 195 183 184 108 56 136 31 173 218 187 131 2 116 105 116 108 101 0 13 0 0 0 66 117 109 105 32 109 97 110 117 115 105 97 0 2 97 117 116 104 111 114 0 22 0 0 0 80 114 97 109 111 101 100 121 97 32 65 110 97 110 116 97 32 84 111 101 114 0 16 121 101 97 114 95 112 117 98 108 105 115 104 101 100 0 188 7 0 0 0]
 ```
 ### Unmarshal
-Setelah menjadi `[]byte`, variabel `docByte` akan kita ubah menjadi struct. Fungsi yang berguna untuk tujuan itu adalah `Unmarshal`.
+Setelah menjadi `[]byte`, variabel `docByte` akan kita ubah menjadi struct `Book`. Fungsi yang berguna untuk tujuan itu adalah `Unmarshal`.
 ```go
 func (r *repository) readBook(id interface{}) (*Book, error) {
 	filter := bson.M{"_id": id}
