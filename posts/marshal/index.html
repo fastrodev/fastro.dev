@@ -108,106 +108,106 @@ Marshal
 <div class=post-content><p><code>Marshal</code> dan <code>Unmarshal</code> sering dipakai untuk mengolah data di golang. Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang marshal-unmarshal dan cara menggunakannya di mongodb.</p>
 <h3 id=pendahuluan>Pendahuluan<a hidden class=anchor aria-hidden=true href=#pendahuluan>#</a></h3>
 <p>Pada <a href=/posts/repository>catatan sebelumnya</a> kita telah membuat crud. Kalau kita jalankan hasilnya, return dari method <a href=https://github.com/fastrodev/praktikum-repository/blob/2c985f11a3aa23d807b9693206f741dbfe3bb8aa/main.go#L36><code>readBook</code></a> masih seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&amp;{&lt;nil&gt; 0xc00040e180 [] 0xc00013abd0}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>&amp;{&lt;nil&gt; 0xc00040e180 [] 0xc00013abd0}
 </code></pre></div><p>Karena return valuenya masih berupa pointer, yang tampil adalah alamat memori data itu berada.</p>
 <p>Yang jadi pertanyaan: bagaimana cara kita menampilkan data yang lebih bisa dibaca <em>(readable)</em>?</p>
 <h3 id=ubah-signature>Ubah signature<a hidden class=anchor aria-hidden=true href=#ubah-signature>#</a></h3>
 <p>Format return value yang menurut kita ideal adalah struct. Karena dengan struct, akan dengan mudah diubah ke format lain.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>repository</span>) <span style=color:#a6e22e>readBook</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>interface</span>{}) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Book</span>, <span style=color:#66d9ef>error</span>) {
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#66d9ef>nil</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> (r *repository) readBook(id <span style=color:#fff;font-weight:700>interface</span>{}) (*Book, <span style=color:#fff;font-weight:700>error</span>) {
+    <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, <span style=color:#fff;font-weight:700>nil</span>
 }
 </code></pre></div><p>Perhatikan, return valuenya berupa pointer struct agar yang diakses nanti adalah alamatnya.</p>
 <h3 id=tambahkan-query-dan-decode>Tambahkan query dan decode<a hidden class=anchor aria-hidden=true href=#tambahkan-query-dan-decode>#</a></h3>
 <p>Kita tambahkan method <code>Decode</code> yang akan menyimpan hasilnya di variabel <code>result</code>.</p>
 <p>Ingat, variabel ini bertipe <code>bson.D</code> agar bisa kita proses dengan fungsi <code>Marshal</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>repository</span>) <span style=color:#a6e22e>readBook</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>interface</span>{}) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Book</span>, <span style=color:#66d9ef>error</span>) {
-    <span style=color:#a6e22e>filter</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>M</span>{<span style=color:#e6db74>&#34;_id&#34;</span>: <span style=color:#a6e22e>id</span>}
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>result</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>D</span>
-	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>coll</span>.<span style=color:#a6e22e>FindOne</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>TODO</span>(), <span style=color:#a6e22e>filter</span>).<span style=color:#a6e22e>Decode</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>result</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> (r *repository) readBook(id <span style=color:#fff;font-weight:700>interface</span>{}) (*Book, <span style=color:#fff;font-weight:700>error</span>) {
+    filter := bson.M{<span style=color:#0ff;font-weight:700>&#34;_id&#34;</span>: id}
+	<span style=color:#fff;font-weight:700>var</span> result bson.D
+	err := r.coll.FindOne(context.TODO(), filter).Decode(&amp;result)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, err
 	}
-    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>result</span>)
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#66d9ef>nil</span>
+    fmt.Println(result)
+    <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, <span style=color:#fff;font-weight:700>nil</span>
 }
 </code></pre></div><p>Ada juga fungsi <code>Println</code> untuk menampilkan hasil method <code>Decode</code>. Jika kita jalankan, hasilnya kurang lebih seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>[{_id ObjectID(&#34;61c3b3e004b93f7df512035c&#34;)} {title Invisible Cities} {author Italo Calvino} {year_published 1974}]
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>[{_id ObjectID(&#34;61c3b3e004b93f7df512035c&#34;)} {title Invisible Cities} {author Italo Calvino} {year_published 1974}]
 </code></pre></div><h3 id=marshal>Marshal<a hidden class=anchor aria-hidden=true href=#marshal>#</a></h3>
 <p>Variabel <code>result</code> masih berbentuk bson. Sudah bisa dibaca, sih. Tapi formatnya masih belum sesuai dengan signature yang sudah kita tentukan.</p>
 <p>Marshal, berguna <em>banget</em> untuk mengubah <code>result</code> menjadi data yang bertipe <code>byte[]</code>. Tipe data terakhir inilah yang nantinya bisa diubah lagi menjadi struct.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>repository</span>) <span style=color:#a6e22e>readBook</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>interface</span>{}) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Book</span>, <span style=color:#66d9ef>error</span>) {
-    <span style=color:#a6e22e>filter</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>M</span>{<span style=color:#e6db74>&#34;_id&#34;</span>: <span style=color:#a6e22e>id</span>}
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>result</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>D</span>
-	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>coll</span>.<span style=color:#a6e22e>FindOne</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>TODO</span>(), <span style=color:#a6e22e>filter</span>).<span style=color:#a6e22e>Decode</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>result</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> (r *repository) readBook(id <span style=color:#fff;font-weight:700>interface</span>{}) (*Book, <span style=color:#fff;font-weight:700>error</span>) {
+    filter := bson.M{<span style=color:#0ff;font-weight:700>&#34;_id&#34;</span>: id}
+	<span style=color:#fff;font-weight:700>var</span> result bson.D
+	err := r.coll.FindOne(context.TODO(), filter).Decode(&amp;result)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, err
 	}
     
-    <span style=color:#a6e22e>docByte</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>Marshal</span>(<span style=color:#a6e22e>result</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+    docByte, err := bson.Marshal(result)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, err
 	}
 
-    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>docByte</span>)
+    fmt.Println(docByte)
     
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#66d9ef>nil</span>
+    <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, <span style=color:#fff;font-weight:700>nil</span>
 }
 </code></pre></div><p>Jika kita jalankan, <code>docByte</code> akan tampil seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>[100 0 0 0 7 95 105 100 0 97 195 183 184 108 56 136 31 173 218 187 131 2 116 105 116 108 101 0 13 0 0 0 66 117 109 105 32 109 97 110 117 115 105 97 0 2 97 117 116 104 111 114 0 22 0 0 0 80 114 97 109 111 101 100 121 97 32 65 110 97 110 116 97 32 84 111 101 114 0 16 121 101 97 114 95 112 117 98 108 105 115 104 101 100 0 188 7 0 0 0]
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>[100 0 0 0 7 95 105 100 0 97 195 183 184 108 56 136 31 173 218 187 131 2 116 105 116 108 101 0 13 0 0 0 66 117 109 105 32 109 97 110 117 115 105 97 0 2 97 117 116 104 111 114 0 22 0 0 0 80 114 97 109 111 101 100 121 97 32 65 110 97 110 116 97 32 84 111 101 114 0 16 121 101 97 114 95 112 117 98 108 105 115 104 101 100 0 188 7 0 0 0]
 </code></pre></div><h3 id=unmarshal>Unmarshal<a hidden class=anchor aria-hidden=true href=#unmarshal>#</a></h3>
 <p>Setelah menjadi <code>[]byte</code>, variabel <code>docByte</code> akan kita ubah menjadi struct. Fungsi yang berguna untuk tujuan itu adalah <code>Unmarshal</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>r</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>repository</span>) <span style=color:#a6e22e>readBook</span>(<span style=color:#a6e22e>id</span> <span style=color:#66d9ef>interface</span>{}) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Book</span>, <span style=color:#66d9ef>error</span>) {
-	<span style=color:#a6e22e>filter</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>M</span>{<span style=color:#e6db74>&#34;_id&#34;</span>: <span style=color:#a6e22e>id</span>}
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>result</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>D</span>
-	<span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>r</span>.<span style=color:#a6e22e>coll</span>.<span style=color:#a6e22e>FindOne</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>TODO</span>(), <span style=color:#a6e22e>filter</span>).<span style=color:#a6e22e>Decode</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>result</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> (r *repository) readBook(id <span style=color:#fff;font-weight:700>interface</span>{}) (*Book, <span style=color:#fff;font-weight:700>error</span>) {
+	filter := bson.M{<span style=color:#0ff;font-weight:700>&#34;_id&#34;</span>: id}
+	<span style=color:#fff;font-weight:700>var</span> result bson.D
+	err := r.coll.FindOne(context.TODO(), filter).Decode(&amp;result)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, err
 	}
 
-	<span style=color:#a6e22e>docByte</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>Marshal</span>(<span style=color:#a6e22e>result</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+	docByte, err := bson.Marshal(result)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, err
 	}
 
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>book</span> <span style=color:#a6e22e>Book</span>
-	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>bson</span>.<span style=color:#a6e22e>Unmarshal</span>(<span style=color:#a6e22e>docByte</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>book</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+	<span style=color:#fff;font-weight:700>var</span> book Book
+	err = bson.Unmarshal(docByte, &amp;book)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nil</span>, err
 	}
 
-    <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>book</span>)
+    fmt.Println(book)
 
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>book</span>, <span style=color:#66d9ef>nil</span>
+	<span style=color:#fff;font-weight:700>return</span> &amp;book, <span style=color:#fff;font-weight:700>nil</span>
 }
 </code></pre></div><p>Kalau kita jalankan, fungsi <code>Println</code> di atas hasilnya akan seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>{ObjectID(&#34;61c3b92981219573cfb48119&#34;) Invisible Cities Italo Calvino 1974}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>{ObjectID(&#34;61c3b92981219573cfb48119&#34;) Invisible Cities Italo Calvino 1974}
 </code></pre></div><h3 id=cara-pemakaian>Cara pemakaian<a hidden class=anchor aria-hidden=true href=#cara-pemakaian>#</a></h3>
 <p>Setelah signature telah kita ganti, cara pemakaian repository di fungsi <code>main</code> perlu kita sesuaikan.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>uri</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;mongodb+srv://admin:admin@cluster0.xtwwu.mongodb.net&#34;</span>
-	<span style=color:#a6e22e>database</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;myDB&#34;</span>
-	<span style=color:#a6e22e>collection</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;favorite_books&#34;</span>
-	<span style=color:#a6e22e>repo</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>createBookRepository</span>(<span style=color:#a6e22e>uri</span>, <span style=color:#a6e22e>database</span>, <span style=color:#a6e22e>collection</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> main() {
+	uri := <span style=color:#0ff;font-weight:700>&#34;mongodb+srv://admin:admin@cluster0.xtwwu.mongodb.net&#34;</span>
+	database := <span style=color:#0ff;font-weight:700>&#34;myDB&#34;</span>
+	collection := <span style=color:#0ff;font-weight:700>&#34;favorite_books&#34;</span>
+	repo := createBookRepository(uri, database, collection)
 
-	<span style=color:#a6e22e>result</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>repo</span>.<span style=color:#a6e22e>createBook</span>(<span style=color:#a6e22e>Book</span>{
-		<span style=color:#a6e22e>Title</span>:  <span style=color:#e6db74>&#34;Invisible Cities&#34;</span>,
-		<span style=color:#a6e22e>Author</span>: <span style=color:#e6db74>&#34;Italo Calvino&#34;</span>,
-		<span style=color:#a6e22e>Year</span>:   <span style=color:#ae81ff>1974</span>,
+	result, err := repo.createBook(Book{
+		Title:  <span style=color:#0ff;font-weight:700>&#34;Invisible Cities&#34;</span>,
+		Author: <span style=color:#0ff;font-weight:700>&#34;Italo Calvino&#34;</span>,
+		Year:   <span style=color:#ff0;font-weight:700>1974</span>,
 	})
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>panic</span>(err)
 	}
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;Inserted document with _id: %v\n&#34;</span>, <span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>ID</span>)
+	fmt.Printf(<span style=color:#0ff;font-weight:700>&#34;Inserted document with _id: %v\n&#34;</span>, result.ID)
 
-    <span style=color:#a6e22e>book</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>repo</span>.<span style=color:#a6e22e>readBook</span>(<span style=color:#a6e22e>result</span>.<span style=color:#a6e22e>ID</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		panic(<span style=color:#a6e22e>err</span>)
+    book, err := repo.readBook(result.ID)
+	<span style=color:#fff;font-weight:700>if</span> err != <span style=color:#fff;font-weight:700>nil</span> {
+		<span style=color:#fff;font-weight:700>panic</span>(err)
 	}
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%v\n&#34;</span>, <span style=color:#f92672>*</span><span style=color:#a6e22e>book</span>)
+	fmt.Printf(<span style=color:#0ff;font-weight:700>&#34;%v\n&#34;</span>, *book)
 }
 </code></pre></div><p><em>Kode selengkapnya: <a href=https://github.com/fastrodev/praktikum-repository/blob/marshal/main.go>lihat di sini</a></em></p>
 <p>Kalau kita jalankan, hasilnya jadi seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Inserted document with _id: ObjectID(&#34;61c3da9bf49dd8380bb17ca0&#34;)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Inserted document with _id: ObjectID(&#34;61c3da9bf49dd8380bb17ca0&#34;)
 {ObjectID(&#34;61c3da9bf49dd8380bb17ca0&#34;) Invisible Cities Italo Calvino 1974}
 </code></pre></div>
 </div>

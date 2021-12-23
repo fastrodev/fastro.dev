@@ -105,76 +105,76 @@ Receiver
 <p>Tapi sebelum membahas <code>receiver</code>, kita akan singgung dulu hal yang sangat berkaitan: <code>function</code> dan <code>method</code>.</p>
 <h3 id=function>Function<a hidden class=anchor aria-hidden=true href=#function>#</a></h3>
 <p>Ini adalah contoh sebuah fungsi di golang:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>x</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>) <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>y</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> add(x <span style=color:#fff;font-weight:700>int</span>, y <span style=color:#fff;font-weight:700>int</span>) <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> x + y
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/dIAgSYqy5vV>lihat di sini</a>.</em></p>
 <p>Fungsinya sangat sederhana: <strong>hanya mengembalikan penjumlahan 2 integer.</strong></p>
 <h3 id=method>Method<a hidden class=anchor aria-hidden=true href=#method>#</a></h3>
 <p>Method sebenarnya adalah sebuah <a href=#function>function</a> juga. Hanya saja ia melekat pada sebuah struct.</p>
 <p>Berikut ini adalah contoh sebuah struct yang <em>ditempelin</em> oleh sebuah method <code>add()</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>type</span> box <span style=color:#fff;font-weight:700>struct</span> {
+	x, y <span style=color:#fff;font-weight:700>int</span>
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>add</span>() <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span>
+<span style=color:#fff;font-weight:700>func</span> (v box) add() <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> v.x + v.y
 }
 </code></pre></div><h3 id=receiver>Receiver<a hidden class=anchor aria-hidden=true href=#receiver>#</a></h3>
 <p>Receiver adalah argumen spesial yang digunakan sebuah struct untuk membuat fungsi agar melekat padanya.</p>
 <p>Tanpa ada receiver, tak ada method.</p>
 <p>Lihat kode method di atas, perhatikan bagian ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>add</span>() <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> (v box) add() <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> v.x + v.y
 }
 </code></pre></div><p>Dalam hal ini, <code>(v box)</code>, adalah receiver.</p>
 <p>Dan dengan adanya receiver, method-method dapat diakses dengan cara seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>v</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>box</span>{<span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>}
-	<span style=color:#a6e22e>result</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>add</span>()
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>result</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> main() {
+	v := box{<span style=color:#ff0;font-weight:700>3</span>, <span style=color:#ff0;font-weight:700>4</span>}
+	result := v.add()
+	fmt.Println(result)
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/hiRzW4gE3E7>lihat di sini</a>.</em></p>
 <h3 id=pointer-receivers>Pointer receivers<a hidden class=anchor aria-hidden=true href=#pointer-receivers>#</a></h3>
 <p>Seperti telah kita ketahui, pointer dapat kita gunakan untuk mengakses alamat suatu variabel.</p>
 <p>Apa yang terjadi jika pointer kita gunakan untuk receiver?</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>type</span> box <span style=color:#fff;font-weight:700>struct</span> {
+	x, y <span style=color:#fff;font-weight:700>int</span>
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>add</span>() <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span>
+<span style=color:#fff;font-weight:700>func</span> (v *box) add() <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> v.x + v.y
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/38KXB4st4QI>lihat di sini</a>.</em></p>
 <p>Ternyata tidak ada yang terjadi.</p>
 <p>Mari tambahkan satu fungsi yang bertujuan untuk mengubah variabel di dalam struct.</p>
 <p><em>Kita tidak pakai pointer dulu, ya. Biar tahu apa bedanya.</em></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>type</span> box <span style=color:#fff;font-weight:700>struct</span> {
+	x, y <span style=color:#fff;font-weight:700>int</span>
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>add</span>() <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span>
+<span style=color:#fff;font-weight:700>func</span> (v box) add() <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> v.x + v.y
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>scale</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> = <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
-	<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span> = <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
+<span style=color:#fff;font-weight:700>func</span> (v box) scale(s <span style=color:#fff;font-weight:700>int</span>) {
+	v.x = v.x * s
+	v.y = v.y * s
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/2LgXSApzdeA>lihat di sini</a>.</em></p>
 <p>Ternyata tidak ada yang terjadi. Variabel x dan y dalam fungsi scale hanya menerima copi-an datanya saja. Nilai variabel dalam struct-nya sendiri tidak berubah.</p>
 <p>Mari kita ganti spesial argumen di atas menggunakan pointer.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>type</span> box <span style=color:#fff;font-weight:700>struct</span> {
+	x, y <span style=color:#fff;font-weight:700>int</span>
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>add</span>() <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span>
+<span style=color:#fff;font-weight:700>func</span> (v *box) add() <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> v.x + v.y
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>v</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>scale</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> = <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
-	<span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span> = <span style=color:#a6e22e>v</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
+<span style=color:#fff;font-weight:700>func</span> (v *box) scale(s <span style=color:#fff;font-weight:700>int</span>) {
+	v.x = v.x * s
+	v.y = v.y * s
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/7JAl5MVaAh2>lihat di sini</a>.</em></p>
 <p>Ternyata hasilnya berubah. Variabel x dan y dalam pointer telah sukses diganti oleh method <code>scale</code>.</p>

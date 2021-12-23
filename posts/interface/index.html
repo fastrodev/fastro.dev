@@ -111,11 +111,11 @@ Interface
 </ul>
 <p>Nah, interface adalah <strong>tipe data</strong> yang berisi satu atau beberapa <em>method signature.</em></p>
 <p>Contoh:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>package</span> main
 
-<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Box</span> <span style=color:#66d9ef>interface</span> {
-	<span style=color:#a6e22e>Add</span>() <span style=color:#66d9ef>int</span>
-	<span style=color:#a6e22e>Scale</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>int</span>)
+<span style=color:#fff;font-weight:700>type</span> Box <span style=color:#fff;font-weight:700>interface</span> {
+	Add() <span style=color:#fff;font-weight:700>int</span>
+	Scale(s <span style=color:#fff;font-weight:700>int</span>)
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/hlZOyBr9rMm>lihat di sini</a></em></p>
 <p>Pada kode diatas, kita buat sebuah interface bernama Box.</p>
@@ -127,34 +127,34 @@ Interface
 <h3 id=implementasi>Implementasi<a hidden class=anchor aria-hidden=true href=#implementasi>#</a></h3>
 <p>Karena interface hanya mendefinisikan signature saja, kita perlu membuat implementasinya.</p>
 <p>Untuk membuat implementasi Box <code>interface</code>, yang perlu kita lakukan adalah membuat sebuah struct:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>box</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>type</span> box <span style=color:#fff;font-weight:700>struct</span> {
+	x, y <span style=color:#fff;font-weight:700>int</span>
 }
 </code></pre></div><p>Lalu menambahkan <code>method</code> yang signature-nya sama dengan apa yang telah didefinisikan di <code>interface</code>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>b</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>Add</span>() <span style=color:#66d9ef>int</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>y</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> (b *box) Add() <span style=color:#fff;font-weight:700>int</span> {
+	<span style=color:#fff;font-weight:700>return</span> b.x + b.y
 }
 
-<span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>b</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>box</span>) <span style=color:#a6e22e>Scale</span>(<span style=color:#a6e22e>s</span> <span style=color:#66d9ef>int</span>) {
-	<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>x</span> = <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
-	<span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>y</span> = <span style=color:#a6e22e>b</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>s</span>
+<span style=color:#fff;font-weight:700>func</span> (b *box) Scale(s <span style=color:#fff;font-weight:700>int</span>) {
+	b.x = b.x * s
+	b.y = b.y * s
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/-eeEFIzk4Xq>lihat di sini</a></em></p>
 <h3 id=instance>Instance<a hidden class=anchor aria-hidden=true href=#instance>#</a></h3>
 <p>Agar implementasi signature-signature di atas bisa digunakan, kita harus membuat <code>instance</code> dari struct tersebut.</p>
 <p>Caranya: buat sebuah fungsi yang return value-nya bertipe <code>Box</code> interface.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewBox</span>(<span style=color:#a6e22e>x</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>y</span> <span style=color:#66d9ef>int</span>) <span style=color:#a6e22e>Box</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>box</span>{<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>y</span>}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> NewBox(x <span style=color:#fff;font-weight:700>int</span>, y <span style=color:#fff;font-weight:700>int</span>) Box {
+	<span style=color:#fff;font-weight:700>return</span> &amp;box{x, y}
 }
 </code></pre></div><p>Kita menyebut fungsi tersebut <code>constructor</code>.</p>
 <h3 id=cara-penggunaan>Cara penggunaan<a hidden class=anchor aria-hidden=true href=#cara-penggunaan>#</a></h3>
 <p>Untuk memanggil method-method yang sudah di-implementasi di atas, kita tinggal membuat instance menggunakan constructor.</p>
 <p>Setalah instance-nya telah dibuat, kita bisa langsung memanggil method-method-nya.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>box</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>NewBox</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>)
-	<span style=color:#a6e22e>box</span>.<span style=color:#a6e22e>Scale</span>(<span style=color:#ae81ff>2</span>)
-	<span style=color:#a6e22e>result</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>box</span>.<span style=color:#a6e22e>Add</span>()
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>result</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>func</span> main() {
+	box := NewBox(<span style=color:#ff0;font-weight:700>1</span>, <span style=color:#ff0;font-weight:700>2</span>)
+	box.Scale(<span style=color:#ff0;font-weight:700>2</span>)
+	result := box.Add()
+	fmt.Println(result)
 }
 </code></pre></div><p><em>Kode lengkapnya: <a href=https://go.dev/play/p/LV9g64joB7X>lihat di sini</a></em></p>
 </div>

@@ -34,7 +34,7 @@
 <meta name=twitter:title content="Module">
 <meta name=twitter:description content="Cara bikin aplikasi hello world di golang dari awal banget">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://fastro.dev/posts/"},{"@type":"ListItem","position":3,"name":"Module","item":"https://fastro.dev/posts/module/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Module","name":"Module","description":"Cara bikin aplikasi hello world di golang dari awal banget","keywords":["go"],"articleBody":"Catatan ini berisi penjelasan se-simple mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.\nDan sebagai persiapan:\n install go. siapkan terminal favoritmu.  Buat folder Buka terminal dan masuk ke sembarang direktori.\nmkdir app app bisa kita ganti dengan apapun.\nMasuk ke folder cd app Buat inisialisasi modul go mod init app Di sini, go mod init adalalah perintah untuk membuat module dari golang. Sedangkan app adalah nama modul.\nTapi sebenarnya kita bisa ganti dengan apapun.\nMisalnya: github.com/fastrodev/app\nBuat file entry point touch main.go Pada umumnya, file entry point di golang bernama main.go.\nTapi kita bisa ganti dengan apapun.\nMisalnya: app.go\nCopy dan paste Salin dan tempel kode berikut pada main.go.\npackage main import \"fmt\" func main() { fmt.Println(\"Hello, 世界\") } Jalankan aplikasi go run main.go Hasil Jika kode di atas kita jalankan, di terminal akan tercetak text seperti ini:\nHello, 世界 Praktikum Clone source code berikut https://github.com/fastrodev/praktikum-module:\ngit clone https://github.com/fastrodev/praktikum-module.git . Jalankan aplikasi seperti di atas.\n","wordCount":"159","inLanguage":"en","datePublished":"2021-12-16T05:00:47+07:00","dateModified":"2021-12-16T05:00:47+07:00","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastro.dev/posts/module/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://fastro.dev/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Module","name":"Module","description":"Cara bikin aplikasi hello world di golang dari awal banget","keywords":["go"],"articleBody":"Catatan ini berisi penjelasan se-simple mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.\nPersiapan:\n install go. siapkan terminal favoritmu.  Buat folder Buka terminal dan masuk ke sembarang direktori.\nmkdir app app bisa kita ganti dengan apapun.\nMasuk ke folder cd app Buat inisialisasi modul go mod init app Di sini, go mod init adalalah perintah untuk membuat module dari golang. Sedangkan app adalah nama modul.\nTapi sebenarnya kita bisa ganti dengan apapun.\nMisalnya: github.com/fastrodev/app\nBuat file entry point touch main.go Pada umumnya, file entry point di golang bernama main.go.\nTapi kita bisa ganti dengan apapun.\nMisalnya: app.go\nCopy dan paste Salin dan tempel kode berikut pada main.go.\npackage main import \"fmt\" func main() { fmt.Println(\"Hello, 世界\") } Jalankan aplikasi go run main.go Hasil Jika kode di atas kita jalankan, di terminal akan tercetak text seperti ini:\nHello, 世界 Praktikum Clone source code berikut https://github.com/fastrodev/praktikum-module:\ngit clone https://github.com/fastrodev/praktikum-module.git . Jalankan aplikasi seperti di atas.\n","wordCount":"157","inLanguage":"en","datePublished":"2021-12-16T05:00:47+07:00","dateModified":"2021-12-16T05:00:47+07:00","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastro.dev/posts/module/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://fastro.dev/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -110,44 +110,44 @@ Module
 </details>
 </div>
 <div class=post-content><p>Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.</p>
-<p>Dan sebagai persiapan:</p>
+<p>Persiapan:</p>
 <ul>
 <li><a href=https://go.dev/doc/install>install go</a>.</li>
 <li>siapkan terminal favoritmu.</li>
 </ul>
 <h3 id=buat-folder>Buat folder<a hidden class=anchor aria-hidden=true href=#buat-folder>#</a></h3>
 <p>Buka terminal dan masuk ke sembarang direktori.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>mkdir app
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mkdir app
 </code></pre></div><p><code>app</code> bisa kita ganti dengan apapun.</p>
 <h3 id=masuk-ke-folder>Masuk ke folder<a hidden class=anchor aria-hidden=true href=#masuk-ke-folder>#</a></h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd app
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>cd app
 </code></pre></div><h3 id=buat-inisialisasi-modul>Buat inisialisasi modul<a hidden class=anchor aria-hidden=true href=#buat-inisialisasi-modul>#</a></h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go mod init app
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go mod init app
 </code></pre></div><p>Di sini, <code>go mod init</code> adalalah perintah untuk membuat module dari golang. Sedangkan <code>app</code> adalah nama modul.</p>
 <p>Tapi sebenarnya kita bisa ganti dengan apapun.</p>
 <p>Misalnya: <code>github.com/fastrodev/app</code></p>
 <h3 id=buat-file-entry-point>Buat file entry point<a hidden class=anchor aria-hidden=true href=#buat-file-entry-point>#</a></h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>touch main.go
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>touch main.go
 </code></pre></div><p>Pada umumnya, file entry point di golang bernama <code>main.go</code>.</p>
 <p>Tapi kita bisa ganti dengan apapun.</p>
 <p>Misalnya: <code>app.go</code></p>
 <h3 id=copy-dan-paste>Copy dan paste<a hidden class=anchor aria-hidden=true href=#copy-dan-paste>#</a></h3>
 <p>Salin dan tempel kode berikut pada <code>main.go</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>package</span> main
 
-<span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+<span style=color:#fff;font-weight:700>import</span> <span style=color:#0ff;font-weight:700>&#34;fmt&#34;</span>
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Hello, 世界&#34;</span>)
+<span style=color:#fff;font-weight:700>func</span> main() {
+	fmt.Println(<span style=color:#0ff;font-weight:700>&#34;Hello, 世界&#34;</span>)
 }
 </code></pre></div><h3 id=jalankan-aplikasi>Jalankan aplikasi<a hidden class=anchor aria-hidden=true href=#jalankan-aplikasi>#</a></h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go run main.go
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go run main.go
 </code></pre></div><h3 id=hasil>Hasil<a hidden class=anchor aria-hidden=true href=#hasil>#</a></h3>
 <p>Jika kode di atas kita jalankan, di terminal akan tercetak text seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>Hello, 世界
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Hello, 世界
 </code></pre></div><h3 id=praktikum>Praktikum<a hidden class=anchor aria-hidden=true href=#praktikum>#</a></h3>
 <p>Clone source code berikut <a href=https://github.com/fastrodev/praktikum-module>https://github.com/fastrodev/praktikum-module</a>:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone https://github.com/fastrodev/praktikum-module.git .
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone https://github.com/fastrodev/praktikum-module.git .
 </code></pre></div><p>Jalankan aplikasi <a href=#jalankan-aplikasi>seperti di atas</a>.</p>
 </div>
 <footer class=post-footer>

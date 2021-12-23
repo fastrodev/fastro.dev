@@ -105,26 +105,26 @@ Pointer
 </div>
 <div class=post-content><p>Catatan ini berisi penjelasan se-<em>simple</em> mungkin tentang pointer, cara penggunaan, dan tampilan visual untuk memudahkan penggambaran di otak.</p>
 <p>Lihat variabel-variable di kode berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>package</span> main
 
-<span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+<span style=color:#fff;font-weight:700>import</span> <span style=color:#0ff;font-weight:700>&#34;fmt&#34;</span>
 
-<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>People</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>Name</span> <span style=color:#66d9ef>string</span>
-	<span style=color:#a6e22e>Age</span>  <span style=color:#66d9ef>int</span>
+<span style=color:#fff;font-weight:700>type</span> People <span style=color:#fff;font-weight:700>struct</span> {
+	Name <span style=color:#fff;font-weight:700>string</span>
+	Age  <span style=color:#fff;font-weight:700>int</span>
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span> = <span style=color:#ae81ff>4</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;pram&#34;</span>
-	<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>people</span> = <span style=color:#a6e22e>People</span>{<span style=color:#e6db74>&#34;Pram&#34;</span>, <span style=color:#ae81ff>4</span>}
+<span style=color:#fff;font-weight:700>func</span> main() {
+	<span style=color:#fff;font-weight:700>var</span> age <span style=color:#fff;font-weight:700>int</span> = <span style=color:#ff0;font-weight:700>4</span>
+	<span style=color:#fff;font-weight:700>var</span> name <span style=color:#fff;font-weight:700>string</span> = <span style=color:#0ff;font-weight:700>&#34;pram&#34;</span>
+	<span style=color:#fff;font-weight:700>var</span> people = People{<span style=color:#0ff;font-weight:700>&#34;Pram&#34;</span>, <span style=color:#ff0;font-weight:700>4</span>}
 }
 </code></pre></div><p>Untuk menggunakan variabel, kita tinggal memanggil saja namanya.</p>
 <p>Contoh:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>age</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>name</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>people</span>.<span style=color:#a6e22e>Age</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>people</span>.<span style=color:#a6e22e>Name</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>fmt.Println(age)
+fmt.Println(name)
+fmt.Println(people.Age)
+fmt.Println(people.Name)
 </code></pre></div><p>Sebenarnya, setiap variable yang ditulis diatas, oleh komputer disimpan di memori dengan alamat tertentu.</p>
 <p>Lihat gambar berikut:</p>
 <p><img loading=lazy src=https://gist.githubusercontent.com/ynwd/fd867c9b4b92f557440d25b795e71f8c/raw/fe3fc26144da6c34a9ca1623ae9eeb5046c427cb/pointer-Page-1.svg alt>
@@ -139,9 +139,9 @@ Variable <code>people</code> di address <code>0xc00000c030</code></p>
 <h3 id=cara-mendapatkan-address>Cara mendapatkan address<a hidden class=anchor aria-hidden=true href=#cara-mendapatkan-address>#</a></h3>
 <p>Gampang. Tambahkan saja simbol <code>&</code> (<em>address operator</em>) sebelum nama variabel.</p>
 <p>Lihat kode berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%p\n&#34;</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>people</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>fmt.Println(&amp;age)
+fmt.Println(&amp;name)
+fmt.Printf(<span style=color:#0ff;font-weight:700>&#34;%p\n&#34;</span>, &amp;people)
 </code></pre></div><p><strong>Yang jadi pertanyaan</strong>:</p>
 <ul>
 <li>Bagaimana cara kita menyimpan address?</li>
@@ -150,24 +150,24 @@ Variable <code>people</code> di address <code>0xc00000c030</code></p>
 <p>Nah, inilah kegunaan <code>pointer</code>: tipe data yang digunakan untuk penyimpanan address dalam sebuah variabel.</p>
 <p>Cara deklarasinya cukup menambahkan simbol <code>*</code> sebelum tipe data.</p>
 <p>Lihat kode berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>agePointer</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>int</span>
-<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>namePointer</span> <span style=color:#f92672>*</span><span style=color:#66d9ef>string</span>
-<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>peoplePointer</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>People</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>var</span> agePointer *<span style=color:#fff;font-weight:700>int</span>
+<span style=color:#fff;font-weight:700>var</span> namePointer *<span style=color:#fff;font-weight:700>string</span>
+<span style=color:#fff;font-weight:700>var</span> peoplePointer *People
 
-<span style=color:#a6e22e>agePointer</span> = <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>
-<span style=color:#a6e22e>namePointer</span> = <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>
-<span style=color:#a6e22e>peoplePointer</span> = <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>people</span>
+agePointer = &amp;age
+namePointer = &amp;name
+peoplePointer = &amp;people
 </code></pre></div><p>Karena kecerdasan Golang, kode diatas bisa dipersingkat dengan cara berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>agePointer</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>age</span>
-<span style=color:#a6e22e>namePointer</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>name</span>
-<span style=color:#a6e22e>peoplePointer</span> <span style=color:#f92672>:=</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>people</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>agePointer := &amp;age
+namePointer := &amp;name
+peoplePointer := &amp;people
 </code></pre></div><p>Jika langsung memanggil variabel-variabel pointer tersebut, yang kita dapatkan adalah <code>memory address</code>.</p>
 <p>Perhatikan kode berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>agePointer</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>namePointer</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;%p\n&#34;</span>, <span style=color:#a6e22e>peoplePointer</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>fmt.Println(agePointer)
+fmt.Println(namePointer)
+fmt.Printf(<span style=color:#0ff;font-weight:700>&#34;%p\n&#34;</span>, peoplePointer)
 </code></pre></div><p>Hasilnya kurang lebih seperti ini:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>0xc000018030
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>0xc000018030
 0xc000010230
 0xc00000c030
 </code></pre></div><p>Lihat gambar berikut untuk mengetahui secara visual apa yang terjadi di memori:</p>
@@ -176,11 +176,11 @@ Variable <code>people</code> di address <code>0xc00000c030</code></p>
 <h3 id=mendapatkan-data-dengan-pointer>Mendapatkan data dengan pointer<a hidden class=anchor aria-hidden=true href=#mendapatkan-data-dengan-pointer>#</a></h3>
 <p>Yang menarik adalah, kita bisa mendapatkan data &ldquo;asal&rdquo; hanya dengan menambahkan symbol <code>*</code> di depan nama variabel tersebut.</p>
 <p>Lihat kode berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>agePointer</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>namePointer</span>)
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>peoplePointer</span>)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>fmt.Println(*agePointer)
+fmt.Println(*namePointer)
+fmt.Println(*peoplePointer)
 </code></pre></div><p>Hasilnya:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>4
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>4
 pram
 {Pram 4}
 </code></pre></div><p>Lihat gambar berikut:</p>
@@ -189,15 +189,15 @@ pram
 <p><em>Kode lengkapnya: <a href=https://go.dev/play/p/I8jd-gxbiw1>lihat di sini</a></em></p>
 <h3 id=kegunaan-pointer>Kegunaan pointer<a hidden class=anchor aria-hidden=true href=#kegunaan-pointer>#</a></h3>
 <p>Lihat kode berikut:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>people1</span> <span style=color:#a6e22e>People</span>
-<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>people2</span> <span style=color:#a6e22e>People</span>
-<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>people3</span> <span style=color:#a6e22e>People</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#fff;font-weight:700>var</span> people1 People
+<span style=color:#fff;font-weight:700>var</span> people2 People
+<span style=color:#fff;font-weight:700>var</span> people3 People
 
-<span style=color:#a6e22e>people1</span> = <span style=color:#a6e22e>People</span>{<span style=color:#e6db74>&#34;pram&#34;</span>,<span style=color:#ae81ff>4</span>}
-<span style=color:#a6e22e>people2</span> = <span style=color:#a6e22e>people1</span>
-<span style=color:#a6e22e>people3</span> = <span style=color:#a6e22e>people2</span>
+people1 = People{<span style=color:#0ff;font-weight:700>&#34;pram&#34;</span>,<span style=color:#ff0;font-weight:700>4</span>}
+people2 = people1
+people3 = people2
 
-<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>people3</span>)
+fmt.Println(people3)
 </code></pre></div><p>Di golang, secara default, pengkopian dilakukan secara <em>passed by value</em>. Oleh karena itu, semua variabel diatas akan dibuatkan space dan alamatnya di memori.</p>
 <p>Bayangkan ada ribuan variabel seperti people, akan seperti apa kondisi memorinya? Tentu akan cepat penuh, bukan? Ini akan berakibat lambatnya pemrosesan.</p>
 <p>Nah, karena pointer hanya menyimpan alamat memori, tentu saja ruang yang dipakai untuk menyimpan data tetap minimal.</p>
