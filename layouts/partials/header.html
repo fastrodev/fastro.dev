@@ -39,6 +39,7 @@
 </script>
 {{- end }}
 
+{{ if (or .IsHome (eq .Kind `taxonomy`) (eq .Kind `term`) (eq .Layout `archives`) (eq .Layout `search`)) }}
 <header class="main-header header">
     <nav class="nav">
         <div class="logo">
@@ -120,3 +121,4 @@
         </ul>
     </nav>
 </header>
+{{ end }}
