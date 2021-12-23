@@ -98,5 +98,5 @@ body:not(.dark) #sun {
 
 .logo-switches {
     flex-wrap: inherit;
-    margin: 6px 6px 6px -6px;
+    margin: 6px 10px 6px -6px;
 }
