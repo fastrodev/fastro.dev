@@ -1,9 +1,11 @@
 name: GitHub Pages
 
 on:
+  schedule:
+    - cron: "0 0 * * *"
   push:
     branches:
-      - main  # Set a branch to deploy
+      - main
   pull_request:
 
 jobs:
@@ -21,7 +23,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          # extended: true
+          extended: true
 
       - name: Build
         run: hugo --minify
