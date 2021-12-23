@@ -16,7 +16,7 @@ Untuk bisa menyimpan data, harus kita siapkan dulu server mongodb-nya. Daftar *a
 
 - Ikuti saja [panduan resmi dari mongodb](https://docs.mongodb.com/drivers/go/current/quick-start/#create-a-mongodb-cluster) untuk membuat cluster, hingga mendapatkan uri ke database semacam ini: 
 
-    ```shell
+    ```
     mongodb+srv://admin:<password>@cluster0.xtwwu.mongodb.net
     ```
 - Jangan lupa untuk [load sample dataset](https://docs.atlas.mongodb.com/sample-data/available-sample-datasets/).
@@ -25,7 +25,7 @@ Untuk bisa menyimpan data, harus kita siapkan dulu server mongodb-nya. Daftar *a
 
 Bikin folder dan inisialisasi proyek dengan `go mod`.
 
-```shell
+```
 mkdir praktikum-mongodb
 cd praktikum-mongodb
 go mod init praktikum-mongodb
@@ -34,7 +34,7 @@ go mod init praktikum-mongodb
 ### Tambahkan mongodb driver
 
 Gunakan `go get` untuk menambahkan driver mongodb di golang.
-```shell
+```
 go get go.mongodb.org/mongo-driver/mongo
 ```
 
@@ -107,11 +107,11 @@ Hasilnya kemudian diolah dengan method `MarshalIndent` agar bisa ditampilkan dal
 
 ### Jalankan aplikasi
 Pergi ke terminal dan jalankan aplikasi
-```shell
+```
 go run main.go
 ```
 Hasilnya seperti ini:
-```shell
+```
 {
     "_id": "573a1398f29313caabce9682",
     "awards": {
@@ -165,7 +165,7 @@ Hasilnya seperti ini:
 
 ### Praktikum
 Clone source code berikut [https://github.com/fastrodev/praktikum-mongodb](https://github.com/fastrodev/praktikum-mongodb):
-```shell
+```
 git clone https://github.com/fastrodev/praktikum-mongodb.git .
 ```
 

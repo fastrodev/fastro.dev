@@ -104,7 +104,7 @@ func main() {
 go run main.go
 ```
 Hasilnya:
-```shell
+```
 Inserted document with _id: ObjectID("61c2a3725e07b8c3ffb1e832")
 ```
 

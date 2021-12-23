@@ -11,24 +11,24 @@ cover:
 
 Catatan ini berisi penjelasan se-*simple* mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.
 
-Dan sebagai persiapan: 
+Persiapan: 
 - [install go](https://go.dev/doc/install).
 - siapkan terminal favoritmu.
 
 ### Buat folder
 Buka terminal dan masuk ke sembarang direktori.
-```shell
+```
 mkdir app
 ```
 `app` bisa kita ganti dengan apapun.
 
 ### Masuk ke folder
-```shell
+```
 cd app
 ```
 
 ### Buat inisialisasi modul
-```shell
+```
 go mod init app
 ```
 Di sini, `go mod init` adalalah perintah untuk membuat module dari golang. Sedangkan `app` adalah nama modul. 
@@ -38,7 +38,7 @@ Tapi sebenarnya kita bisa ganti dengan apapun.
 Misalnya: `github.com/fastrodev/app`
 
 ### Buat file entry point
-```shell
+```
 touch main.go
 ```
 Pada umumnya, file entry point di golang bernama `main.go`. 
@@ -60,13 +60,13 @@ func main() {
 ```
 
 ### Jalankan aplikasi
-```shell
+```
 go run main.go
 ```
 
 ### Hasil
 Jika kode di atas kita jalankan, di terminal akan tercetak text seperti ini:
-```shell
+```
 Hello, 世界
 ```
 
