@@ -61,7 +61,7 @@ params:
     images: ["seo.png"]
 
     homeInfoParams:
-        Title: "Open source blog"
+        Title: "Open source notes"
         Content: >
             *Monggo submit aja [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)* jika *nemu* salah ketik atau punya ide baru.
     socialIcons:
