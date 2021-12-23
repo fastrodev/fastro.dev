@@ -83,7 +83,7 @@ params:
 
     label:
         text: "Fastro"
-        icon: "https://gist.githubusercontent.com/ynwd/cbbb39732a409bb4c742c229a887a9ac/raw/d78388ae7a5fbb29ad56998d0f444919d2f0b44f/logo.svg"
+        icon: ""
         iconHeight: 28
 
     # analytics:
