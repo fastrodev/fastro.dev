@@ -64,9 +64,14 @@ params:
     images: ["seo.png"]
 
     homeInfoParams:
-        Title: "Open source notes"
+        Title: "Belajar Sumber Terbuka"
         Content: >
-            Monggo, bikin *[pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)* aja kalo nemu salah ketik atau punya ide baru.
+            - ☑ Gratis 100%. *Ga usah bayar kalau cuma ingin baca* 😁
+            
+            - ☑ Kolaboratif. *Bikin [pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) aja kalo nemu salah ketik atau punya ide baru* 😉
+            
+            - ☑ Pengen gaji naik? *Lihat job terkait dengan apa yang sedang kamu baca* 😍
+
     socialIcons:
         - name: github
           url: https://github.com/fastrodev

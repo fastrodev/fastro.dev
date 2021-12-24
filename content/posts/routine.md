@@ -1,6 +1,6 @@
 ---
 title: "Go routine"
-date: 2021-12-21T05:00:47+07:00
+date: 2021-12-25
 authors: ["Admin"]
 summary: "Memahami go routine dan cara menggunakannya di golang"
 draft: true
