@@ -39,12 +39,19 @@
 </script>
 {{- end }}
 
-{{ if (or .IsHome (eq .Kind `taxonomy`) (eq .Kind `term`) (eq .Layout `archives`) (eq .Layout `search`)) }}
 <header class="main-header header">
     <nav class="nav">
         <div class="logo">
             {{- $label_text := (.Site.Params.label.text | default .Site.Title) }}
             {{- if .Site.Title }}
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+                <!-- {{- if .Site.Params.label.icon }}
+                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
+                    height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
+                {{- end -}} -->
+                {{- $label_text -}}
+            </a>
+            {{- end }}
             <span class="logo-switches">
                 {{- if (not .Site.Params.disableThemeToggle) }}
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -91,16 +98,9 @@
                 </ul>
                 {{- end }}
             </span>
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
-                <!-- {{- if .Site.Params.label.icon }}
-                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                    height="{{- .Site.Params.label.iconHeight | default " 30px" -}}">
-                {{- end -}} -->
-                {{- $label_text -}}
-            </a>
-            {{- end }}
         </div>
         {{- $currentPage := . }}
+        {{ if not (eq .Section `posts`) }}
         <ul id="menu">
             {{- range .Site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
@@ -119,6 +119,6 @@
             </li>
             {{- end }}
         </ul>
+        {{ end }}
     </nav>
 </header>
-{{ end }}
