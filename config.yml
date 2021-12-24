@@ -33,6 +33,9 @@ languages:
                 - name: Categories
                   url: categories/
                   weight: 10
+                - name: Tags
+                  url: tags/
+                  weight: 10
 
 outputs:
     home:
