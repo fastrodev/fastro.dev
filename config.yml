@@ -83,10 +83,10 @@ params:
         Text: "Update" # edit text
         appendFilePath: true # to append file path to Edit link
 
-    label:
-        text: "Fastro"
-        icon: ""
-        iconHeight: 28
+    # label:
+    #     text: "Fastro"
+    #     icon: ""
+    #     iconHeight: 28
 
     # analytics:
     #     google:
