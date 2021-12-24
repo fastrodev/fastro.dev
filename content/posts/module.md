@@ -4,9 +4,8 @@ date: 2021-12-16T05:00:47+07:00
 authors: ["Admin"]
 summary: "Cara bikin aplikasi hello world di golang dari awal banget"
 tags: [go]
-categories: [golang-dasar]
-cover:
-    image: "" # image path/url
+categories: [programming]
+series: [golang dasar]
 ---
 
 Catatan ini berisi penjelasan se-*simple* mungkin tentang cara membuat aplikasi hello world di golang dari awal banget.

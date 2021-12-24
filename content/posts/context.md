@@ -5,7 +5,8 @@ authors: ["Admin"]
 summary: "Memahami context di golang dan cara menggunakannya di mongodb"
 draft: true
 tags: [go,mongo]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 Catatan ini berisi penjelasan se-*simple* mungkin tentang `context` di golang dan cara menggunakannya di mongodb.

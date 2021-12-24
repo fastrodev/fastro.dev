@@ -5,7 +5,8 @@ authors: ["Admin"]
 summary: "Cara membuat mongodb crud (create read update delete) di golang dengan repository"
 draft: false
 tags: [go,mongo]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 Catatan ini berisi penjelasan se-*simple* mungkin tentang cara membuat CRUD di mongodb dengan repository.

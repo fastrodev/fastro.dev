@@ -4,7 +4,8 @@ date: 2021-12-08T04:56:27+07:00
 summary: "Memahami pointer di golang dan bagaimana cara menggunakannya"
 authors: ["Admin"]
 tags: [go]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 Catatan ini berisi penjelasan se-*simple* mungkin tentang pointer, cara penggunaan, dan tampilan visual untuk memudahkan penggambaran di otak. 

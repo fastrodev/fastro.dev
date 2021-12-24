@@ -4,7 +4,8 @@ date: 2021-12-11T21:46:58+07:00
 summary: "Memahami receiver di golang dan bagaimana cara menggunakannya"
 authors: ["Admin"]
 tags: [go]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 Receiver sering sekali dipakai di golang. Catatan ini berisi penjelasan se-*simple* mungkin tentang `receiver` dan cara menggunakannya.

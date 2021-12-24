@@ -5,5 +5,6 @@ authors: ["Admin"]
 summary: "Memahami mock di golang dan cara menggunakannya untuk unit testing di mongodb"
 draft: true
 tags: [go]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---

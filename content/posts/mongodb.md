@@ -5,7 +5,8 @@ authors: ["Admin"]
 summary: "Cara setup koneksi ke mongodb dan membuat query sederhana"
 draft: false
 tags: [go,mongo]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 MongoDB sering dipakai untuk membuat dan menyimpan data di golang. Catatan ini berisi penjelasan se-*simple* mungkin tentang cara setup koneksi ke mongoDB dan membuat query sederhana.

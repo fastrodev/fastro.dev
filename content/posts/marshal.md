@@ -5,7 +5,8 @@ authors: ["Admin"]
 summary: "Memahami marshal dan unmarshal di golang dan cara menggunakannya di mongodb"
 draft: false
 tags: [go,mongo]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 `Marshal` dan `Unmarshal` sering dipakai untuk mengolah data di golang. Catatan ini berisi penjelasan se-*simple* mungkin tentang marshal-unmarshal dan cara menggunakannya di mongodb.

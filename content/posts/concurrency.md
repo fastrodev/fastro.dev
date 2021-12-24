@@ -5,5 +5,6 @@ authors: ["Admin"]
 summary: "Memahami concurrency dan cara menggunakannya di golang"
 draft: true
 tags: [go]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---

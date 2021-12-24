@@ -4,7 +4,8 @@ date: 2021-12-12T09:39:38+07:00
 authors: ["Admin"]
 summary: "Memahami interface di golang dan bagaimana cara menggunakannya"
 tags: [go]
-categories: [golang-dasar]
+categories: [programming]
+series: [golang dasar]
 ---
 
 Interface sering dipakai di golang. Catatan ini berisi penjelasan se-*simple* mungkin tentang interface dan cara menggunakannya.

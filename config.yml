@@ -33,6 +33,9 @@ languages:
                 - name: Categories
                   url: categories/
                   weight: 10
+                - name: Series
+                  url: series/
+                  weight: 10
                 - name: Tags
                   url: tags/
                   weight: 10
@@ -65,12 +68,8 @@ params:
 
     homeInfoParams:
         Title: "Belajar Sumber Terbuka"
-        Content: >
-            - ☑ Gratis 100% kalo cuma pengen baca.
-            
-            - ☑ Kolaboratif. Update aja kalo nemu typo.
-            
-            - ☑ Ntar ada info loker di tiap artikel.
+        Content: > 
+            *Asli gratis kalo kamu cuma pengen baca-baca. Nanti juga bakalan ada info loker di tiap artikel. Kolaboratif: update aja kalo nemu typo.*
 
     socialIcons:
         - name: github
