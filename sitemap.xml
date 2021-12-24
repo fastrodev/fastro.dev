@@ -17,7 +17,7 @@
     <loc>https://fastro.dev/tags/go/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/categories/golang-dasar/</loc>
+    <loc>https://fastro.dev/series/golang-dasar/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/marshal/</loc>
@@ -27,6 +27,12 @@
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/</loc>
+    <lastmod>2021-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fastro.dev/categories/programming/</loc>
+    <lastmod>2021-12-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fastro.dev/series/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/tags/</loc>
@@ -53,7 +59,5 @@
     <loc>https://fastro.dev/archives/</loc>
   </url><url>
     <loc>https://fastro.dev/search/</loc>
-  </url><url>
-    <loc>https://fastro.dev/series/</loc>
   </url>
 </urlset>
