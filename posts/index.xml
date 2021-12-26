@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Context with timeout</title>
+      <link>https://fastro.dev/posts/context/</link>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fastro.dev/posts/context/</guid>
+      <description>Memahami context.WithTimeout di golang dan cara menggunakannya.</description>
+    </item>
+    
     <item>
       <title>Marshal</title>
       <link>https://fastro.dev/posts/marshal/</link>
