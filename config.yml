@@ -64,9 +64,9 @@ params:
     images: ["seo.png"]
 
     homeInfoParams:
-        Title: "Belajar Sumber Terbuka"
+        Title: "Open source notes"
         Content: > 
-            *Asli gratis kalo kamu cuma pengen baca-baca. Nanti juga bakalan ada info loker di tiap artikel. Kolaboratif: update aja kalo nemu typo.*
+            *Gratis kalo cuma pengen baca-baca. Nanti juga ada info loker di tiap artikel. Jangan ragu apply jika udah kuasai materinya. Oya, konten di sini juga kolaboratif. Jadi kamu bisa update kalo nemu typo.*
 
     socialIcons:
         - name: github
