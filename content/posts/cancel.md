@@ -18,7 +18,7 @@ Pada [catatan sebelumnya](/posts/context/), kita telah membuat simulasi penerapa
 ### Ubah repository
 ```go
 type repository struct {
-	collection    *mongo.collectionection
+	collection    *mongo.collection
 	timeout time.Duration
 }
 ```
