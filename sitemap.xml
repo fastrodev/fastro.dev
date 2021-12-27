@@ -23,7 +23,7 @@
     <loc>https://fastro.dev/series/golang-dasar/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/tags/mongodb/</loc>
+    <loc>https://fastro.dev/tags/mongo/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/</loc>
@@ -42,9 +42,6 @@
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/marshal/</loc>
-    <lastmod>2021-12-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fastro.dev/tags/mongo/</loc>
     <lastmod>2021-12-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/repository/</loc>
