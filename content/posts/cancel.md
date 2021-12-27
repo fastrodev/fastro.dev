@@ -44,7 +44,7 @@ func createBookRepository(
 	}
 }
 ```
-Kita tambahkan argument baru untuk `ctx` dan `timeout`. Argumen tersebut kita gunakan untuk inisialisasi `ctx`  di fungsi dan injeksi `time` di repository.
+Kita tambahkan argument baru: `ctx` dan `timeout`. Argumen tersebut masing-masing kita gunakan untuk inisialisasi `ctx`  di fungsi dan injeksi `timeout` di repository.
 
 ### Masukkan context dan panggil cancel di setiap method
 ```go
