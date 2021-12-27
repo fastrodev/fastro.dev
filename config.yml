@@ -63,7 +63,7 @@ params:
     homeInfoParams:
         Title: "Independent learning platform"
         Content: > 
-            *Gratis kalo cuma pengen baca-baca. Nanti juga ada info loker di tiap artikel. Jangan ragu apply jika udah kuasai materinya. Oya, konten di sini juga kolaboratif. Jadi kamu bisa update kalo nemu typo.*
+            *Catatan belajar sumber terbuka. Kamu bisa update kalo nemu typo. Nanti juga ada info loker di tiap artikel. Jangan ragu-ragu apply jika udah nguasain materinya*
 
     socialIcons:
         - name: github
