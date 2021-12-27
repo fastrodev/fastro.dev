@@ -1,6 +1,6 @@
 ---
 title: "Pointer"
-date: 2021-12-08T04:56:27+07:00
+date: 2021-12-07
 summary: "Memahami pointer di golang dan bagaimana cara menggunakannya"
 authors: ["Admin"]
 tags: [go]

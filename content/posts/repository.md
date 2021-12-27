@@ -1,6 +1,6 @@
 ---
 title: "Repository"
-date: 2021-12-22
+date: 2021-12-21
 authors: ["Admin"]
 summary: "Cara membuat mongodb crud (create read update delete) di golang dengan repository"
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: "Marshal"
-date: 2021-12-23
+date: 2021-12-22
 authors: ["Admin"]
 summary: "Memahami marshal dan unmarshal di golang dan cara menggunakannya di mongodb"
 draft: false

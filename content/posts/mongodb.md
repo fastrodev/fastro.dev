@@ -1,6 +1,6 @@
 ---
 title: "Mongodb"
-date: 2021-12-19T05:00:47+07:00
+date: 2021-12-18
 authors: ["Admin"]
 summary: "Cara setup koneksi ke mongodb dan membuat query sederhana"
 draft: false

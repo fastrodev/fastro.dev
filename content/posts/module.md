@@ -1,6 +1,6 @@
 ---
 title: "Module"
-date: 2021-12-16T05:00:47+07:00
+date: 2021-12-15
 authors: ["Admin"]
 summary: "Cara bikin aplikasi hello world di golang dari awal banget"
 tags: [go]
