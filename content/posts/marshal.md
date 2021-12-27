@@ -40,7 +40,7 @@ Ingat, variabel ini bertipe `bson.D` agar bisa kita proses dengan fungsi `Marsha
 func (r *repository) readBook(id interface{}) (*Book, error) {
     filter := bson.M{"_id": id}
 	var result bson.D
-	err := r.coll.FindOne(context.TODO(), filter).Decode(&result)
+	err := r.collection.FindOne(context.TODO(), filter).Decode(&result)
 	if err != nil {
 		return nil, err
 	}
@@ -61,7 +61,7 @@ Marshal, berguna *banget* untuk mengubah `result` menjadi data yang bertipe `byt
 func (r *repository) readBook(id interface{}) (*Book, error) {
     filter := bson.M{"_id": id}
 	var result bson.D
-	err := r.coll.FindOne(context.TODO(), filter).Decode(&result)
+	err := r.collection.FindOne(context.TODO(), filter).Decode(&result)
 	if err != nil {
 		return nil, err
 	}
@@ -86,7 +86,7 @@ Setelah menjadi `[]byte`, variabel `docByte` akan kita ubah menjadi struct `Book
 func (r *repository) readBook(id interface{}) (*Book, error) {
 	filter := bson.M{"_id": id}
 	var result bson.D
-	err := r.coll.FindOne(context.TODO(), filter).Decode(&result)
+	err := r.collection.FindOne(context.TODO(), filter).Decode(&result)
 	if err != nil {
 		return nil, err
 	}
