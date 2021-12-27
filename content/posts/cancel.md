@@ -4,7 +4,7 @@ date: 2021-12-27
 authors: ["Admin"]
 summary: "Memahami cara melakukan pembatalan menggunakan context.WithTimeout di mongodb"
 draft: false
-tags: [go,mongodb]
+tags: [go,mongo]
 categories: [programming]
 series: [golang dasar]
 ---
