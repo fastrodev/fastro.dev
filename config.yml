@@ -27,9 +27,6 @@ languages:
                 - name: Search
                   url: search/
                   weight: 10
-                - name: Categories
-                  url: categories/
-                  weight: 10
                 - name: Series
                   url: series/
                   weight: 10
