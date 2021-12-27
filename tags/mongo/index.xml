@@ -10,11 +10,11 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/tags/mongo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cancel</title>
       <link>https://fastro.dev/posts/cancel/</link>
-      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fastro.dev/posts/cancel/</guid>
       <description>Memahami cara melakukan pembatalan menggunakan context.WithTimeout di mongodb</description>
@@ -23,7 +23,7 @@
     <item>
       <title>Marshal</title>
       <link>https://fastro.dev/posts/marshal/</link>
-      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fastro.dev/posts/marshal/</guid>
       <description>Memahami marshal dan unmarshal di golang dan cara menggunakannya di mongodb</description>
@@ -32,7 +32,7 @@
     <item>
       <title>Repository</title>
       <link>https://fastro.dev/posts/repository/</link>
-      <pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fastro.dev/posts/repository/</guid>
       <description>Cara membuat mongodb crud (create read update delete) di golang dengan repository</description>
@@ -41,7 +41,7 @@
     <item>
       <title>Mongodb</title>
       <link>https://fastro.dev/posts/mongodb/</link>
-      <pubDate>Sun, 19 Dec 2021 05:00:47 +0700</pubDate>
+      <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://fastro.dev/posts/mongodb/</guid>
       <description>Cara setup koneksi ke mongodb dan membuat query sederhana</description>
