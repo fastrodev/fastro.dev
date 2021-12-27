@@ -10,7 +10,16 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cancel</title>
+      <link>https://fastro.dev/posts/cancel/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fastro.dev/posts/cancel/</guid>
+      <description>Memahami cara melakukan pembatalan menggunakan context.WithTimeout di mongodb</description>
+    </item>
+    
     <item>
       <title>Context with timeout</title>
       <link>https://fastro.dev/posts/context/</link>
