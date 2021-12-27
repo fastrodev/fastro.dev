@@ -103,3 +103,20 @@ Ini kita lakukan agar kita bisa membuat simulasi koneksi database yang berhasil 
     },
     ```
     *Kode selengkapnya: [bisa diakses di sini](https://github.com/fastrodev/praktikum-repository/blob/test/main_test.go)*
+
+### Cara testing
+Buka terminal dan ketik command berikut:
+```
+go test -run Test_createBookRepository -v
+```
+Hasilnya:
+```
+=== RUN   Test_createBookRepository
+=== RUN   Test_createBookRepository/success_create_repository
+=== RUN   Test_createBookRepository/fail_create_collection
+--- PASS: Test_createBookRepository (0.06s)
+    --- PASS: Test_createBookRepository/success_create_repository (0.00s)
+    --- PASS: Test_createBookRepository/fail_create_collection (0.00s)
+PASS
+ok      praktikum-crud  0.262s
+```
