@@ -18,7 +18,7 @@ Pada [catatan sebelumnya](/posts/context/), kita telah membuat simulasi penerapa
 ### Ubah repository
 ```go
 type repository struct {
-	coll    *mongo.Collection
+	collection    *mongo.collectionection
 	timeout time.Duration
 }
 ```
@@ -39,8 +39,8 @@ func createBookRepository(
 		panic(err)
 	}
 	return &repository{
-		coll:    client.Database(db).Collection(col),
-		timeout: timeout,
+		collection: client.Database(db).Collection(col),
+		timeout:    timeout,
 	}
 }
 ```
@@ -52,7 +52,7 @@ func (r *repository) createBook(ctx context.Context, book Book) (*Book, error) {
 	ctx, cancel := context.WithTimeout(ctx, r.timeout)
 	defer cancel()
 
-	res, err := r.coll.InsertOne(ctx, book)
+	res, err := r.collection.InsertOne(ctx, book)
 	if err != nil {
 		return nil, err
 	}
