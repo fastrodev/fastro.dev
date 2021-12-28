@@ -1,6 +1,6 @@
 ---
 title: "Interface"
-date: 2021-12-11
+date: 2021-12-27
 authors: ["Admin"]
 summary: "Memahami interface di golang dan bagaimana cara menggunakannya"
 tags: [go]
