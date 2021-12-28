@@ -1,3 +1,8 @@
 User-agent: *
-Disallow:
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /authors/
+Disallow: /archives/
+Disallow: /series/
+
 Sitemap: https://fastro.dev/sitemap.xml
