@@ -48,7 +48,7 @@ params:
 
     defaultTheme: auto
     # disableThemeToggle: true
-    # ShowShareButtons: true
+    ShowShareButtons: true
     ShowReadingTime: true
     # disableSpecial1stPost: true
     displayFullLangName: true
@@ -57,7 +57,7 @@ params:
     ShowCodeCopyButtons: true
     ShowToc: true
     TocOpen: true
-    # comments: false
+    comments: true
     images: ["seo.png"]
 
     homeInfoParams:
