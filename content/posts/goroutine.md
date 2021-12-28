@@ -1,8 +1,8 @@
 ---
-title: "Go routine"
-date: 2021-12-25
+title: "Goroutine"
+date: 2021-12-28
 authors: ["Admin"]
-summary: "Memahami go routine dan cara menggunakannya di golang"
+summary: "Memahami goroutine dan cara menggunakannya di golang"
 draft: true
 tags: [go]
 categories: [programming]
