@@ -45,9 +45,9 @@ func createCollection(
 	return client.Database(db).Collection(col), nil
 }
 ```
-Ini kita lakukan agar kita bisa membuat simulasi koneksi database yang berhasil dan gagal. Simulasi sukses dan gagal tersebut akan kita gunakan ketika testing.
-
 *Kode selengkapnya: [bisa diakses di sini](https://github.com/fastrodev/praktikum-repository/blob/f1e0933fa47cb725aefd0499093fa560ab7c4a69/main.go#L31)*
+
+Ini kita lakukan agar kita bisa membuat simulasi koneksi database yang berhasil dan gagal. Simulasi sukses dan gagal tersebut akan kita gunakan ketika testing.
 
 ### Test createBookRepository
 1. Buka source-code dengan [vs-code](https://code.visualstudio.com/). 
