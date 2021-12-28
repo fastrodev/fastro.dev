@@ -66,15 +66,6 @@
     </item>
     
     <item>
-      <title>Module</title>
-      <link>https://fastro.dev/posts/module/</link>
-      <pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://fastro.dev/posts/module/</guid>
-      <description>Cara bikin aplikasi hello world di golang dari awal banget</description>
-    </item>
-    
-    <item>
       <title>Interface</title>
       <link>https://fastro.dev/posts/interface/</link>
       <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
@@ -99,6 +90,15 @@
       
       <guid>https://fastro.dev/posts/pointer/</guid>
       <description>Memahami pointer di golang dan bagaimana cara menggunakannya</description>
+    </item>
+    
+    <item>
+      <title>Module</title>
+      <link>https://fastro.dev/posts/module/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://fastro.dev/posts/module/</guid>
+      <description>Cara bikin aplikasi hello world di golang dari awal banget</description>
     </item>
     
   </channel>
