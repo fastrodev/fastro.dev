@@ -1,5 +1,5 @@
 ---
-title: "Context with timeout"
+title: "Context"
 date: 2021-12-25
 authors: ["Admin"]
 summary: "Memahami context.WithTimeout di golang dan cara menggunakannya."
