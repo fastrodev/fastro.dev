@@ -1,3 +1,47 @@
 User-agent: *
-Disallow:
-Sitemap: https://fastro.dev/sitemap.xml
+
+Disallow: /authors/admin/
+
+Disallow: /authors/
+
+Disallow: /categories/
+
+Disallow: /
+
+Disallow: /tags/go/
+
+Disallow: /series/golang-dasar/
+
+Disallow: /posts/interface/
+
+Disallow: /posts/
+
+Disallow: /categories/programming/
+
+Disallow: /series/
+
+Disallow: /tags/
+
+Disallow: /posts/test/
+
+Disallow: /posts/cancel/
+
+Disallow: /tags/mongo/
+
+Disallow: /posts/context/
+
+Disallow: /posts/marshal/
+
+Disallow: /posts/repository/
+
+Disallow: /posts/mongodb/
+
+Disallow: /posts/receiver/
+
+Disallow: /posts/pointer/
+
+Disallow: /posts/module/
+
+Disallow: /archives/
+
+Disallow: /search/
