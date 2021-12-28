@@ -63,7 +63,7 @@ params:
     homeInfoParams:
         Title: "Independent learning platform"
         Content: > 
-            *Catatan belajar sumber terbuka. Kamu bisa update kalo nemu typo. Nanti juga ada info loker di tiap artikel. Jangan ragu-ragu apply jika udah nguasain materinya*
+            *Catatan sumber terbuka tentang backend, frontend, dan otomatisasi perangkat lunak.*
 
     socialIcons:
         - name: github
