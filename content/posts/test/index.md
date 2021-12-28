@@ -16,33 +16,38 @@ Pada [catatan sebelumnya](/posts/cancel) kita telah menggunakan context dan canc
 
 ### Persiapan
 
+1. Install [vs-code](https://code.visualstudio.com/).
+2. Install [golang extension](https://marketplace.visualstudio.com/items?itemName=golang.go)
+
+### Refactor createBookRepository
 Kita akan sedikit melakukan perubahan pada fungsi `createBookRepository` agar instance dari collection bisa kita generate dari luar fungsi.
+
 ```go
 func createBookRepository(
-	collection *mongo.Collection,
-	timeout time.Duration,
+    collection *mongo.Collection,
+    timeout time.Duration,
 ) *repository {
-	return &repository{
-		collection: collection,
-		timeout:    timeout,
-	}
+    return &repository{
+        collection: collection,
+        timeout:    timeout,
+    }
 }
 ```
 Jika sebelumnya `collection` kita buat di dalam fungsi, kali ini kita pindahkan dia ke dalam fungsi terpisah.
 ```go
 func createCollection(
-	ctx context.Context,
-	timeout time.Duration,
-	uri, db, col string,
+    ctx context.Context,
+    timeout time.Duration,
+    uri, db, col string,
 ) (*mongo.Collection, error) {
-	ctx, cancel := context.WithTimeout(ctx, timeout)
-	defer cancel()
+    ctx, cancel := context.WithTimeout(ctx, timeout)
+    defer cancel()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
-	if err != nil {
-		return nil, err
-	}
-	return client.Database(db).Collection(col), nil
+    client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+    if err != nil {
+        return nil, err
+    }
+    return client.Database(db).Collection(col), nil
 }
 ```
 *Kode selengkapnya: [bisa diakses di sini](https://github.com/fastrodev/praktikum-repository/blob/f1e0933fa47cb725aefd0499093fa560ab7c4a69/main.go#L31)*
@@ -50,7 +55,7 @@ func createCollection(
 Ini kita lakukan agar kita bisa membuat simulasi koneksi database yang berhasil dan gagal. Simulasi sukses dan gagal tersebut akan kita gunakan ketika testing.
 
 ### Test createBookRepository
-1. Buka source-code dengan [vs-code](https://code.visualstudio.com/). 
+1. Buka source-code dengan vs-code.
 2. Arahkan pointer di atas fungsi `createBookRepository`. 
 3. Klik kanan, lalu pilih `Go: Generate Unit Tests This Function`
     ![](pop.png)
