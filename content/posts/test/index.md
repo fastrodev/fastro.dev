@@ -114,7 +114,9 @@ Buka terminal dan ketik command berikut:
 ```
 go test -run Test_createBookRepository -v
 ```
-Hasilnya:
+Perhatikan bahwa `Test_createBookRepository` adalah nama testing.
+
+Jika kita jalankan command di atas, hasilnya:
 ```
 === RUN   Test_createBookRepository
 === RUN   Test_createBookRepository/success_create_repository
@@ -124,4 +126,61 @@ Hasilnya:
     --- PASS: Test_createBookRepository/fail_create_collection (0.00s)
 PASS
 ok      praktikum-crud  0.262s
+```
+
+### Test semua code
+Langkah-langkah di atas adalah untuk test individual untuk masing-masing fungsi. 
+Bayangkan tiap fungsi di atas kita telah buatkan unit-test-nya.
+
+Cara untuk melakukannya adalah:
+```
+go test ./... -v
+```
+Hasilnya:
+```
+=== RUN   Test_createBookRepository
+=== RUN   Test_createBookRepository/success_create_repository
+=== RUN   Test_createBookRepository/fail_create_collection
+--- PASS: Test_createBookRepository (10.11s)
+    --- PASS: Test_createBookRepository/success_create_repository (0.00s)
+    --- PASS: Test_createBookRepository/fail_create_collection (0.00s)
+=== RUN   Test_repository_createBook
+=== RUN   Test_repository_createBook/empty_book
+=== RUN   Test_repository_createBook/success_create
+=== RUN   Test_repository_createBook/context_deadline_exceeded
+--- PASS: Test_repository_createBook (10.74s)
+    --- PASS: Test_repository_createBook/empty_book (0.58s)
+    --- PASS: Test_repository_createBook/success_create (0.06s)
+    --- PASS: Test_repository_createBook/context_deadline_exceeded (0.00s)
+=== RUN   Test_repository_readBook
+=== RUN   Test_repository_readBook/success
+=== RUN   Test_repository_readBook/fail
+--- PASS: Test_repository_readBook (0.07s)
+    --- PASS: Test_repository_readBook/success (0.03s)
+    --- PASS: Test_repository_readBook/fail (0.04s)
+=== RUN   Test_repository_updateBook
+=== RUN   Test_repository_updateBook/success
+=== RUN   Test_repository_updateBook/fail
+--- PASS: Test_repository_updateBook (0.05s)
+    --- PASS: Test_repository_updateBook/success (0.05s)
+    --- PASS: Test_repository_updateBook/fail (0.00s)
+=== RUN   Test_repository_deleteBook
+=== RUN   Test_repository_deleteBook/success
+--- PASS: Test_repository_deleteBook (0.05s)
+    --- PASS: Test_repository_deleteBook/success (0.05s)
+PASS
+ok      praktikum-crud  21.221s
+```
+
+### Coverage test
+
+Yang menarik, go juga menyediakan tool untuk mengetahui, seberapa banyak fungsi-fungsi yang telah kita buat, telah tercakup oleh test(coverage).
+
+Cara untuk melakukannya adalah:
+```
+go test -coverprofile=cov ./...
+```
+Hasilnya:
+```
+ok      praktikum-crud  21.768s coverage: 95.1% of statements
 ```
