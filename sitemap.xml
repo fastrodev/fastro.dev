@@ -17,19 +17,10 @@
     <loc>https://fastro.dev/tags/go/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/series/golang-dasar/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fastro.dev/posts/interface/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://fastro.dev/posts/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/categories/programming/</loc>
-    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://fastro.dev/series/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/tags/</loc>
@@ -41,7 +32,13 @@
     <loc>https://fastro.dev/posts/cancel/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://fastro.dev/series/golang-dasar/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://fastro.dev/tags/mongo/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fastro.dev/series/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/context/</loc>
@@ -55,6 +52,9 @@
   </url><url>
     <loc>https://fastro.dev/posts/mongodb/</loc>
     <lastmod>2021-12-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://fastro.dev/posts/interface/</loc>
+    <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://fastro.dev/posts/receiver/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>

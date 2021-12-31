@@ -27,15 +27,15 @@ Admin">
 <meta property="og:description" content="Memahami interface di golang dan bagaimana cara menggunakannya">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://fastro.dev/posts/interface/"><meta property="og:image" content="https://fastro.dev/seo.png"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2021-12-27T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-12-27T00:00:00+00:00">
+<meta property="article:published_time" content="2021-12-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-12-11T00:00:00+00:00">
 <meta property="og:see_also" content="https://fastro.dev/posts/cancel/"><meta property="og:see_also" content="https://fastro.dev/posts/context/"><meta property="og:see_also" content="https://fastro.dev/posts/marshal/"><meta property="og:see_also" content="https://fastro.dev/posts/repository/"><meta property="og:see_also" content="https://fastro.dev/posts/mongodb/">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://fastro.dev/seo.png">
 <meta name=twitter:title content="Interface">
 <meta name=twitter:description content="Memahami interface di golang dan bagaimana cara menggunakannya">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://fastro.dev/posts/"},{"@type":"ListItem","position":3,"name":"Interface","item":"https://fastro.dev/posts/interface/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Interface","name":"Interface","description":"Memahami interface di golang dan bagaimana cara menggunakannya","keywords":["go"],"articleBody":"Interface sering dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang interface dan cara menggunakannya.\nSignature Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah method.\nMencakup:\n semua parameter dan tipe datanya return value dan tipe datanya  Nah, interface adalah tipe data yang berisi satu atau beberapa method signature.\nContoh:\npackage main type Box interface { Add() int Scale(s int) } Kode lengkapnya: lihat di sini\nPada kode diatas, kita buat sebuah interface bernama Box.\nDi dalamnya ada definisi:\n signature method Add() yang mengembalikan data bertipe int signature method Scale(s int) yang mengembalikan tipe data void.  Implementasi Karena interface hanya mendefinisikan signature saja, kita perlu membuat implementasinya.\nUntuk membuat implementasi Box interface, yang perlu kita lakukan adalah membuat sebuah struct:\ntype box struct { x, y int } Lalu menambahkan method yang signature-nya sama dengan apa yang telah didefinisikan di interface:\nfunc (b *box) Add() int { return b.x + b.y } func (b *box) Scale(s int) { b.x = b.x * s b.y = b.y * s } Kode lengkapnya: lihat di sini\nInstance Agar implementasi signature-signature di atas bisa digunakan, kita harus membuat instance dari struct tersebut.\nCaranya: buat sebuah fungsi yang return value-nya bertipe Box interface.\nfunc NewBox(x int, y int) Box { return \u0026box{x, y} } Kita menyebut fungsi tersebut constructor.\nCara penggunaan Untuk memanggil method-method yang sudah di-implementasi di atas, kita tinggal membuat instance menggunakan constructor.\nSetalah instance-nya telah dibuat, kita bisa langsung memanggil method-method-nya.\nfunc main() { box := NewBox(1, 2) box.Scale(2) result := box.Add() fmt.Println(result) } Kode lengkapnya: lihat di sini\n","wordCount":"263","inLanguage":"en","datePublished":"2021-12-27T00:00:00Z","dateModified":"2021-12-27T00:00:00Z","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastro.dev/posts/interface/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://fastro.dev/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Interface","name":"Interface","description":"Memahami interface di golang dan bagaimana cara menggunakannya","keywords":["go"],"articleBody":"Interface sering dipakai di golang. Catatan ini berisi penjelasan se-simple mungkin tentang interface dan cara menggunakannya.\nSignature Yang kita maksud dengan signature di sini adalah definisi input dan output sebuah method.\nMencakup:\n semua parameter dan tipe datanya return value dan tipe datanya  Nah, interface adalah tipe data yang berisi satu atau beberapa method signature.\nContoh:\npackage main type Box interface { Add() int Scale(s int) } Kode lengkapnya: lihat di sini\nPada kode diatas, kita buat sebuah interface bernama Box.\nDi dalamnya ada definisi:\n signature method Add() yang mengembalikan data bertipe int signature method Scale(s int) yang mengembalikan tipe data void.  Implementasi Karena interface hanya mendefinisikan signature saja, kita perlu membuat implementasinya.\nUntuk membuat implementasi Box interface, yang perlu kita lakukan adalah membuat sebuah struct:\ntype box struct { x, y int } Lalu menambahkan method yang signature-nya sama dengan apa yang telah didefinisikan di interface:\nfunc (b *box) Add() int { return b.x + b.y } func (b *box) Scale(s int) { b.x = b.x * s b.y = b.y * s } Kode lengkapnya: lihat di sini\nInstance Agar implementasi signature-signature di atas bisa digunakan, kita harus membuat instance dari struct tersebut.\nCaranya: buat sebuah fungsi yang return value-nya bertipe Box interface.\nfunc NewBox(x int, y int) Box { return \u0026box{x, y} } Kita menyebut fungsi tersebut constructor.\nCara penggunaan Untuk memanggil method-method yang sudah di-implementasi di atas, kita tinggal membuat instance menggunakan constructor.\nSetalah instance-nya telah dibuat, kita bisa langsung memanggil method-method-nya.\nfunc main() { box := NewBox(1, 2) box.Scale(2) result := box.Add() fmt.Println(result) } Kode lengkapnya: lihat di sini\n","wordCount":"263","inLanguage":"en","datePublished":"2021-12-11T00:00:00Z","dateModified":"2021-12-11T00:00:00Z","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://fastro.dev/posts/interface/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://fastro.dev/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -56,7 +56,7 @@ Fastro</a>
 <h1 class=post-title>
 Interface
 </h1>
-<div class=post-meta><span title="2021-12-27 00:00:00 +0000 UTC">December 27, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;
+<div class=post-meta><span title="2021-12-11 00:00:00 +0000 UTC">December 11, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;
 <a href=/authors/admin/>Admin</a>&nbsp;|&nbsp;<a href=https://github.com/fastrodev/fastrodev.github.io/blob/main/content/posts/interface.md rel="noopener noreferrer" target=_blank>Update</a>
 </div>
 </header> <div class=toc>
@@ -140,10 +140,15 @@ Interface
 <li><a href=https://fastro.dev/tags/go/>go</a></li>
 </ul>
 <nav class=paginav>
-<a class=next href=https://fastro.dev/posts/test/>
+<a class=prev href=https://fastro.dev/posts/mongodb/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Mongodb</span>
+</a>
+<a class=next href=https://fastro.dev/posts/receiver/>
 <span class=title>Next Page »</span>
 <br>
-<span>Test</span>
+<span>Receiver</span>
 </a>
 </nav>
 <div class=share-buttons>
