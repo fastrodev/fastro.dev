@@ -4,4 +4,4 @@ Disallow: /categories/
 Disallow: /authors/
 Disallow: /archives/
 
-Sitemap: https://fastro.dev/sitemap.xml
+Sitemap: https://www.fastro.dev/sitemap.xml
