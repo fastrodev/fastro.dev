@@ -2,93 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>golang dasar on Fastro</title>
-    <link>https://fastro.dev/series/golang-dasar/</link>
+    <link>https://www.fastro.dev/series/golang-dasar/</link>
     <description>Recent content in golang dasar on Fastro</description>
     <image>
-      <url>https://fastro.dev/seo.png</url>
-      <link>https://fastro.dev/seo.png</link>
+      <url>https://www.fastro.dev/seo.png</url>
+      <link>https://www.fastro.dev/seo.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://fastro.dev/series/golang-dasar/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://www.fastro.dev/series/golang-dasar/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cancel</title>
-      <link>https://fastro.dev/posts/cancel/</link>
+      <link>https://www.fastro.dev/posts/cancel/</link>
       <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/cancel/</guid>
+      <guid>https://www.fastro.dev/posts/cancel/</guid>
       <description>Memahami cara melakukan pembatalan menggunakan context.WithTimeout di mongodb</description>
     </item>
     
     <item>
       <title>Context</title>
-      <link>https://fastro.dev/posts/context/</link>
+      <link>https://www.fastro.dev/posts/context/</link>
       <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/context/</guid>
+      <guid>https://www.fastro.dev/posts/context/</guid>
       <description>Memahami context.WithTimeout di golang dan cara menggunakannya.</description>
     </item>
     
     <item>
       <title>Marshal</title>
-      <link>https://fastro.dev/posts/marshal/</link>
+      <link>https://www.fastro.dev/posts/marshal/</link>
       <pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/marshal/</guid>
+      <guid>https://www.fastro.dev/posts/marshal/</guid>
       <description>Memahami marshal dan unmarshal di golang dan cara menggunakannya di mongodb</description>
     </item>
     
     <item>
       <title>Repository</title>
-      <link>https://fastro.dev/posts/repository/</link>
+      <link>https://www.fastro.dev/posts/repository/</link>
       <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/repository/</guid>
+      <guid>https://www.fastro.dev/posts/repository/</guid>
       <description>Cara membuat mongodb crud (create read update delete) di golang dengan repository</description>
     </item>
     
     <item>
       <title>Mongodb</title>
-      <link>https://fastro.dev/posts/mongodb/</link>
+      <link>https://www.fastro.dev/posts/mongodb/</link>
       <pubDate>Sat, 18 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/mongodb/</guid>
+      <guid>https://www.fastro.dev/posts/mongodb/</guid>
       <description>Cara setup koneksi ke mongodb dan membuat query sederhana</description>
     </item>
     
     <item>
       <title>Interface</title>
-      <link>https://fastro.dev/posts/interface/</link>
+      <link>https://www.fastro.dev/posts/interface/</link>
       <pubDate>Sat, 11 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/interface/</guid>
+      <guid>https://www.fastro.dev/posts/interface/</guid>
       <description>Memahami interface di golang dan bagaimana cara menggunakannya</description>
     </item>
     
     <item>
       <title>Receiver</title>
-      <link>https://fastro.dev/posts/receiver/</link>
+      <link>https://www.fastro.dev/posts/receiver/</link>
       <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/receiver/</guid>
+      <guid>https://www.fastro.dev/posts/receiver/</guid>
       <description>Memahami receiver di golang dan bagaimana cara menggunakannya</description>
     </item>
     
     <item>
       <title>Pointer</title>
-      <link>https://fastro.dev/posts/pointer/</link>
+      <link>https://www.fastro.dev/posts/pointer/</link>
       <pubDate>Tue, 07 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/pointer/</guid>
+      <guid>https://www.fastro.dev/posts/pointer/</guid>
       <description>Memahami pointer di golang dan bagaimana cara menggunakannya</description>
     </item>
     
     <item>
       <title>Module</title>
-      <link>https://fastro.dev/posts/module/</link>
+      <link>https://www.fastro.dev/posts/module/</link>
       <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://fastro.dev/posts/module/</guid>
+      <guid>https://www.fastro.dev/posts/module/</guid>
       <description>Cara bikin aplikasi hello world di golang dari awal banget</description>
     </item>
     

@@ -2,71 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://fastro.dev/authors/admin/</loc>
+    <loc>https://www.fastro.dev/authors/admin/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/authors/</loc>
+    <loc>https://www.fastro.dev/authors/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/categories/</loc>
+    <loc>https://www.fastro.dev/categories/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/</loc>
+    <loc>https://www.fastro.dev/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/tags/go/</loc>
+    <loc>https://www.fastro.dev/tags/go/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/</loc>
+    <loc>https://www.fastro.dev/posts/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/categories/programming/</loc>
+    <loc>https://www.fastro.dev/categories/programming/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/tags/</loc>
+    <loc>https://www.fastro.dev/tags/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/test/</loc>
+    <loc>https://www.fastro.dev/posts/test/</loc>
     <lastmod>2021-12-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/cancel/</loc>
+    <loc>https://www.fastro.dev/posts/cancel/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/series/golang-dasar/</loc>
+    <loc>https://www.fastro.dev/series/golang-dasar/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/tags/mongo/</loc>
+    <loc>https://www.fastro.dev/tags/mongo/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/series/</loc>
+    <loc>https://www.fastro.dev/series/</loc>
     <lastmod>2021-12-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/context/</loc>
+    <loc>https://www.fastro.dev/posts/context/</loc>
     <lastmod>2021-12-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/marshal/</loc>
+    <loc>https://www.fastro.dev/posts/marshal/</loc>
     <lastmod>2021-12-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/repository/</loc>
+    <loc>https://www.fastro.dev/posts/repository/</loc>
     <lastmod>2021-12-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/mongodb/</loc>
+    <loc>https://www.fastro.dev/posts/mongodb/</loc>
     <lastmod>2021-12-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/interface/</loc>
+    <loc>https://www.fastro.dev/posts/interface/</loc>
     <lastmod>2021-12-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/receiver/</loc>
+    <loc>https://www.fastro.dev/posts/receiver/</loc>
     <lastmod>2021-12-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/pointer/</loc>
+    <loc>https://www.fastro.dev/posts/pointer/</loc>
     <lastmod>2021-12-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/posts/module/</loc>
+    <loc>https://www.fastro.dev/posts/module/</loc>
     <lastmod>2021-12-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://fastro.dev/archives/</loc>
+    <loc>https://www.fastro.dev/archives/</loc>
   </url><url>
-    <loc>https://fastro.dev/search/</loc>
+    <loc>https://www.fastro.dev/search/</loc>
   </url>
 </urlset>
