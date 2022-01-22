@@ -81,7 +81,7 @@ params:
 
     editPost:
         URL: "https://github.com/fastrodev/fastrodev.github.io/blob/main/content"
-        Text: "Update" # edit text
+        Text: "Edit this page" # edit text
         appendFilePath: true # to append file path to Edit link
 
     # label:
