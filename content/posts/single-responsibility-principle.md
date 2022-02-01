@@ -52,6 +52,8 @@ func main() {
 
 Setelah kita terapkan prinsip single-responsbility, maka setiap tugas spesifik di atas harus ditangani oleh satu fungsi spesifik pula. Tidak dicampur.
 
+Berikut ini adalah contohnya:
+
 ```go
 package main
 
@@ -97,3 +99,5 @@ func main() {
 	fmt.Println(t.string(hargaTanah))
 }
 ```
+
+Dengan cara ini, tiap tugas bisa kita buatkan unit test-nya. Dan jika ada perubahan pada salah satu fungsi, sepanjang signature-nya masih sama, maka tidak akan mempengaruhi fungsi yang lain.
