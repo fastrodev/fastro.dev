@@ -1,6 +1,6 @@
 ---
 title: "[SOLID] Single Responsibility Principle"
-date: 2022-01-31
+date: 2022-02-01
 authors: ["Admin"]
 summary: "Memahami prinsip Single Responsibility Principle dan penerapannya di golang"
 draft: false
