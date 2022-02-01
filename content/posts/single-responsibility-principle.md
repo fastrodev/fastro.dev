@@ -1,5 +1,5 @@
 ---
-title: "[SOLID] Single Responsibility Principle"
+title: "Single Responsibility Principle"
 date: 2022-02-01
 authors: ["Admin"]
 summary: "Memahami Single Responsibility Principle (SRP) dan penerapannya di golang"
