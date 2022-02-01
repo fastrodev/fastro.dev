@@ -4,7 +4,7 @@ date: 2022-02-01
 authors: ["Admin"]
 summary: "Memahami prinsip Single Responsibility Principle dan penerapannya di golang"
 draft: false
-tags: [go,mongo]
+tags: [go]
 categories: [programming]
 series: [solid]
 ---
