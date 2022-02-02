@@ -45,8 +45,13 @@ func hitungHargaTanah(harga, panjang, lebar int) string {
 }
 
 func main() {
-	price := hitungHargaTanah(100, 10, 10)
-	fmt.Println(price)
+	hargaPerMeter := 10000
+	panjang := 100
+	lebar := 10
+
+	harga := hitungHargaTanah(hargaPerMeter, panjang, lebar)
+
+	fmt.Println("harga:", harga)
 }
 ```
 
@@ -66,21 +71,15 @@ import (
 	"golang.org/x/text/number"
 )
 
-type luas struct{}
-
-func (l *luas) hitungLuasTanah(panjang, lebar int) int {
+func hitungLuasTanah(panjang, lebar int) int {
 	return panjang * lebar
 }
 
-type harga struct{}
-
-func (h *harga) hitungHargaTanah(harga, luas int) int {
+func hitungHarga(harga, luas int) int {
 	return harga * luas
 }
 
-type text struct{}
-
-func (t *text) string(harga int) string {
+func text(harga int) string {
 	cur := currency.MustParseISO("IDR")
 	scale, _ := currency.Cash.Rounding(cur)
 	dec := number.Decimal(harga, number.Scale(scale))
@@ -88,15 +87,20 @@ func (t *text) string(harga int) string {
 	return p.Sprintf("%v%v", currency.Symbol(cur), dec)
 }
 
+func hitungHargaTanah(harga, panjang, lebar int) string {
+	luas := hitungLuasTanah(panjang, lebar)
+	hargaTotal := hitungHarga(harga, luas)
+	return text(hargaTotal)
+}
+
 func main() {
-	l := luas{}
-	luasTanah := l.hitungLuasTanah(100, 10)
+	hargaPerMeter := 10000
+	panjang := 100
+	lebar := 10
 
-	h := harga{}
-	hargaTanah := h.hitungHargaTanah(100, luasTanah)
+	harga := hitungHargaTanah(hargaPerMeter, panjang, lebar)
 
-	t := text{}
-	fmt.Println(t.string(hargaTanah))
+	fmt.Println("harga:", harga)
 }
 ```
 
