@@ -9,7 +9,7 @@
 <meta name=author content="
 Admin">
 <link rel=canonical href=https://www.fastro.dev/posts/marshal/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.156866323dccea90e1096f59061c43ec19396f4d0bd4ad3836e39ba31c4dc895.css integrity="sha256-FWhmMj3M6pDhCW9ZBhxD7Bk5b00L1K04NuOboxxNyJU=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a44d61ffedd55c4321830957ccb10934787d0871e8adbf9d60425187238ad8a7.css integrity="sha256-pE1h/+3VXEMhgwlXzLEJNHh9CHHorb+dYEJRhyOK2Kc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://www.fastro.dev/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://www.fastro.dev/favicon-16x16.png>
@@ -37,16 +37,38 @@ Admin">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Marshal","name":"Marshal","description":"Memahami marshal dan unmarshal di golang dan cara menggunakannya di mongodb","keywords":["go","mongo"],"articleBody":"Marshal dan Unmarshal sering dipakai untuk mengolah data di golang. Catatan ini berisi penjelasan se-simple mungkin tentang marshal-unmarshal dan cara menggunakannya di mongodb.\nPendahuluan Pada catatan sebelumnya kita telah membuat crud. Kalau kita jalankan hasilnya, return dari method readBook masih seperti ini:\n\u0026{ 0xc00040e180 [] 0xc00013abd0} Karena return valuenya masih berupa pointer, yang tampil adalah alamat memori data itu berada.\nYang jadi pertanyaan: bagaimana cara kita menampilkan data yang lebih bisa dibaca (readable)?\nUbah signature Format return value yang menurut kita ideal adalah struct. Karena dengan struct, akan dengan mudah diubah ke format lain.\nfunc (r *repository) readBook(id interface{}) (*Book, error) { return nil, nil } Perhatikan, return valuenya berupa pointer struct agar yang diakses nanti adalah alamatnya.\nTambahkan query dan decode Kita tambahkan method Decode yang akan menyimpan hasilnya di variabel result.\nIngat, variabel ini bertipe bson.D agar bisa kita proses dengan fungsi Marshal.\nfunc (r *repository) readBook(id interface{}) (*Book, error) { filter := bson.M{\"_id\": id} var result bson.D err := r.collection.FindOne(context.TODO(), filter).Decode(\u0026result) if err != nil { return nil, err } fmt.Println(result) return nil, nil } Ada juga fungsi Println untuk menampilkan hasil method Decode. Jika kita jalankan, hasilnya kurang lebih seperti ini:\n[{_id ObjectID(\"61c3b3e004b93f7df512035c\")} {title Invisible Cities} {author Italo Calvino} {year_published 1974}] Marshal Variabel result masih berbentuk bson. Sudah bisa dibaca, sih. Tapi formatnya masih belum sesuai dengan signature yang sudah kita tentukan.\nMarshal, berguna banget untuk mengubah result menjadi data yang bertipe byte[]. Tipe data terakhir inilah yang nantinya bisa diubah lagi menjadi struct.\nfunc (r *repository) readBook(id interface{}) (*Book, error) { filter := bson.M{\"_id\": id} var result bson.D err := r.collection.FindOne(context.TODO(), filter).Decode(\u0026result) if err != nil { return nil, err } docByte, err := bson.Marshal(result) if err != nil { return nil, err } fmt.Println(docByte) return nil, nil } Jika kita jalankan, docByte akan tampil seperti ini:\n[100 0 0 0 7 95 105 100 0 97 195 183 184 108 56 136 31 173 218 187 131 2 116 105 116 108 101 0 13 0 0 0 66 117 109 105 32 109 97 110 117 115 105 97 0 2 97 117 116 104 111 114 0 22 0 0 0 80 114 97 109 111 101 100 121 97 32 65 110 97 110 116 97 32 84 111 101 114 0 16 121 101 97 114 95 112 117 98 108 105 115 104 101 100 0 188 7 0 0 0] Unmarshal Setelah menjadi []byte, variabel docByte akan kita ubah menjadi struct Book. Fungsi yang berguna untuk tujuan itu adalah Unmarshal.\nfunc (r *repository) readBook(id interface{}) (*Book, error) { filter := bson.M{\"_id\": id} var result bson.D err := r.collection.FindOne(context.TODO(), filter).Decode(\u0026result) if err != nil { return nil, err } docByte, err := bson.Marshal(result) if err != nil { return nil, err } var book Book err = bson.Unmarshal(docByte, \u0026book) if err != nil { return nil, err } fmt.Println(book) return \u0026book, nil } Kalau kita jalankan, fungsi Println di atas hasilnya akan seperti ini:\n{ObjectID(\"61c3b92981219573cfb48119\") Invisible Cities Italo Calvino 1974} Cara pemakaian Setelah signature telah kita ganti, cara pemakaian repository di fungsi main perlu kita sesuaikan.\nfunc main() { uri := \"mongodb+srv://admin:admin@cluster0.xtwwu.mongodb.net\" database := \"myDB\" collection := \"favorite_books\" repo := createBookRepository(uri, database, collection) result, err := repo.createBook(Book{ Title: \"Invisible Cities\", Author: \"Italo Calvino\", Year: 1974, }) if err != nil { panic(err) } fmt.Printf(\"Inserted document with _id: %v\\n\", result.ID) book, err := repo.readBook(result.ID) if err != nil { panic(err) } fmt.Printf(\"%v\\n\", *book) } Kode selengkapnya: lihat di sini\nKalau kita jalankan, hasilnya jadi seperti ini:\nInserted document with _id: ObjectID(\"61c3da9bf49dd8380bb17ca0\") {ObjectID(\"61c3da9bf49dd8380bb17ca0\") Invisible Cities Italo Calvino 1974} ","wordCount":"597","inLanguage":"en","datePublished":"2021-12-22T00:00:00Z","dateModified":"2021-12-22T00:00:00Z","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.fastro.dev/posts/marshal/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://www.fastro.dev/favicon.ico"}}}</script>
 </head>
 <body id=top>
-<header class="main-header header">
+<header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://www.fastro.dev accesskey=h title="Fastro (Alt + H)">
-Fastro</a>
+<a href=https://www.fastro.dev accesskey=h title="Fastro (Alt + H)">Fastro</a>
 <span class=logo-switches>
 </span>
 </div>
+<ul id=menu>
+<li>
+<a href=https://www.fastro.dev/archives title=Archives>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=https://www.fastro.dev/series/ title=Series>
+<span>Series</span>
+</a>
+</li>
+<li>
+<a href=https://www.fastro.dev/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=https://www.fastro.dev/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+</ul>
 </nav>
-</header><main class=main>
+</header>
+<main class=main>
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title>

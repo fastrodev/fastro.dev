@@ -9,7 +9,7 @@
 <meta name=author content="
 Admin">
 <link rel=canonical href=https://www.fastro.dev/posts/cancel/>
-<link crossorigin=anonymous href=/assets/css/stylesheet.min.156866323dccea90e1096f59061c43ec19396f4d0bd4ad3836e39ba31c4dc895.css integrity="sha256-FWhmMj3M6pDhCW9ZBhxD7Bk5b00L1K04NuOboxxNyJU=" rel="preload stylesheet" as=style>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.a44d61ffedd55c4321830957ccb10934787d0871e8adbf9d60425187238ad8a7.css integrity="sha256-pE1h/+3VXEMhgwlXzLEJNHh9CHHorb+dYEJRhyOK2Kc=" rel="preload stylesheet" as=style>
 <script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://www.fastro.dev/favicon.ico>
 <link rel=icon type=image/png sizes=16x16 href=https://www.fastro.dev/favicon-16x16.png>
@@ -37,16 +37,38 @@ Admin">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cancel","name":"Cancel","description":"Memahami cara melakukan pembatalan menggunakan context.WithTimeout di mongodb","keywords":["go","mongo"],"articleBody":"Catatan ini berisi penjelasan se-simple mungkin tentang cara pembatalan (cancel) menggunakan context.WithTimeout di mongodb.\nPendahuluan Pada catatan sebelumnya, kita telah membuat simulasi penerapan context.WithTimeout secara sederhana untuk mengetahui cara kerjanya. Kali ini kita akan menerapkannya di mongodb.\nUbah repository type repository struct { collection *mongo.collection timeout time.Duration } Kita tambahkan timeout agar bisa diakses di setiap method. Ini dilakukan agar tidak terjadi pengulangan deklarasi di setiap method.\nUbah instance repository func createBookRepository( ctx context.Context, timeout time.Duration, uri, db, col string, ) *repository { ctx, cancel := context.WithTimeout(ctx, timeout) defer cancel() client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri)) if err != nil { panic(err) } return \u0026repository{ collection: client.Database(db).Collection(col), timeout: timeout, } } Kita tambahkan argument baru: ctx dan timeout. Argumen tersebut masing-masing kita gunakan untuk inisialisasi ctx di fungsi dan injeksi timeout di repository.\nMasukkan context dan panggil cancel di setiap method func (r *repository) createBook(ctx context.Context, book Book) (*Book, error) { ctx, cancel := context.WithTimeout(ctx, r.timeout) defer cancel() res, err := r.collection.InsertOne(ctx, book) if err != nil { return nil, err } book.ID = res.InsertedID.(primitive.ObjectID) return \u0026book, nil } Perhatikan, kita telah buat inisialiasi context.WithTimeout menggunakan timeout yang telah kita injeksi melalui repository.\nCara pemakaian Setelah signature fungsi dan method telah diubah, cara pemanggilannya juga perlu kita sesuaikan lagi:\nfunc main() { uri := \"mongodb+srv://admin:admin@cluster0.xtwwu.mongodb.net\" database := \"myDB\" collection := \"favorite_books\" ctx := context.Background() timeout := 10 * time.Second repo := createBookRepository(ctx, timeout, uri, database, collection) result, err := repo.createBook( ctx, Book{ Title: \"Invisible Cities\", Author: \"Italo Calvino\", Year: 1974, }, ) if err != nil { panic(err) } fmt.Printf(\"Inserted document with _id: %v\\n\", result.ID) } Kode selengkapnya: lihat di sini\nPerhatikan bahwa inisialisasi context dan timeout cukup dilakukan sekali. Dan ia digunakan oleh semua fungsi dan method.\nJika kita jalankan, hasilnya:\nInserted document with _id: ObjectID(\"61c8f92ba3e486cbdc3ee68b\") ","wordCount":"296","inLanguage":"en","datePublished":"2021-12-26T00:00:00Z","dateModified":"2021-12-26T00:00:00Z","author":{"@type":"Person","name":"Admin"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.fastro.dev/posts/cancel/"},"publisher":{"@type":"Organization","name":"Fastro","logo":{"@type":"ImageObject","url":"https://www.fastro.dev/favicon.ico"}}}</script>
 </head>
 <body id=top>
-<header class="main-header header">
+<header class=header>
 <nav class=nav>
 <div class=logo>
-<a href=https://www.fastro.dev accesskey=h title="Fastro (Alt + H)">
-Fastro</a>
+<a href=https://www.fastro.dev accesskey=h title="Fastro (Alt + H)">Fastro</a>
 <span class=logo-switches>
 </span>
 </div>
+<ul id=menu>
+<li>
+<a href=https://www.fastro.dev/archives title=Archives>
+<span>Archives</span>
+</a>
+</li>
+<li>
+<a href=https://www.fastro.dev/series/ title=Series>
+<span>Series</span>
+</a>
+</li>
+<li>
+<a href=https://www.fastro.dev/tags/ title=Tags>
+<span>Tags</span>
+</a>
+</li>
+<li>
+<a href=https://www.fastro.dev/search/ title="Search (Alt + /)" accesskey=/>
+<span>Search</span>
+</a>
+</li>
+</ul>
 </nav>
-</header><main class=main>
+</header>
+<main class=main>
 <article class=post-single>
 <header class=post-header>
 <h1 class=post-title>
