@@ -11,7 +11,7 @@ series: [solid]
 
 Gampangnya, setiap modul harus menangani tugas yang spesifik, tidak boleh dicampur dengan tugas-tugas yang lain.
 
-Berikut ini adalah contoh sebuah fungsi yang terdiri dari 3 macam tugas berbeda sekaligus:
+Berikut ini adalah contoh sebuah fungsi `hitungHargaTanah` yang terdiri dari 3 macam tugas berbeda sekaligus:
 1. menghitung luas
 2. menghitung harga total
 3. menampilkan harga dalam mata uang rupiah
@@ -58,6 +58,10 @@ func main() {
 Setelah kita terapkan prinsip single-responsbility, maka setiap tugas spesifik di atas harus ditangani oleh satu fungsi spesifik pula. Tidak dicampur.
 
 Berikut ini adalah contohnya:
+
+1. `hitungLuasTanah`
+2. `hitungHarga`
+3. `text`
 
 ```go
 package main
