@@ -43,6 +43,11 @@
     border: 1px solid var(--border);
 }
 
+.post-entry a {
+    text-decoration: none;
+    color: var(--secondary);
+}
+
 /* .post-entry:active {
     transform: scale(0.96);
 } */
