@@ -46,7 +46,7 @@ params:
     author: Admin
     # author: ["Me", "You"] # multiple authors
 
-    defaultTheme: light
+    defaultTheme: auto
     disableThemeToggle: true
     ShowShareButtons: true
     ShowReadingTime: true
