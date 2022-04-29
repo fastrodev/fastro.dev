@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fastrodev.github.io/sitemap.xml
+Sitemap: https://fastro.dev/sitemap.xml
