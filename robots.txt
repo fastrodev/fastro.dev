@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /authors/
-Disallow: /archives/
+Allow: /
 
-Sitemap: https://www.fastro.dev/sitemap.xml
+Sitemap: https://fastrodev.github.io/sitemap.xml
