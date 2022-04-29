@@ -15,7 +15,6 @@ toc: true
 
 ## Requirements
 
-
 - Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
 
 ## Start a new Doks project
