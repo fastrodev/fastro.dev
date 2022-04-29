@@ -5,8 +5,10 @@ document.getElementById('mode').addEventListener('click', () => {
 
 });
 
-if (localStorage.getItem('theme') === 'dark') {
+document.body.classList.add('dark');
 
-  document.body.classList.add('dark');
+// if (localStorage.getItem('theme') === 'dark') {
 
-}
+//   document.body.classList.add('dark');
+
+// }

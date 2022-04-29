@@ -4,7 +4,7 @@ description: "One page summary of how to start a new Doks project."
 lead: "One page summary of how to start a new Doks project."
 date: 2020-11-16T13:59:39+01:00
 lastmod: 2020-11-16T13:59:39+01:00
-draft: false
+draft: true
 images: []
 menu:
   docs:
@@ -15,7 +15,6 @@ toc: true
 
 ## Requirements
 
-Doks uses npm to centralize dependency management, making it [easy to update]({{< relref "how-to-update" >}}) resources, build tooling, plugins, and build scripts:
 
 - Download and install [Node.js](https://nodejs.org/) (it includes npm) for your platform.
 
