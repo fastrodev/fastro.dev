@@ -27,11 +27,6 @@ toc: true
   deno --version
   ```
 
-## Set up your environment
-
-- Install [vscode deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
-- Open the VS Code command palette with Ctrl+Shift+P, and run the `Deno: Initialize Workspace Configuration` command.
-
 ## Create webapp directory
 
 - This will be the working directory of your web application.
@@ -39,6 +34,11 @@ toc: true
   ```cmd
   mkdir webapp && cd webapp
   ```
+
+## Set up your environment
+
+- Install [vscode deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
+- Open the VS Code command palette with Ctrl+Shift+P, and run the `Deno: Initialize Workspace Configuration` command.
 
 - Open vscode editor from the working directory
 
