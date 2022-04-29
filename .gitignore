@@ -1,2 +1,6 @@
-.hugo_build.lock
-public/
+node_modules
+public
+resources
+# Local Netlify folder
+.netlify
+TODO
