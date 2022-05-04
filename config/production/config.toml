@@ -1,2 +1,1 @@
-baseurl = "https://fastro.dev/"
-canonifyURLs = true
+canonifyURLs = false
