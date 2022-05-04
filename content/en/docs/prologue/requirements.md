@@ -1,5 +1,5 @@
 ---
-title: "Installation"
+title: "Requirements"
 description: "How to install all fastro requirements"
 lead: "How to install all fastro requirements"
 date: 2020-10-06T08:48:57+00:00
@@ -13,18 +13,17 @@ weight: 100
 toc: true
 ---
 
-
-## Requirements
+## Installation
 
 - Install the Deno CLI. This is for mac. *Other installation methods can be found [here](https://deno.land/manual@main/getting_started/installation).*
 
-  ```cmd
+  ```shell
   curl -fsSL https://deno.land/install.sh | sh
   ```
 
 - Ensure deno is available in the environment path
 
-  ```cmd
+  ```shell
   deno --version
   ```
 

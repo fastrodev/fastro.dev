@@ -30,7 +30,7 @@
 
 [[main]]
   name = "Docs"
-  url = "/docs/prologue/get-started/"
+  url = "/docs/prologue/requirements/"
   weight = 10
 
 # [[main]]

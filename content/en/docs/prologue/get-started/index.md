@@ -17,21 +17,23 @@ toc: true
 
 - This will be the working directory of your web application.
 
-  ```cmd
+  ```shell
   mkdir webapp && cd webapp
   ```
 
 - Open vscode editor from the working directory
 
-  ```cmd
+  ```shell
   code .
   ```
 
 ## Create entry point file
 
+- Create `main.ts` file.
+
 - This will be the entry point of Deno CLI.
 
-  ```tsx
+  ```typescript
   import application from "https://deno.land/x/fastro@v0.54.0/server/mod.ts";
 
   const app = application();
@@ -45,18 +47,20 @@ toc: true
 
 - You can run the webapp from local
 
-  ```cmd
+  ```shell
   deno run -A --unstable main.ts
   ```
 
 - Or try running a simple program from repo:
 
-  ```cmd
+  ```shell
   deno run -A --unstable https://deno.land/x/fastro@v0.54.0/examples/main.ts
   ```
 
-## Deploy
+## Deployments
 
 - When clicking the "Deploy" button -- deno-deploy will automatically download all the application code and create a new deployment.
 
-[![alt text](/images/deno-deploy-button.svg)](https://dash.deno.com/new?url=https://deno.land/x/fastro@v0.54.0/examples/main.ts)
+  [![alt text](deno-deploy-button.png)](https://dash.deno.com/new?url=https://deno.land/x/fastro@v0.54.0/examples/main.ts)
+
+- Other deployment methods can be seen [here](https://deno.com/deploy/docs/deployments).
