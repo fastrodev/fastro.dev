@@ -10,7 +10,7 @@ description = "Fastro is a deno framework for building web applications with fas
 # docsVersion = "0.3"
 
 ## Open Graph
-images = ["doks.png"]
+images = ["https://repository-images.githubusercontent.com/264308713/3cca603b-5fb0-4100-af11-d2332cb73cce"]
 ogLocale = "en_US"
 domainTLD = "fastro.dev"
 titleHome = "Fastro Framework"
@@ -28,10 +28,10 @@ schemaAuthorTwitter = "https://twitter.com/fastrodev"
 schemaAuthorLinkedIn = "https://www.linkedin.com/company/fastro"
 schemaAuthorGitHub = "https://github.com/fastrodev"
 schemaLocale = "en-US"
-schemaLogo = "logo-doks.png"
+schemaLogo = "https://repository-images.githubusercontent.com/264308713/3cca603b-5fb0-4100-af11-d2332cb73cce"
 schemaLogoWidth = 512
 schemaLogoHeight = 512
-schemaImage = "doks.png"
+schemaImage = "https://repository-images.githubusercontent.com/264308713/3cca603b-5fb0-4100-af11-d2332cb73cce"
 schemaImageWidth = 1280
 schemaImageHeight = 640
 schemaTwitter = "https://twitter.com/fastrodev"
