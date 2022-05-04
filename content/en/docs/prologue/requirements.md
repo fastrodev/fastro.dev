@@ -27,7 +27,6 @@ toc: true
   deno --version
   ```
 
-
 ## Set up your environment
 
 - Install [vscode deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
