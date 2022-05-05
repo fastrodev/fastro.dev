@@ -1,8 +1,8 @@
 [[docs]]
-  name = "Prologue"
+  name = "quickstart"
   weight = 10
-  identifier = "prologue"
-  url = "/docs/prologue/"
+  identifier = "quickstart"
+  url = "/docs/quickstart/"
 
 [[docs]]
   name = "Help"
@@ -30,7 +30,7 @@
 
 [[main]]
   name = "Docs"
-  url = "/docs/prologue/requirements/"
+  url = "/docs/quickstart/installation/"
   weight = 10
 
 # [[main]]
@@ -46,22 +46,22 @@
 [[main]]
   name = "Get Started"
   weight = 30
-  identifier = "get-started"
-  url = "/docs/prologue/get-started/"
+  identifier = "create-entry-point-file"
+  url = "/docs/quickstart/create-entry-point-file/"
 
 # [[main]]
 #   name = "Quick Start"
 #   weight = 40
 #   identifier = "quick-start"
-#   url = "/docs/prologue/quick-start/"
-#   parent = "get-started"
+#   url = "/docs/quickstart/quick-start/"
+#   parent = "create-entry-point-file"
 
 # [[main]]
 #   name = "Tutorial"
 #   weight = 50
 #   identifier = "tutorial"
 #   url = "https://getdoks.org/tutorial/introduction/"
-#   parent = "get-started"
+#   parent = "create-entry-point-file"
 
 
 [[social]]
