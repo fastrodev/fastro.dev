@@ -24,7 +24,7 @@ import {
   setCookie,
 } from "https://deno.land/std@0.133.0/http/cookie.ts"
 
-import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
+import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts"
 
 const app = application()
 

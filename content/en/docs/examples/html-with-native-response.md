@@ -17,9 +17,9 @@ toc: true
 File `main.ts`
 
 ```ts
-import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
+import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts"
 
-const app = application();
+const app = application()
 
 app.get("/", () => {
   return new Response("<html> Hello world </html>", {
@@ -27,12 +27,12 @@ app.get("/", () => {
     headers: {
       "content-type": "text/html",
     },
-  });
-});
+  })
+})
 
-console.log("Listening on: http://localhost:8000");
+console.log("Listening on: http://localhost:8000")
 
-await app.serve();
+await app.serve()
 ```
 
 ## How to run

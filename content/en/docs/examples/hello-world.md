@@ -17,13 +17,13 @@ toc: true
 File `main.ts`
 
 ```typescript
-import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
+import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts"
 
-const app = application();
+const app = application()
 
-app.get("/", () => "Hello world!");
+app.get("/", () => "Hello world!")
 
-await app.serve();
+await app.serve()
 ```
 
 ## How to run

@@ -17,20 +17,20 @@ toc: true
 File `main.ts`
 
 ```ts
-import application, { response } from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
+import application, { response } from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts"
 
-const app = application();
+const app = application()
 
 app.get("/", () => {
-  const res = response();
-  return res.status(200)
+  return response()
+    .status(200)
     .authorization("Basic YWxhZGRpbjpvcGVuc2VzYW1l")
-    .send("status & basic auth");
-});
+    .send("status & basic auth")
+})
 
-console.log("Listening on: http://localhost:8000");
+console.log("Listening on: http://localhost:8000")
 
-await app.serve();
+await app.serve()
 ```
 
 ## How to run
