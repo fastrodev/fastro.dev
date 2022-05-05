@@ -1,9 +1,8 @@
 ---
-title: "HTML Response"
-description: "How to return html response"
-lead: "How to return html response"
-date: 2020-10-13T15:21:01+02:00
-lastmod: 2020-10-13T15:21:01+02:00
+title: "HTML with Native Response"
+description: "How to return html with native response"
+lead: "How to return html with native response"
+date: 2020-10-13T15:21:01+02:01
 draft: false
 images: []
 menu:
