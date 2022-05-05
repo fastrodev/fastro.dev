@@ -1,7 +1,7 @@
 ---
-title: "HTTP Status and Auth"
-description: "How to set http status and auth"
-lead: "How to set http status and auth"
+title: "HTTP Status and Auth with Fastro Response"
+description: "How to set http status and auth with fastro response"
+lead: "How to set http status and auth with fastro response"
 date: 2020-10-12T15:21:01+02:01
 draft: false
 images: []
