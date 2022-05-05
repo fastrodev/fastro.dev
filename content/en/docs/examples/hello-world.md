@@ -1,8 +1,8 @@
 ---
-title: "Custom port"
-description: "How to change the default port"
-lead: "How to change the default port"
-date: 2020-10-13T15:21:01+02:00
+title: "Hello world"
+description: "How to return hello world text"
+lead: "How to return hello world text"
+date: 2020-10-14T15:21:01+02:00
 draft: false
 images: []
 menu:
@@ -23,7 +23,7 @@ const app = application();
 
 app.get("/", () => "Hello world!");
 
-await app.serve({ port: 3000 });
+await app.serve();
 ```
 
 ## How to run

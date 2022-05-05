@@ -12,6 +12,10 @@ weight: 130
 toc: true
 ---
 
+## Entry point
+
+File `main.ts`
+
 ```ts
 import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
 
@@ -29,4 +33,10 @@ app.get("/", () => {
 console.log("Listening on: http://localhost:8000");
 
 await app.serve();
+```
+
+## How to run
+
+```
+deno run -A --unstable main.ts
 ```
