@@ -37,6 +37,6 @@ await app.serve();
 
 ## How to run
 
-```
+```shell
 deno run -A --unstable main.ts
 ```

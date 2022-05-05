@@ -13,7 +13,9 @@ toc: true
 ---
 
 ## Entry point
+
 File `main.tsx`
+
 ```tsx
 import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
 
@@ -25,8 +27,11 @@ console.log("Listening on: http://localhost:8000");
 
 await app.serve();
 ```
+
 ## Configuration
+
 File `deno.json`
+
 ```json
 {
   "compilerOptions": {
@@ -38,6 +43,7 @@ File `deno.json`
 ```
 
 ## How to run
-```
+
+```shell
 deno run -A --unstable --config deno.json main.tsx
 ```

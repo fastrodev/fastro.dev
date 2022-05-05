@@ -28,6 +28,6 @@ await app.serve({ port: 3000 });
 
 ## How to run
 
-```
+```shell
 deno run -A --unstable main.ts
 ```
