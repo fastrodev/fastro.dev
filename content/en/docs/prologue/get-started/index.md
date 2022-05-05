@@ -34,7 +34,7 @@ toc: true
 - This will be the entry point of Deno CLI.
 
   ```typescript
-  import application from "https://deno.land/x/fastro@v0.54.0/server/mod.ts";
+  import application from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
 
   const app = application();
 
