@@ -43,11 +43,11 @@
 #   url = "/blog/"
 #   weight = 20
 
-[[main]]
-  name = "Get Started"
-  weight = 30
-  identifier = "create-entry-point-file"
-  url = "/docs/quickstart/create-entry-point-file/"
+# [[main]]
+#   name = "Get Started"
+#   weight = 30
+#   identifier = "create-entry-point-file"
+#   url = "/docs/quickstart/create-entry-point-file/"
 
 # [[main]]
 #   name = "Quick Start"
