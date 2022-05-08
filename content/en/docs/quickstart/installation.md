@@ -15,15 +15,19 @@ toc: true
 
 - Install the Deno CLI. This is for mac. *Other installation methods can be found [here](https://deno.land/manual@main/getting_started/installation).*
 
-  ```shell
-  curl -fsSL https://deno.land/install.sh | sh
-  ```
+```shell
+curl -fsSL https://deno.land/install.sh | sh
+```
 
 - Ensure deno is available in the environment path
 
-  ```shell
-  deno --version
-  ```
+```shell
+deno --version
+```
 
 - Install [vscode deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
-- Open the VS Code command palette with Ctrl+Shift+P, and run the `Deno: Initialize Workspace Configuration` command.
+- Open the VS Code command palette with Ctrl+Shift+P, and run:
+
+```shell
+Deno: Initialize Workspace Configuration
+```

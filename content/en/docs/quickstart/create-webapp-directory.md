@@ -14,12 +14,12 @@ weight: 100
 
 - This will be the working directory of your web application.
 
-  ```shell
-  mkdir webapp && cd webapp
-  ```
+```shell
+mkdir webapp && cd webapp
+```
 
 - Open vscode editor from the working directory
 
-  ```shell
-  code .
-  ```
+```shell
+code .
+```

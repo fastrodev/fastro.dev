@@ -3,7 +3,6 @@ title: "Deployments"
 description: "How to deploy the web app."
 lead: "How to deploy the web app."
 date: 2020-11-16T13:59:39+01:00
-lastmod: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
 weight: 110
