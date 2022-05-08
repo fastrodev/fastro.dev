@@ -7,7 +7,7 @@
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
       <a class="btn btn-primary btn-lg px-4 mb-2" href="/docs/{{ if .Site.Params.options.docsVersioning }}{{ .Site.Params.docsVersion }}/{{ end }}quickstart/create-entry-point-file/" role="button">Get Started</a>
-      {{ $data := getJSON "https://raw.githubusercontent.com/fastrodev/fastro/main/server/version.json" }}<p class="meta">Open-source MIT Licensed. <a href="https://github.com/fastrodev/fastro/tree/{{ $data.version }}">GitHub {{ $data.version }}</a></p>
+      {{ $data := getJSON "https://raw.githubusercontent.com/fastrodev/fastro/main/version.json" }}<p class="meta"><a href="https://github.com/fastrodev/fastro/tree/{{ $data.version }}">GitHub {{ $data.version }}</a></p>
     </div>
   </div>
 </section>
