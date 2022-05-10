@@ -9,7 +9,7 @@ images: ["deno-ssr.png"]
 contributors: ["ynwd"]
 ---
 
-![](https://deno.land/v1.png)
+![deno](https://deno.land/v1.png)
 
 SSR implementation is quite complicated. fastro simplifies it with a simple API. it does bundling and hydration at application initiation so that the loading process is faster.
 
