@@ -56,7 +56,8 @@ mkdir app && mkdir static
 Create react component: `app/app.tsx`. This is very basic react component. I got it from [https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7](https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7).
 
 ```tsx
-import React from "https://esm.sh/react@17.0.2";
+// @deno-types="https://cdn.esm.sh/v77/@types/react@18.0.9/react.d.ts"
+import React from "https://esm.sh/react@18.1.0";
 
 const App = () => {
   const [count, setCount] = React.useState(0);
@@ -79,8 +80,8 @@ export default App;
 Create routing file: `app/api.tsx`
 
 ```tsx
-import application, { response } from "https://deno.land/x/fastro@v0.57.2/server/mod.ts";
-import rendering from "https://deno.land/x/fastro@v0.57.2/server/ssr.ts";
+import application, { response } from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
+import rendering from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/ssr.ts";
 import App from "./app.tsx";
 
 const ssr = rendering().component(<App />);
