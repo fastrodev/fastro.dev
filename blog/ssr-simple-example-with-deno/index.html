@@ -15,7 +15,8 @@
   }
 }
 </code></pre><h2 id=create-app-and-static-dirs>Create app and static dirs <a href=#create-app-and-static-dirs class=anchor aria-hidden=true>#</a></h2><pre><code class=language-shell>mkdir app &amp;&amp; mkdir static
-</code></pre><ul><li><p><code>app</code> folder is place for components and entrypoint. This is the default name. If you change it, it will throw an error. See <a href=https://github.com/fastrodev/fastro/blob/main/examples/ssr/api.tsx>the example</a> to see other implementation.</p></li><li><p><code>static</code> is folder for hydrated and bundled files created during app initiation. This file will be accessed by the default <code>index.html</code>.</p></li></ul><h2 id=component>Component <a href=#component class=anchor aria-hidden=true>#</a></h2><p>Create react component: <code>app/app.tsx</code>. This is very basic react component. I got it from <a href=https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7>https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7</a>.</p><pre><code class=language-tsx>import React from &quot;https://esm.sh/react@17.0.2&quot;;
+</code></pre><ul><li><p><code>app</code> folder is place for components and entrypoint. This is the default name. If you change it, it will throw an error. See <a href=https://github.com/fastrodev/fastro/blob/main/examples/ssr/api.tsx>the example</a> to see other implementation.</p></li><li><p><code>static</code> is folder for hydrated and bundled files created during app initiation. This file will be accessed by the default <code>index.html</code>.</p></li></ul><h2 id=component>Component <a href=#component class=anchor aria-hidden=true>#</a></h2><p>Create react component: <code>app/app.tsx</code>. This is very basic react component. I got it from <a href=https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7>https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7</a>.</p><pre><code class=language-tsx>// @deno-types=&quot;https://cdn.esm.sh/v77/@types/react@18.0.9/react.d.ts&quot;
+import React from &quot;https://esm.sh/react@18.1.0&quot;;
 
 const App = () =&gt; {
   const [count, setCount] = React.useState(0);
@@ -31,8 +32,8 @@ const App = () =&gt; {
 
 export default App;
 
-</code></pre><h2 id=endpoint>Endpoint <a href=#endpoint class=anchor aria-hidden=true>#</a></h2><p>Create routing file: <code>app/api.tsx</code></p><pre><code class=language-tsx>import application, { response } from &quot;https://deno.land/x/fastro@v0.57.2/server/mod.ts&quot;;
-import rendering from &quot;https://deno.land/x/fastro@v0.57.2/server/ssr.ts&quot;;
+</code></pre><h2 id=endpoint>Endpoint <a href=#endpoint class=anchor aria-hidden=true>#</a></h2><p>Create routing file: <code>app/api.tsx</code></p><pre><code class=language-tsx>import application, { response } from &quot;https://deno.land/x/fastro@v0.57.3/server/mod.ts&quot;;
+import rendering from &quot;https://deno.land/x/fastro@v0.57.3/server/ssr.ts&quot;;
 import App from &quot;./app.tsx&quot;;
 
 const ssr = rendering().component(&lt;App /&gt;);
