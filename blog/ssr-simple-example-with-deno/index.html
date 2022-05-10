@@ -31,16 +31,16 @@ const App = () =&gt; {
 
 export default App;
 
-</code></pre><h2 id=endpoint>Endpoint <a href=#endpoint class=anchor aria-hidden=true>#</a></h2><p>Create routing file: <code>server.tsx</code></p><pre><code class=language-tsx>import application, { response } from &quot;https://deno.land/x/fastro@v0.57.5/server/mod.ts&quot;;
-import rendering from &quot;https://deno.land/x/fastro@v0.57.5/server/ssr.ts&quot;;
+</code></pre><h2 id=endpoint>Endpoint <a href=#endpoint class=anchor aria-hidden=true>#</a></h2><p>Create routing file: <code>server.tsx</code></p><pre><code class=language-tsx>import application, { response } from &quot;https://deno.land/x/fastro@v0.57.6/server/mod.ts&quot;;
+import rendering from &quot;https://deno.land/x/fastro@v0.57.6/server/ssr.ts&quot;;
 import App from &quot;./components/app.tsx&quot;;
 
-const ssr = rendering().component(&lt;App /&gt;);
+const component = rendering(&lt;App /&gt;);
 
-const app = application(ssr)
+const app = application(component)
   .static(&quot;/static&quot;)
   .get(&quot;/&quot;, () =&gt; {
-    return response(ssr).render({ title: &quot;Hello world&quot; });
+    return response(component).render({ title: &quot;Hello world&quot; });
   });
 
 console.log(&quot;Listening on: http://localhost:8000&quot;);
