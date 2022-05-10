@@ -62,7 +62,7 @@ Create vscode configuration file: `.vscode/settings.json`
 
 ### Create app and static dirs
 
-```
+```shell
 mkdir app
 mkdir static
 ```
@@ -91,6 +91,7 @@ export default App;
 ```
 
 #### Endpoint
+
 Create routing file: `app/api.tsx`
 
 ```tsx
@@ -113,7 +114,7 @@ await app.serve();
 
 #### How to run locally
 
-```
+```shell
 deno run -A --unstable app/api.tsx
 ```
 
