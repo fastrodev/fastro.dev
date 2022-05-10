@@ -15,7 +15,7 @@ SSR implementation is quite complicated. Fastro simplifies it with a simple API 
 
 It does bundling and hydration at application initiation so that the loading process is faster.
 
-# App structure
+## App structure
 
 ```shell
 .
@@ -27,7 +27,7 @@ It does bundling and hydration at application initiation so that the loading pro
     └── bundle.js
 ```
 
-# Configuration
+## Configuration
 
 Create deno configuration file: `deno.json`. This is used to configure TypeScript on Deno.
 
@@ -41,7 +41,7 @@ Create deno configuration file: `deno.json`. This is used to configure TypeScrip
 }
 ```
 
-# Create app and static dirs
+## Create app and static dirs
 
 ```shell
 mkdir app && mkdir static
@@ -51,7 +51,7 @@ mkdir app && mkdir static
 
 - `static` is folder for hydrated and bundled files created during app initiation. This file will be accessed by the default `index.html`.
 
-# Component
+## Component
 
 Create react component: `app/app.tsx`. This is very basic react component. I got it from [https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7](https://dev.to/craigmorten/writing-a-react-ssr-app-in-deno-2m7).
 
@@ -74,7 +74,7 @@ export default App;
 
 ```
 
-# Endpoint
+## Endpoint
 
 Create routing file: `app/api.tsx`
 
@@ -97,10 +97,11 @@ await app.serve();
 ```
 
 In this file we create 2 endpoints:
+
 - `/` is the root for react app.
 - `/static` is the where `bundle.js` available.
 
-#### How to run locally
+## How to run locally
 
 ```shell
 deno run -A --unstable app/api.tsx
