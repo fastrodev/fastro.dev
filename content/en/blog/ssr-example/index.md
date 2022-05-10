@@ -83,12 +83,12 @@ import application, { response } from "https://deno.land/x/fastro@{{< param fast
 import rendering from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/ssr.ts";
 import App from "./components/app.tsx";
 
-const ssr = rendering().component(<App />);
+const component = rendering(<App />);
 
-const app = application(ssr)
+const app = application(component)
   .static("/static")
   .get("/", () => {
-    return response(ssr).render({ title: "Hello world" });
+    return response(component).render({ title: "Hello world" });
   });
 
 console.log("Listening on: http://localhost:8000");
