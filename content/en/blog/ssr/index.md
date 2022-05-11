@@ -99,7 +99,7 @@ await app.serve();
 In this file we create 2 endpoints:
 
 - `/` is the root for react app.
-- `/static` is the where `bundle.js` available. `bundle.js` is generated automatically when you run the webapp.
+- `/static` is where `bundle.js` available. `bundle.js` is generated automatically when you run the webapp.
 
 ## How to run locally
 
