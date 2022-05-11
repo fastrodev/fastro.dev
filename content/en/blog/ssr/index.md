@@ -1,8 +1,8 @@
 ---
-title: "SSR Simple Example with Deno"
-description: "This is the Server Side Rendering Implementation with Fastro on Deno."
-lead: "This is the Server Side Rendering Implementation with Fastro on Deno."
-date: 2022-05-09T09:19:42+01:00
+title: "SSR with React and Deno"
+description: "This is the Simple Implementation of Server Side Rendering (SSR) with React and Deno. In this guide you will learn how easy to setup SSR with Fastro."
+lead: "This is the Simple Implementation of Server Side Rendering (SSR) with React and Deno. In this guide you will learn how easy to setup SSR with Fastro."
+date: 2022-05-10T00:00:00+01:00
 draft: false
 weight: 50
 images: ["deno-ssr.png"]
