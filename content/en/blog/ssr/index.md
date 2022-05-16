@@ -78,8 +78,8 @@ export default App;
 Create routing file: `server.tsx`
 
 ```tsx
-import application, { response } from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/mod.ts";
-import rendering from "https://deno.land/x/fastro@{{< param fastroVersion >}}/server/ssr.ts";
+import application, { response } from "https://deno.land/x/fastro@v0.57.6/server/mod.ts";
+import rendering from "https://deno.land/x/fastro@v0.57.6/server/ssr.ts";
 import App from "./components/app.tsx";
 
 const component = rendering(<App />);
