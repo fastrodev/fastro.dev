@@ -21,10 +21,9 @@ It does bundling and hydration at application initiation so that the loading pro
 .
 ├── components
 │   └── app.tsx
-├── deno.json
+├── static
 ├── server.tsx
-└── static
-    └── bundle.js
+└── deno.json
 ```
 
 ## Configuration
