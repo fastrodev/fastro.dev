@@ -27,6 +27,8 @@ In [previous version](https://fastro.dev/blog/ssr-with-react-and-deno/), you can
     └── hello.js
 ```
 
+Source-code: [multipage-ssr-example](https://github.com/fastrodev/multipage-ssr-example)
+
 ## Configuration
 
 Create deno configuration file: `deno.json`. This is used to configure TypeScript on Deno.
@@ -55,7 +57,9 @@ mkdir static && mkdir hello
 
 ## Default page component
 
-File: `app.tsx`
+File: `app.tsx`.
+
+Not like in previous versions, you can put a component file in the root of webapp directory.
 
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
@@ -79,7 +83,9 @@ export default App;
 
 ## Hello page component
 
-File: `hello/app.tsx`
+File: `hello/app.tsx`.
+
+You can create additional page components in custom directories. But you have to add a special property for the system to read it. You will find that on the next section.
 
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
@@ -174,12 +180,19 @@ deno run -A --unstable server.tsx
 
 ## Deployment
 
-Because doesn't support writing files, to skip bundle creation on [deno deploy](https://deno.com), set `ENVIRONTMENT` to `PRODUCTION`.
+There are 2 notes:
+
+- Because doesn't support writing files, to skip bundle creation on [deno deploy](https://deno.com), set `ENVIRONTMENT` to `PRODUCTION`.
+
+![env](env.png)
+
+- Because [deno deploy](https://deno.com/deploy) convert `TSX` file to Javascript, you must to include this part on every `.tsx` files. More info: [React Without JSX](https://reactjs.org/docs/react-without-jsx.html).
+
+```tsx
+// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
+import { createElement as h } from "https://esm.sh/react@18.1.0";
+```
 
 ## Demo
 
 [https://fastrodev-ssr.deno.dev](https://fastrodev-ssr.deno.dev)
-
-## Source-code
-
-[multipage-ssr-example](https://github.com/fastrodev/multipage-ssr-example)
