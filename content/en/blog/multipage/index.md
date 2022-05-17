@@ -172,7 +172,7 @@ deno run -A --unstable server.tsx
 
 ## Deployment
 
-Because deno deploy doesn't support writing files, to skip bundle creation on [deno deploy](https://deno.com), set `ENVIRONTMENT` to `PRODUCTION`.
+Because doesn't support writing files, to skip bundle creation on [deno deploy](https://deno.com), set `ENVIRONTMENT` to `PRODUCTION`.
 
 ## Demo
 
