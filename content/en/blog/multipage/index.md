@@ -47,7 +47,7 @@ Create deno configuration file: `deno.json`. This is used to configure TypeScrip
 mkdir static && mkdir hello
 ```
 
-- `static` is folder for hydrated and bundled files created during app initiation. This file will be accessed by the default `index.html`.
+- `static` is folder for hydrated and bundled files created automatically during app initiation. This file will be accessed by the default `index.html`.
 
 - `hello` is folder for hello component & page.
 
