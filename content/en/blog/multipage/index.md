@@ -57,6 +57,9 @@ File: `app.tsx`
 
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
+import { createElement as h } from "https://esm.sh/react@18.1.0";
+
+// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
 import React from "https://esm.sh/react@18.1.0";
 
 const App = () => {
@@ -77,6 +80,9 @@ export default App;
 File: `hello/app.tsx`
 
 ```tsx
+// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
+import { createElement as h } from "https://esm.sh/react@18.1.0";
+
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
 import React from "https://esm.sh/react@18.1.0";
 
@@ -101,10 +107,12 @@ export default App;
 Create routing file: `server.tsx`
 
 ```tsx
+// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
+import { createElement as h } from "https://esm.sh/react@18.1.0";
 import application, {
   response,
-} from "https://deno.land/x/fastro@v0.58.2/server/mod.ts";
-import ssr from "https://deno.land/x/fastro@v0.58.2/server/ssr.ts";
+} from "https://deno.land/x/fastro@v0.58.3/server/mod.ts";
+import ssr from "https://deno.land/x/fastro@v0.58.3/server/ssr.ts";
 import App from "./app.tsx";
 import Hello from "./hello/app.tsx";
 
@@ -161,6 +169,10 @@ return response(req)
 ```shell
 deno run -A --unstable server.tsx
 ```
+
+## Demo
+
+[https://fastrodev-ssr.deno.dev](https://fastrodev-ssr.deno.dev)
 
 ## Source-code
 
