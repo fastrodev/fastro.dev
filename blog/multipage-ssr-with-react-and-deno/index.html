@@ -16,6 +16,9 @@
 }
 </code></pre><h2 id=create-app-and-static-dirs>Create app and static dirs <a href=#create-app-and-static-dirs class=anchor aria-hidden=true>#</a></h2><pre><code class=language-shell>mkdir static &amp;&amp; mkdir hello
 </code></pre><ul><li><p><code>static</code> is folder for hydrated and bundled files created during app initiation. This file will be accessed by the default <code>index.html</code>.</p></li><li><p><code>hello</code> is folder for hello component & page.</p></li><li><p>In this version, you do not need <code>components</code> folder again. The default folder is already set internally to <code>./</code>.</p></li></ul><h2 id=default-page-component>Default page component <a href=#default-page-component class=anchor aria-hidden=true>#</a></h2><p>File: <code>app.tsx</code></p><pre><code class=language-tsx>// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
+import { createElement as h } from &quot;https://esm.sh/react@18.1.0&quot;;
+
+// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
 import React from &quot;https://esm.sh/react@18.1.0&quot;;
 
 const App = () =&gt; {
@@ -30,6 +33,9 @@ const App = () =&gt; {
 export default App;
 
 </code></pre><h2 id=hello-page-component>Hello page component <a href=#hello-page-component class=anchor aria-hidden=true>#</a></h2><p>File: <code>hello/app.tsx</code></p><pre><code class=language-tsx>// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
+import { createElement as h } from &quot;https://esm.sh/react@18.1.0&quot;;
+
+// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
 import React from &quot;https://esm.sh/react@18.1.0&quot;;
 
 const App = () =&gt; {
@@ -46,10 +52,12 @@ const App = () =&gt; {
 
 export default App;
 
-</code></pre><h2 id=endpoint>Endpoint <a href=#endpoint class=anchor aria-hidden=true>#</a></h2><p>Create routing file: <code>server.tsx</code></p><pre><code class=language-tsx>import application, {
+</code></pre><h2 id=endpoint>Endpoint <a href=#endpoint class=anchor aria-hidden=true>#</a></h2><p>Create routing file: <code>server.tsx</code></p><pre><code class=language-tsx>// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
+import { createElement as h } from &quot;https://esm.sh/react@18.1.0&quot;;
+import application, {
   response,
-} from &quot;https://deno.land/x/fastro@v0.58.2/server/mod.ts&quot;;
-import ssr from &quot;https://deno.land/x/fastro@v0.58.2/server/ssr.ts&quot;;
+} from &quot;https://deno.land/x/fastro@v0.58.3/server/mod.ts&quot;;
+import ssr from &quot;https://deno.land/x/fastro@v0.58.3/server/ssr.ts&quot;;
 import App from &quot;./app.tsx&quot;;
 import Hello from &quot;./hello/app.tsx&quot;;
 
@@ -82,6 +90,6 @@ await app.serve();
 </code></pre><p>In this file we create 3 endpoints:</p><ul><li><code>/</code> is the root webapp.</li><li><code>/hello</code> is for hello page.</li><li><code>/static</code> is where <code>bundle.js</code> and <code>hello.js</code> available. Both are generated automatically when you run the webapp.</li></ul><p>Please note that for custom page/component:</p><ul><li>You must append component path. In this case:</li></ul><pre><code class=language-tsx>const helloPage = ssr(&lt;Hello /&gt;).dir(&quot;./hello&quot;);
 </code></pre><ul><li>You must inject <code>Request</code> on response initiation. This is used to get the request url. This url is used to get the bundled files created on app initiation. In this case:</li></ul><pre><code class=language-tsx>return response(req)
 </code></pre><h2 id=how-to-run-locally>How to run locally <a href=#how-to-run-locally class=anchor aria-hidden=true>#</a></h2><pre><code class=language-shell>deno run -A --unstable server.tsx
-</code></pre><h2 id=source-code>Source-code <a href=#source-code class=anchor aria-hidden=true>#</a></h2><p><a href=https://github.com/fastrodev/multipage-ssr-example>multipage-ssr-example</a></p></article></div></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Powered by <a class=text-muted href=https://www.github.com/>Github</a>, <a class=text-muted href=https://gohugo.io/>Hugo</a>, and <a class=text-muted href=https://getdoks.org/>Doks</a></li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=/js/bootstrap.min.f93d87ed312fd94eae9a720e5988a3bd322bcdd099518866fc5668e18610cca0077fc356b3edfc727dedf5f773dab0a6d87a870e4b616595e76381163dd5a730.js integrity="sha512-+T2H7TEv2U6umnIOWYijvTIrzdCZUYhm/FZo4YYQzKAHf8NWs+38cn3t9fdz2rCm2HqHDkthZZXnY4EWPdWnMA==" crossorigin=anonymous defer></script>
+</code></pre><h2 id=demo>Demo <a href=#demo class=anchor aria-hidden=true>#</a></h2><p><a href=https://fastrodev-ssr.deno.dev>https://fastrodev-ssr.deno.dev</a></p><h2 id=source-code>Source-code <a href=#source-code class=anchor aria-hidden=true>#</a></h2><p><a href=https://github.com/fastrodev/multipage-ssr-example>multipage-ssr-example</a></p></article></div></div></div></div><footer class="footer text-muted"><div class=container-xxl><div class=row><div class="col-lg-8 order-last order-lg-first"><ul class=list-inline><li class=list-inline-item>Powered by <a class=text-muted href=https://www.github.com/>Github</a>, <a class=text-muted href=https://gohugo.io/>Hugo</a>, and <a class=text-muted href=https://getdoks.org/>Doks</a></li></ul></div><div class="col-lg-8 order-first order-lg-last text-lg-end"><ul class=list-inline></ul></div></div></div></footer><script src=/js/bootstrap.min.f93d87ed312fd94eae9a720e5988a3bd322bcdd099518866fc5668e18610cca0077fc356b3edfc727dedf5f773dab0a6d87a870e4b616595e76381163dd5a730.js integrity="sha512-+T2H7TEv2U6umnIOWYijvTIrzdCZUYhm/FZo4YYQzKAHf8NWs+38cn3t9fdz2rCm2HqHDkthZZXnY4EWPdWnMA==" crossorigin=anonymous defer></script>
 <script src=/js/highlight.min.256c0e0c8deb16b2f7ff5eff06f38439ad0335bd329d5ede986f45502537c3a7f9525e31f756e8573e953e30f9441b4c9201d7e3daf309b121902576279fe0ae.js integrity="sha512-JWwODI3rFrL3/17/BvOEOa0DNb0ynV7emG9FUCU3w6f5Ul4x91boVz6VPjD5RBtMkgHX49rzCbEhkCV2J5/grg==" crossorigin=anonymous defer></script>
 <script src=/main.min.3ca2a8e35881498cd6ea83d661c3548018f7ffbf7990969a0b5c10bddd646151afb7a9e906a395165fedd9e233f6075b17ed6d072a219c3e3a16b14c9b373676.js integrity="sha512-PKKo41iBSYzW6oPWYcNUgBj3/795kJaaC1wQvd1kYVGvt6npBqOVFl/t2eIz9gdbF+1tByohnD46FrFMmzc2dg==" crossorigin=anonymous defer></script></body></html>
