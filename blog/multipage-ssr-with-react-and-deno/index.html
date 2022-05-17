@@ -17,7 +17,7 @@
   }
 }
 </code></pre><h2 id=create-app-and-static-dirs>Create app and static dirs <a href=#create-app-and-static-dirs class=anchor aria-hidden=true>#</a></h2><pre><code class=language-shell>mkdir static &amp;&amp; mkdir hello
-</code></pre><ul><li><p><code>static</code> is folder for hydrated and bundled files created during app initiation. This file will be accessed by the default <code>index.html</code>.</p></li><li><p><code>hello</code> is folder for hello component & page.</p></li><li><p>In this version, you do not need <code>components</code> folder again. The default folder is already set internally to <code>./</code>.</p></li></ul><h2 id=default-page-component>Default page component <a href=#default-page-component class=anchor aria-hidden=true>#</a></h2><p>File: <code>app.tsx</code></p><pre><code class=language-tsx>// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
+</code></pre><ul><li><p><code>static</code> is folder for hydrated and bundled files created automatically during app initiation. This file will be accessed by the default <code>index.html</code>.</p></li><li><p><code>hello</code> is folder for hello component & page.</p></li><li><p>In this version, you do not need <code>components</code> folder again. The default folder is already set internally to <code>./</code>.</p></li></ul><h2 id=default-page-component>Default page component <a href=#default-page-component class=anchor aria-hidden=true>#</a></h2><p>File: <code>app.tsx</code></p><pre><code class=language-tsx>// @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
 import { createElement as h } from &quot;https://esm.sh/react@18.1.0&quot;;
 
 // @deno-types=&quot;https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts&quot;
