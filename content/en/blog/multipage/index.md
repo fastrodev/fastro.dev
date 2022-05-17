@@ -17,12 +17,14 @@ In [previous version](https://fastro.dev/blog/ssr-with-react-and-deno/), you can
 
 ```shell
 .
+├── app.tsx
+├── deno.json
 ├── hello
 │   └── app.tsx
-├── app.tsx
-├── static
 ├── server.tsx
-└── deno.json
+└── static
+    ├── bundle.js
+    └── hello.js
 ```
 
 ## Configuration
