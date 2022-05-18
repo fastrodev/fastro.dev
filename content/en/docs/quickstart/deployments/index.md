@@ -23,7 +23,7 @@ deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no
 To deploy a local script:
 
 ```shell
-deployctl deploy --project=helloworld webapp/hello_world.ts
+deployctl deploy --project=helloworld hello_world.ts
 ```
 
 To deploy a remote script:

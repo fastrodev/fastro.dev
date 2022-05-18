@@ -29,7 +29,7 @@ await app.serve();
 You can run the webapp from local.
 
 ```shell
-deno run -A webapp/hello_world.ts
+deno run -A hello_world.ts
 ```
 
 Or try running a simple program from the repo.
