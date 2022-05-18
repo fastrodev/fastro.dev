@@ -1,7 +1,7 @@
 ---
 title: "Deployments"
-description: "How to deploy the web app."
-lead: "How to deploy the web app."
+description: "How to deploy the web app to deno deploy."
+lead: "How to deploy the web app to deno deploy."
 date: 2020-11-16T13:59:39+01:00
 draft: false
 images: []
@@ -12,8 +12,22 @@ menu:
 toc: true
 ---
 
-- When clicking the "Deploy" button -- deno-deploy will automatically download all the application code and create a new deployment.
+`deployctl` is a command line tool for deploying your code to Deno Deploy, and it's also a GitHub Action for the same purpose.
 
-  [![alt text](deno-deploy-button.png)](https://dash.deno.com/new?url=https://deno.land/x/fastro@{{< param fastroVersion >}}/examples/main.ts)
+You can install `deployctl` command with the below command:
 
-- Other deployment methods can be seen [here](https://deno.com/deploy/docs/deployments).
+```shell
+deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -r -f https://deno.land/x/deploy/deployctl.ts
+```
+
+To deploy a local script:
+
+```shell
+deployctl deploy --project=helloworld webapp/hello_world.ts
+```
+
+To deploy a remote script:
+
+```shell
+deployctl deploy --project=helloworld https://deno.land/x/fastro/examples/hello_world.ts
+```

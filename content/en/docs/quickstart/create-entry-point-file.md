@@ -29,13 +29,13 @@ await app.serve();
 You can run the webapp from local.
 
 ```shell
-deno run -A main.ts
+deno run -A webapp/hello_world.ts
 ```
 
 Or try running a simple program from the repo.
 
 ```shell
-deno run -A https://deno.land/x/fastro@{{< param fastroVersion >}}/examples/main.ts
+deno run -A https://deno.land/x/fastro@{{< param fastroVersion >}}/examples/hello_world.ts
 ```
 
 ## Examples
