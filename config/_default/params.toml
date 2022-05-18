@@ -4,7 +4,7 @@
 title = "Fastro"
 titleSeparator = "|"
 titleAddition = "Web Application Framework"
-description = "Fastro is a deno framework for building web applications with fast response and simple API."
+description = "Fastro is a deno framework for building web applications with near-native perfomance and simple application programming interface."
 
 ## Documentation
 # docsVersion = "0.3"
