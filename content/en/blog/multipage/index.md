@@ -63,10 +63,7 @@ Not like in previous versions, you can put a component file in the root of webap
 
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
-import { createElement as h } from "https://esm.sh/react@18.1.0";
-
-// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
-import React from "https://esm.sh/react@18.1.0";
+import React, { createElement as h } from "https://esm.sh/react@18.1.0";
 
 const App = () => {
   return (
@@ -89,10 +86,7 @@ You can create additional page components in custom directories. But you have to
 
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
-import { createElement as h } from "https://esm.sh/react@18.1.0";
-
-// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
-import React from "https://esm.sh/react@18.1.0";
+import React, { createElement as h } from "https://esm.sh/react@18.1.0";
 
 const App = () => {
   const [count, setCount] = React.useState(0);
@@ -115,12 +109,11 @@ export default App;
 Create routing file: `server.tsx`
 
 ```tsx
-// @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
-import { createElement as h } from "https://esm.sh/react@18.1.0";
 import application, {
+  h,
   response,
-} from "https://deno.land/x/fastro@v0.58.3/server/mod.ts";
-import ssr from "https://deno.land/x/fastro@v0.58.3/server/ssr.ts";
+} from "https://deno.land/x/fastro@v0.58.4/server/mod.ts";
+import ssr from "https://deno.land/x/fastro@v0.58.4/server/ssr.ts";
 import App from "./app.tsx";
 import Hello from "./hello/app.tsx";
 
@@ -186,11 +179,20 @@ There are 2 notes:
 
 ![env](env.png)
 
-- Because [deno deploy](https://deno.com/deploy) convert `TSX` file to Javascript, you must to include this part on every `.tsx` files. More info: [React Without JSX](https://reactjs.org/docs/react-without-jsx.html).
+- Because [deno deploy](https://deno.com/deploy) convert `TSX` file to Javascript, you must to include `h` part on every `.tsx` files. More info: [React Without JSX](https://reactjs.org/docs/react-without-jsx.html).
 
+For react component:
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
-import { createElement as h } from "https://esm.sh/react@18.1.0";
+import React, { createElement as h } from "https://esm.sh/react@18.1.0";
+```
+
+For server-side module:
+```tsx
+import application, {
+  h,
+  response,
+} from "https://deno.land/x/fastro@v0.58.4/server/mod.ts";
 ```
 
 ## Demo
