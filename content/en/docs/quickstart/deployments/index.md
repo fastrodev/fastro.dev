@@ -31,3 +31,5 @@ To deploy a remote script:
 ```shell
 deployctl deploy --project=helloworld https://deno.land/x/fastro/examples/hello_world.ts
 ```
+
+More info: [Deno deployments](https://deno.com/deploy/docs/deployments)
