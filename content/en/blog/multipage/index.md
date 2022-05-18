@@ -9,7 +9,7 @@ images: ["multipage-ssr.png"]
 contributors: ["ynwd"]
 ---
 
-![deno](https://deno.land/v1.png)
+![deno](https://deno.land/images/artwork/deno_city.jpeg)
 
 In [previous version](https://fastro.dev/blog/ssr-with-react-and-deno/), you can only create one page SSR in a webapp. In this version you can make Multiple SSR Pages with simple api to set HTML title, meta, script, link, and script.
 
@@ -179,7 +179,9 @@ There are 2 notes:
 
 ![env](env.png)
 
-- Because [deno deploy](https://deno.com/deploy) convert `TSX` file to Javascript, you must to include `h` part on every `.tsx` files. More info: [React Without JSX](https://reactjs.org/docs/react-without-jsx.html).
+- Because [deno deploy](https://deno.com/deploy) convert `.tsx` file to Javascript automatically using `h`, you must to include it on every `.tsx` files.
+
+> More info: [React Without JSX](https://reactjs.org/docs/react-without-jsx.html).
 
 For react component:
 
