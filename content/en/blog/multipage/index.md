@@ -182,12 +182,14 @@ There are 2 notes:
 - Because [deno deploy](https://deno.com/deploy) convert `TSX` file to Javascript, you must to include `h` part on every `.tsx` files. More info: [React Without JSX](https://reactjs.org/docs/react-without-jsx.html).
 
 For react component:
+
 ```tsx
 // @deno-types="https://cdn.esm.sh/v78/@types/react@18.0.9/react.d.ts"
 import React, { createElement as h } from "https://esm.sh/react@18.1.0";
 ```
 
 For server-side module:
+
 ```tsx
 import application, {
   h,
