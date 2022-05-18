@@ -3,7 +3,7 @@
 ## Homepage
 title = "Fastro"
 titleSeparator = "|"
-titleAddition = "Webapp Framework"
+titleAddition = "Web Application Framework"
 description = "Fastro is a deno framework for building web applications with fast response and simple API."
 
 ## Documentation
@@ -13,7 +13,7 @@ description = "Fastro is a deno framework for building web applications with fas
 images = ["images/fastro-web.png"]
 ogLocale = "en_US"
 domainTLD = "fastro.dev"
-titleHome = "Webapp Framework"
+titleHome = "Web Application Framework"
 
 ## Twitter Cards
 twitterSite = "@fastrodev"
