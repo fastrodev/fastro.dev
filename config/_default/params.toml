@@ -3,17 +3,17 @@
 ## Homepage
 title = "Fastro"
 titleSeparator = "|"
-titleAddition = "Web Application Framework"
+titleAddition = "Webapp Framework"
 description = "Fastro is a deno framework for building web applications with fast response and simple API."
 
 ## Documentation
 # docsVersion = "0.3"
 
 ## Open Graph
-images = ["https://repository-images.githubusercontent.com/264308713/3cca603b-5fb0-4100-af11-d2332cb73cce"]
+images = ["images/fastro-web.png"]
 ogLocale = "en_US"
 domainTLD = "fastro.dev"
-titleHome = "Fastro Framework"
+titleHome = "Webapp Framework"
 
 ## Twitter Cards
 twitterSite = "@fastrodev"
@@ -22,7 +22,7 @@ twitterCreator = "@fastrodev"
 ## JSON-LD
 # schemaType = "Person"
 schemaType = "Organization"
-schemaName = "Doks"
+schemaName = "fastro"
 schemaAuthor = "ynwd"
 schemaAuthorTwitter = "https://twitter.com/fastrodev"
 schemaAuthorLinkedIn = "https://www.linkedin.com/company/fastro"
@@ -69,10 +69,10 @@ alertText = "Introducing the Doks child theme, several DX + UX updates, and more
 # repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
 repoHost = "GitHub"
 #repoHost = "Gitea"
-docsRepo = "https://github.com/h-enk/doks"
-docsRepoBranch = "master"
+docsRepo = "https://github.com/fastrodev/fastro.dev"
+docsRepoBranch = "main"
 docsRepoSubPath = ""
-editPage = false
+editPage = true
 lastMod = false
 
 [options]

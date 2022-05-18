@@ -43,6 +43,12 @@
   url = "/blog/"
   weight = 20
 
+[[main]]
+  name = "Store"
+  weight = 10
+  identifier = "store"
+  url = "/store/"
+
 # [[main]]
 #   name = "Get Started"
 #   weight = 30
@@ -62,7 +68,6 @@
 #   identifier = "tutorial"
 #   url = "https://getdoks.org/tutorial/introduction/"
 #   parent = "create-entry-point-file"
-
 
 [[social]]
   name = "Twitter"
