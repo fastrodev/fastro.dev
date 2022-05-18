@@ -4,4 +4,4 @@ deno run -A https://deno.land/x/fastro@v0.58.4/examples/hello_world.ts Examples 
 You can install deployctl command with the below command:
 deno install --allow-read --allow-write --allow-env --allow-net --allow-run --no-check -r -f https://deno.land/x/deploy/deployctl.ts To deploy a local script:
 deployctl deploy --project=helloworld hello_world.ts To deploy a remote script:
-deployctl deploy --project=helloworld https://deno.land/x/fastro/examples/hello_world.ts</description></item></channel></rss>
+deployctl deploy --project=helloworld https://deno.land/x/fastro/examples/hello_world.ts More info: Deno deployments</description></item></channel></rss>
