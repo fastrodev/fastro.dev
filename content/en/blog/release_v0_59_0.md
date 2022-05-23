@@ -10,9 +10,13 @@ contributors: ["ynwd"]
 
 Fastro [0.59.0](https://deno.land/x/fastro@v0.59.0) has been tagged and released with the following new features and changes:
 
-- Upgrade to Deno std@0.140.0
+- [Upgrade to Deno std@0.140.0](#upgrade-to-deno-std01400)
 - [Removal of unstable deno.emit](#removal-of-unstable-deno-emit)
 - [Add getQueries & getQuery](#add-getqueries-and-getquery)
+
+## Upgrade to deno std@0.140.0
+
+Upgrade with the [latest deno standard 0.140.0](https://deno.land/std@0.140.0). The following is a note for the changes in deno: [Deno 1.22 Release Notes](https://deno.com/blog/v1.22)
 
 ## Removal of unstable deno emit
 
