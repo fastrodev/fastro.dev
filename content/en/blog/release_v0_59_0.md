@@ -10,6 +10,7 @@ contributors: ["ynwd"]
 
 Fastro [0.59.0](https://deno.land/x/fastro@v0.59.0) has been tagged and released with the following new features and changes:
 
+- Upgrade to Deno std@0.140.0
 - [Removal of unstable deno.emit](#removal-of-unstable-deno-emit)
 - [Add getQueries & getQuery](#add-getqueries-and-getquery)
 
