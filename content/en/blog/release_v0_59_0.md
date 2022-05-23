@@ -5,7 +5,6 @@ lead: "Adds getQuery and removes unstable deno emit."
 date: 2022-05-23T00:00:00+01:00
 draft: false
 weight: 50
-images: ["multipage-ssr.png"]
 contributors: ["ynwd"]
 ---
 
