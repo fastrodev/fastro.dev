@@ -89,4 +89,4 @@ rel  = "sitemap"
     target = "assets/js/vendor/mermaid"
 
 [params]
-  fastroVersion = "v0.59.0"
+  fastroVersion = "v0.59.1"
